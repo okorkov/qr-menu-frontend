@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Login from './Login';
 import Signup from './Signup';
 
-const Home = () => {
+
+const Home = (props) => {
+
+  const checkLoginStatus = (props) => {
+    if (JSON.parse(localStorage.getItem('token'))) {
+      props.history.push('/dashboard')
+    }
+  }
+
+  useEffect(() => {
+    checkLoginStatus(props)
+  });
+
   return (
     <div className="centered">
       <p className="welcome-message">Welcome</p>

@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { withRouter } from "react-router";
+import { connect } from 'react-redux';
 
-const Dashboard = () => {
+
+const Dashboard = (props) => {
+
+  const checkLoginStatus = (props) => {
+    if (!JSON.parse(localStorage.getItem('token'))) {
+      props.history.push('/')
+    }
+  }
+
+  useEffect(() => {
+    checkLoginStatus(props)
+  });
+
   return (
     <div>
       Dashboard
@@ -8,4 +22,8 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+const mapStateToProps = function(state) {
+  return state
+}
+
+export default connect(mapStateToProps)(withRouter( Dashboard));

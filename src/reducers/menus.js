@@ -1,22 +1,25 @@
+
+
 const defaultState = {
   logged_in: false,
-  user: null,
 }
 
 export default (state = defaultState, action) => {
 
   switch(action.type) {
+
     case 'CHECK_LOGIN_STATUS':
-      // if authenticate, then ->
-      return {
-        ...state,
-        logged_in: true,
-      };
+        return {
+          ...state,
+          logged_in: action.payload.data.logged_in,
+        };
+
     case 'LOGIN':
+      localStorage.setItem('token', JSON.stringify(action.payload.data.token));
       return {
         ...state,
         logged_in: true,
-        user: action.payload.data.user
+        token: action.payload.data.token
       }
 
     default:
