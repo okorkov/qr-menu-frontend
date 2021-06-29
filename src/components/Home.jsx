@@ -7,7 +7,8 @@ const Home = () => {
     <div className="centered">
       <p className="welcome-message">Welcome</p>
       <Login />
-
+      <br />
+      <p style={{fontSize: '26px', color: 'white'}}>Or</p>
       <Signup />
     </div>
   );

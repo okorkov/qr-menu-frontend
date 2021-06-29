@@ -12,7 +12,6 @@ function App() {
   const BASE_URL = process.env.BASE_URL
 
   return (
-    <>
     <Router>
       <Switch>
         <Route path={'/'} exact component={Home} />
@@ -21,9 +20,8 @@ function App() {
         <Route path={'/about'} component={About} />
         <Route component={ErrorPage} />
       </Switch>
-    <Footer />
+      <Footer />
     </Router>
-    </>
   );
 }
 
