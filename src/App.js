@@ -8,26 +8,23 @@ import Footer from "./components/Footer";
 import { connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import Demo from "./components/Demo";
 
 
 
 function App(props) {
 
   const checkLoginStatus = (props) => {
-    // if(localStorage.getItem('token')){
-    //   props.dispatch({
-    //     type: "CHECK_LOGIN_STATUS",
-    //     payload: JSON.parse(localStorage.getItem('token'))
-    //   })
-    // }
-    axios.post(`http://127.0.0.1:3000/logged_in`, {token: JSON.parse(localStorage.getItem('token'))})
-    .then(response => {
-      props.dispatch({
-            type: "CHECK_LOGIN_STATUS",
-            payload: response
+    if(JSON.parse(localStorage.getItem('token'))) {
+      axios.post(`http://127.0.0.1:3000/logged_in`, {token: JSON.parse(localStorage.getItem('token'))})
+      .then(response => {
+        props.dispatch({
+              type: "CHECK_LOGIN_STATUS",
+              payload: response
+        })
       })
-    })
-    .catch(err => alert(err.message))
+      .catch(err => alert(err.message))
+    }
   }
 
   useEffect(() => {
@@ -41,6 +38,7 @@ function App(props) {
         <Route path={'/dashboard'} exact component={Dashboard} />
         <Route path={'/contact'} exact component={Contact} />
         <Route path={'/about'} exact component={About} />
+        <Route path={'/demo'} exact component={Demo} />
         <Route component={ErrorPage} />
       </Switch>
       <Footer />
