@@ -1,10 +1,14 @@
 import React from 'react';
-import Footer from './Footer';
+import Login from './Login';
+import Signup from './Signup';
+
 const Home = () => {
   return (
-    <div>
-      Home Page
-      <Footer />
+    <div className="centered">
+      <p className="welcome-message">Welcome</p>
+      <Login />
+
+      <Signup />
     </div>
   );
 }

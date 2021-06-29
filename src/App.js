@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard';
 import Home from "./components/Home";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path={'/about'} component={About} />
         <Route component={ErrorPage} />
       </Switch>
+    <Footer />
     </Router>
     </>
   );
