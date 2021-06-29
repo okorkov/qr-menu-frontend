@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from "react-router";
+import { connect } from 'react-redux';
 
 const Footer = (props) => {
-
   const HandleRedirect = (history, action) => {
     history.push(action)
   }
@@ -10,7 +10,7 @@ const Footer = (props) => {
   return (
     <div className='footer'>
       <div className="footer-category">
-        <p className='footer-link' onClick={() => HandleRedirect(props.history, '/')}>Home</p>
+        <p className='footer-link' onClick={() => HandleRedirect(props.history, (props.menus.logged_in)? '/dashboard' : '/')}>Home</p>
       </div>
       <div className="footer-category">
         <p className='footer-link' onClick={() => HandleRedirect(props.history, '/about')}>About</p>
@@ -22,4 +22,8 @@ const Footer = (props) => {
   );
 }
 
-export default withRouter(Footer);
+const mapStateToProps = function(state) {
+  return state
+}
+
+export default connect(mapStateToProps)(withRouter(Footer));

@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="centered">
       <p className="welcome-message">Welcome</p>
-      <p className="welcome-text">Sign in or sign up to upload your pdf menu and get a qr code for it</p>
+      <p className="welcome-text">Sign in or sign up to upload your pdf menu and get a qr code for it for free</p>
       <Login />
       <br />
       <p style={{fontSize: '26px', color: 'white'}}>Or</p>

@@ -1,5 +1,6 @@
 const defaultState = {
   logged_in: false,
+  user: null,
 }
 
 export default (state = defaultState, action) => {
@@ -11,6 +12,12 @@ export default (state = defaultState, action) => {
         ...state,
         logged_in: true,
       };
+    case 'LOGIN':
+      return {
+        ...state,
+        logged_in: true,
+        user: action.payload.data.user
+      }
 
     default:
       return state;

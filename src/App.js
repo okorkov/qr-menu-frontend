@@ -7,9 +7,8 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 
 
-function App() {
 
-  const BASE_URL = process.env.BASE_URL
+function App(props) {
 
   return (
     <Router>
