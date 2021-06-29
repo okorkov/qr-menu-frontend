@@ -76,6 +76,11 @@ and (min-width : 481px) {
     color:white;
   }
 
+  .welcome-text {
+    font-size: 34px;
+    color:white;
+  }
+
   .form {
     max-width: 100%;
     margin: 0 auto;
@@ -106,7 +111,6 @@ and (max-device-width : 815px) {
   }
   
   body {
-    
     margin: 0;
     padding: 0px;
     font-family: "Raleway";
@@ -130,6 +134,7 @@ and (max-device-width : 815px) {
   }
 
   .footer {
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -154,5 +159,40 @@ and (max-device-width : 815px) {
     color: yellow;
     text-decoration: underline;
   }
+
+  .MuiInput-underline:after {
+    border-bottom: 2px solid #e5f65f !important;
+  }
+
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
+
+  .welcome-message {
+    font-size: 44px;
+    color:white;
+  }
+
+  .welcome-text {
+    font-size: 34px;
+    color:white;
+  }
+
+  .form {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+
 
 }

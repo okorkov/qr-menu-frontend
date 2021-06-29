@@ -15,9 +15,9 @@ function App() {
     <Router>
       <Switch>
         <Route path={'/'} exact component={Home} />
-        <Route path={'/dashboard'} component={Dashboard} />
-        <Route path={'/contact'} component={Contact} />
-        <Route path={'/about'} component={About} />
+        <Route path={'/dashboard'} exact component={Dashboard} />
+        <Route path={'/contact'} exact component={Contact} />
+        <Route path={'/about'} exact component={About} />
         <Route component={ErrorPage} />
       </Switch>
       <Footer />
