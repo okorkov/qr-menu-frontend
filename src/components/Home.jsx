@@ -1,13 +1,12 @@
 import React from 'react';
 import Footer from './Footer';
-
-const Dashboard = () => {
+const Home = () => {
   return (
     <div>
-      Dashboard
+      Home Page
       <Footer />
     </div>
   );
 }
 
-export default Dashboard;
+export default Home;

@@ -1,13 +1,13 @@
 import React from 'react';
 import Footer from './Footer';
 
-const Dashboard = () => {
+const About = () => {
   return (
     <div>
-      Dashboard
+      About page
       <Footer />
     </div>
   );
 }
 
-export default Dashboard;
+export default About;
