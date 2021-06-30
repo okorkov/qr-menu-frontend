@@ -6,7 +6,6 @@ const Footer = (props) => {
   const HandleRedirect = (history, action) => {
     history.push(action)
   }
-  debugger
   return (
     <div className='footer'>
       <div className="footer-category">

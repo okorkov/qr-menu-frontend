@@ -6,3 +6,10 @@ export const loginUser = (payload) => {
   }
 }
 
+export const signupUser = (payload) => {
+  return {
+    type: "SIGNUP",
+    payload
+  }
+}
+

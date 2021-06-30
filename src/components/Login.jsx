@@ -11,7 +11,7 @@ const Login = (props) => {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://127.0.0.1:3000/login`, login, {withCredentials: true})
+    axios.post(`${process.env.REACT_APP_BASE_URL}/login`, login, {withCredentials: true})
     .then(response => autentication(response)).catch(error => alert(error.message))
   }
 

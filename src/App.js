@@ -16,7 +16,7 @@ function App(props) {
 
   const checkLoginStatus = (props) => {
     if(JSON.parse(localStorage.getItem('token'))) {
-      axios.post(`http://127.0.0.1:3000/logged_in`, {token: JSON.parse(localStorage.getItem('token'))})
+      axios.post(`${process.env.REACT_APP_BASE_URL}/logged_in`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => {
         props.dispatch({
               type: "CHECK_LOGIN_STATUS",
