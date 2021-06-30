@@ -105,6 +105,11 @@ and (min-width : 481px) {
     min-width: 30rem!important;
   }
 
+  .alert {
+    font: 36px;
+    color: crimson;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -228,6 +233,12 @@ and (max-device-width : 815px) {
 
   .MuiDialogContent-root {
     width: 15rem !important;
+  }
+
+  .alert {
+    font: 36px;
+    color: crimson;
+    
   }
 
 

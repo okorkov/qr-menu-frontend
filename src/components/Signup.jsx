@@ -49,7 +49,6 @@ function DraggableDialog(props) {
   }
 
   const autentication = (response) => {
-    debugger
       props.dispatch(signupUser(response))
       if(response.data.logged_in){
         props.history.push('/dashboard')
