@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import axios from 'axios';
+import FileUpload from './FileUpload';
+
 
 
 const Dashboard = (props) => {
@@ -29,6 +31,7 @@ const Dashboard = (props) => {
     checkLoginStatus(props)
     axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/find_menus`, {token: JSON.parse(localStorage.getItem('token'))})
     .then((response) => handleData(response.data))
+    .catch(err => alert(err.message))
   }, []);
 
 
@@ -40,7 +43,7 @@ const Dashboard = (props) => {
       :
       <p>there is menu</p>
       }
-      
+      <FileUpload />
     </div>
   );
 }

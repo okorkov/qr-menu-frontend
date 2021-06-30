@@ -45,7 +45,7 @@ and (min-width : 481px) {
   }
 
   :hover.navbar-link {
-    color: yellow;
+    color: #ffc107;
     text-decoration: underline;
   }
   
@@ -54,12 +54,12 @@ and (min-width : 481px) {
   }
 
   :hover.home-link {
-    color: yellow;
+    color: #ffc107;
     text-decoration: underline;
   }
 
   .MuiInput-underline:after {
-    border-bottom: 2px solid #e5f65f !important;
+    border-bottom: 2px solid #ffc107 !important;
   }
 
   .centered {
@@ -172,7 +172,7 @@ and (max-device-width : 815px) {
   }
 
   :hover.navbar-link {
-    color: yellow;
+    color: #ffc107;
     text-decoration: underline;
   }
   
@@ -181,7 +181,7 @@ and (max-device-width : 815px) {
   }
 
   :hover.home-link {
-    color: yellow;
+    color: #ffc107;
     text-decoration: underline;
   }
 
