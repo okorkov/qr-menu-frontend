@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import ErrorMessage from './ErrorMessage'
 
 function PaperComponent(props) {
   return (
@@ -24,6 +25,7 @@ function PaperComponent(props) {
 function DraggableDialog(props) {
   const [open, setOpen] = React.useState(false);
   const [signup, setSignup] = React.useState({email: '', password: '', password_confirmation: ''});
+  const [renderError, setRenderError] = React.useState({hasErrors: false, errors: []});
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -49,14 +51,21 @@ function DraggableDialog(props) {
   }
 
   const autentication = (response) => {
-      props.dispatch(signupUser(response))
-      if(response.data.logged_in){
-        props.history.push('/dashboard')
-      }
+    if(response.data.errors) {
+      setRenderError({
+        hasErrors: true,
+        errors: response.data.errors
+      })
+    }
+    props.dispatch(signupUser(response))
+    if(response.data.logged_in){
+      props.history.push('/dashboard')
+    }
   }
 
   return (
     <div >
+      {renderError.hasErrors ? <ErrorMessage errors={renderError.errors}/> : null}
       <button className='btn btn-success' variant="outlined" color="primary" onClick={handleClickOpen}>
         Sign Up
       </button>

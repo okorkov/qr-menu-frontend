@@ -3,10 +3,8 @@ import { useState, useEffect } from 'react'
 const Message = (props) => {
   const [show, setShow] = useState(true)
 
-  // On componentDidMount set the timer
   useEffect(() => {
     const timeId = setTimeout(() => {
-      // After 3 seconds set the show value to false
       setShow(false)
     }, 3000)
 
@@ -15,21 +13,16 @@ const Message = (props) => {
     }
   }, []);
 
-  // If show is false the component will return null and stop here
   if (!show) {
     return null;
   }
-
-  // If show is true this will be returned
   return (
     <div>
-      <p className='alert'>{props.error[0]}</p>
+      {props.errors.email ? props.errors.email.map(err => <p className='alert'>{err}</p>) : null}
+      {props.errors.password ? props.errors.password.map(err => <p className='alert'>{err}</p>) : null}
+      {props.errors.password_confirmation ? props.errors.password_confirmation.map(err => <p className='alert'>{err}</p>) : null}
     </div>
   )
-}
-
-Message.defaultPros = {
-  variant: 'info',
 }
 
 export default Message;

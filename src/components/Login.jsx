@@ -36,7 +36,7 @@ const Login = (props) => {
 
   return (
     <>
-      {renderError ? <ErrorMessage error={["Email or Password is incorrect"]}/> : null}
+      {renderError ? <ErrorMessage errors={{email: ["Email or Password is incorrect"]}}/> : null}
       <form className="form" onSubmit={(e) => handleLoginSubmit(e)}>
         <TextField label="Email" type="email" value={login.email} name="email"  onChange={(e) => handleLoginInput(e)}/>
         <TextField label="Password" type="password" value={login.password} name="password" onChange={(e) => handleLoginInput(e)}/>
