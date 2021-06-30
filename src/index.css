@@ -110,6 +110,12 @@ and (min-width : 481px) {
     color: crimson;
   }
 
+  .dashboard {
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -239,6 +245,12 @@ and (max-device-width : 815px) {
     font: 36px;
     color: crimson;
     
+  }
+
+  .dashboard {
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
   }
 
 

@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 
 const Dashboard = (props) => {
+
+  const [lastMenu, setLastMenu] = React.useState({menu: null, pdfMenu: null});
+  const [menus, setMenus] = React.useState({menus: []});
 
   const checkLoginStatus = (props) => {
     if (!JSON.parse(localStorage.getItem('token'))) {
@@ -11,13 +15,32 @@ const Dashboard = (props) => {
     }
   }
 
+  const handleData = (data) => {
+    if(data.lastMenu){
+      setLastMenu({
+        menu: data.lastMenu.menu,
+        pdfMenu: data.lastMenu.pdf_file
+      })
+    }
+  }
+
+
   useEffect(() => {
     checkLoginStatus(props)
-  });
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/find_menus`, {token: JSON.parse(localStorage.getItem('token'))})
+    .then((response) => handleData(response.data))
+  }, []);
+
 
   return (
-    <div>
-      Dashboard
+    <div className='dashboard'>
+      {
+      !lastMenu.menu ?
+      <p style={{color: 'white', fontSize: '36px'}}>There is no file uploaded</p>
+      :
+      <p>there is menu</p>
+      }
+      
     </div>
   );
 }
