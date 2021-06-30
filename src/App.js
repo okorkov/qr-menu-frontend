@@ -4,7 +4,7 @@ import Dashboard from './components/Dashboard';
 import Home from "./components/Home";
 import Contact from "./components/Contact";
 import About from "./components/About";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import { connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import axios from 'axios';
@@ -33,6 +33,7 @@ function App(props) {
 
   return (
     <Router>
+      <Navbar />
       <Switch>
         <Route path={'/'} exact component={Home} />
         <Route path={'/dashboard'} exact component={Dashboard} />
@@ -41,7 +42,6 @@ function App(props) {
         <Route path={'/demo'} exact component={Demo} />
         <Route component={ErrorPage} />
       </Switch>
-      <Footer />
     </Router>
   );
 }

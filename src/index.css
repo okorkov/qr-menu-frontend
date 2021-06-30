@@ -31,20 +31,20 @@ and (min-width : 481px) {
     margin-top: 20%;
   }
 
-  .footer {
+  .navbar {
     
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
 
-  .footer-link {
+  .navbar-link {
     text-decoration: none;
     color: white;
     font-size: 22px;
   }
 
-  :hover.footer-link {
+  :hover.navbar-link {
     color: yellow;
     text-decoration: underline;
   }
@@ -152,20 +152,20 @@ and (max-device-width : 815px) {
     margin-top: 20%;
   }
 
-  .footer {
+  .navbar {
     
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
 
-  .footer-link {
+  .navbar-link {
     text-decoration: none;
     color: white;
     font-size: 22px;
   }
 
-  :hover.footer-link {
+  :hover.navbar-link {
     color: yellow;
     text-decoration: underline;
   }
