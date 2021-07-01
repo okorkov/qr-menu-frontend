@@ -9,6 +9,7 @@ import { connect} from 'react-redux';
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import Demo from "./components/Demo";
+import Footer from "./components/Footer";
 
 
 
@@ -42,6 +43,7 @@ function App(props) {
         <Route path={'/demo'} exact component={Demo} />
         <Route component={ErrorPage} />
       </Switch>
+      <Footer />
     </Router>
   );
 }

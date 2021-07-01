@@ -41,12 +41,21 @@ const Dashboard = (props) => {
       !lastMenu.hasMenu ?
       <p className='text'>There is no file uploaded</p>
       :
+      <>
       <div className='menu'>
-        <iframe className='qrcode' src={lastMenu.qrCode}></iframe>
-        <br/>
-        <iframe className='pdf' src={lastMenu.pdfMenu} ></iframe>
-        <p className='text'>Upload new File</p>
+        <div style={{margin: '2%'}}>
+          <p className='text'>QR Code:</p>
+          <iframe className='qrcode' src={lastMenu.qrCode}></iframe>
+          <br/>
+          <button className='btn btn-info' style={{marginTop: '15%'}}>Re-send this QR Code to my email</button>
+        </div>
+        <div style={{margin: '2%'}}>
+          <p className='text'>File:</p>
+          <iframe className='pdf' src={lastMenu.pdfMenu} ></iframe>
+        </div>
       </div>
+        <p className='text' style={{paddingTop: '3%'}}>Upload new File</p>
+      </>
       }
       <FileUpload setLastMenu={setLastMenu}/>
     </div>

@@ -119,6 +119,27 @@ and (min-width : 481px) {
   .text {
     color: white;
     font-size: 20px;
+    padding-top: 3%;
+  }
+
+  .qrcode {
+    height: 400px;
+    width: 400px;
+  }
+
+  .pdf {
+    height: 600px;
+    width: 400px;
+  }
+
+  footer {
+    padding-top: 5%;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
 }
@@ -261,7 +282,23 @@ and (max-device-width : 815px) {
   .text {
     color: white;
     font-size: 20px;
+    padding-top: 3%;
   }
+
+  .qrcode {
+    height: 400px;
+    width: 100%;
+  }
+
+  .pdf {
+    height: 600px;
+    width: 100%;
+  }
+
+  footer {
+    padding-top: 5%;
+  }
+
 
 
 }
