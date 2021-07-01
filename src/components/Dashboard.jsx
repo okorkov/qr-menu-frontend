@@ -8,7 +8,7 @@ import FileUpload from './FileUpload';
 
 const Dashboard = (props) => {
 
-  const [lastMenu, setLastMenu] = React.useState({menu: null, pdfMenu: null});
+  const [lastMenu, setLastMenu] = React.useState({hasMenu: false, pdfMenu: null, qrCode: null});
   const [menus, setMenus] = React.useState({menus: []});
 
   const checkLoginStatus = (props) => {
@@ -18,10 +18,11 @@ const Dashboard = (props) => {
   }
 
   const handleData = (data) => {
-    if(data.lastMenu){
+    if(data.last_menu){
       setLastMenu({
-        menu: data.lastMenu.menu,
-        pdfMenu: data.lastMenu.pdf_file
+        hasMenu: data.last_menu.has_menu,
+        pdfMenu: data.last_menu.pdf_file,
+        qrCode: data.last_menu.qr_code
       })
     }
   }
@@ -34,16 +35,20 @@ const Dashboard = (props) => {
     .catch(err => alert(err.message))
   }, []);
 
-
   return (
     <div className='dashboard'>
       {
-      !lastMenu.menu ?
-      <p style={{color: 'white', fontSize: '36px'}}>There is no file uploaded</p>
+      !lastMenu.hasMenu ?
+      <p className='text'>There is no file uploaded</p>
       :
-      <p>there is menu</p>
+      <div className='menu'>
+        <iframe className='qrcode' src={lastMenu.qrCode}></iframe>
+        <br/>
+        <iframe className='pdf' src={lastMenu.pdfMenu} ></iframe>
+        <p className='text'>Upload new File</p>
+      </div>
       }
-      <FileUpload />
+      <FileUpload setLastMenu={setLastMenu}/>
     </div>
   );
 }

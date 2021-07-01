@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const FileUpload = () => {
+const FileUpload = (props) => {
 
   const [file, setFile] = React.useState(null);
 
@@ -16,13 +16,13 @@ const FileUpload = () => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("token", JSON.parse(localStorage.getItem('token')));
-
     fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/menus`, {
       method: 'POST',
       body: formData
     })
     .then(data => data.json())
-    .then(response => console.log(response))
+    .then(response => props.setLastMenu({hasMenu: true, pdfMenu: response.pdf_file, qrCode: response.qr_code}))
+    //
     .catch(err => alert(err.message))
   }
 

@@ -116,6 +116,11 @@ and (min-width : 481px) {
     margin-top: 5%;
   }
 
+  .text {
+    color: white;
+    font-size: 20px;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -253,6 +258,10 @@ and (max-device-width : 815px) {
     margin-top: 5%;
   }
 
+  .text {
+    color: white;
+    font-size: 20px;
+  }
 
 
 }
