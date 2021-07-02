@@ -194,6 +194,53 @@ and (min-width : 481px) {
     animation: spin .8s linear infinite;
   }
 
+  #contact {
+    padding-top: 7%;
+    padding-bottom: 10%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .input {
+    background: #fffeee;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    display: block;
+    font-size: 12pt;
+    margin-bottom: 3px;
+    outline: none;
+    padding: 10px 15px;
+    width: 50%;
+    font-family: "Raleway";
+    min-height: 50px;
+  }
+
+  .button {
+    font-weight: bold;
+    background: #fffeee;
+    color: rgb(0, 0, 0);
+    float: right;
+    font-size: 12pt;
+    margin: 5px 0 0 0;
+    outline: 0;
+    padding: 10px 30px;
+    font-family: "Raleway";
+  }
+
+  .button:hover {
+    font-weight: bold;
+    background: #ffc107;
+    color: #fff;
+    float: right;
+    font-size: 12pt;
+    margin: 5px 0 0 0;
+    outline: 0;
+    padding: 10px 30px;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -355,20 +402,6 @@ and (max-device-width : 815px) {
     display: none;
   }
   
-  /* #loader {
-    position: fixed;
-    z-index: 999;
-    overflow: show;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    opacity: 1!important;
-  } */
-  
   #loader {
     position:fixed;
     width:100%;
@@ -403,6 +436,52 @@ and (max-device-width : 815px) {
     animation: spin .8s linear infinite;
   }
 
+  #contact {
+    padding-top: 7%;
+    padding-bottom: 10%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .input {
+    background: #fffeee;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    display: block;
+    font-size: 12pt;
+    margin-bottom: 3px;
+    outline: none;
+    padding: 10px 15px;
+    width: 95%;
+    font-family: "Raleway";
+    min-height: 50px;
+  }
+
+  .button {
+    font-weight: bold;
+    background: #fffeee;
+    color: rgb(0, 0, 0);
+    float: right;
+    font-size: 12pt;
+    margin: 5px 0 0 0;
+    outline: 0;
+    padding: 10px 30px;
+    font-family: "Raleway";
+  }
+
+  .button:hover {
+    font-weight: bold;
+    background: #ffc107;
+    color: #fff;
+    float: right;
+    font-size: 12pt;
+    margin: 5px 0 0 0;
+    outline: 0;
+    padding: 10px 30px;
+  }
 
 
 }

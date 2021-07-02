@@ -45,8 +45,17 @@ const Dashboard = (props) => {
     }
   }
 
+  const checkPath = () => {
+    if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
+      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
+    } else {
+      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
+    }
+  }
+
 
   useEffect(() => {
+    checkPath()
     checkLoginStatus(props)
     axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/find_menus`, {token: JSON.parse(localStorage.getItem('token'))})
     .then((response) => handleData(response.data))
