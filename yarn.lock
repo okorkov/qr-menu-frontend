@@ -5989,11 +5989,6 @@
   "resolved" "https://registry.npmjs.org/immer/-/immer-9.0.3.tgz"
   "version" "9.0.3"
 
-"immer@5.0.0":
-  "integrity" "sha512-G7gRqKbi9NE025XVyqyTV98dxUOtdKvu/P1QRaVZfA55aEcXgjbxPdm+TlWdcSMNPKijlaHNz61DGPyelouRlA=="
-  "resolved" "https://registry.npmjs.org/immer/-/immer-5.0.0.tgz"
-  "version" "5.0.0"
-
 "immer@8.0.1":
   "integrity" "sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA=="
   "resolved" "https://registry.npmjs.org/immer/-/immer-8.0.1.tgz"
@@ -6975,6 +6970,11 @@
   "integrity" "sha512-tTZayOvpOX8y/W7FuCL6Sma9sElbA80ImDck86a6ge70lyBpQngx557PtP9Aro4SLEOPtZVVxM1P/boPzy+m7A=="
   "resolved" "https://registry.npmjs.org/jose/-/jose-3.13.0.tgz"
   "version" "3.13.0"
+
+"jquery@^3.6.0":
+  "integrity" "sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw=="
+  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
+  "version" "3.6.0"
 
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
@@ -9547,15 +9547,6 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.1.tgz"
   "version" "17.0.1"
 
-"react-redux-firebase@^3.1.1":
-  "integrity" "sha512-qj9kfaidEy3CrcFXwOmuz104zt8xKXrHfkF8QOvDjCa2FLn1ka/BZksose08bQ6Lsz7MCmwWxtWo4p+azMu0zQ=="
-  "resolved" "https://registry.npmjs.org/react-redux-firebase/-/react-redux-firebase-3.1.1.tgz"
-  "version" "3.1.1"
-  dependencies:
-    "hoist-non-react-statics" "^3.3.0"
-    "lodash" "^4.17.15"
-    "prop-types" "^15.7.2"
-
 "react-redux@^7.2.1", "react-redux@^7.2.3":
   "integrity" "sha512-hOQ5eOSkEJEXdpIKbnRyl04LhaWabkDPV+Ix97wqQX3T3d2NQ8DUblNXXtNMavc7DpswyQM6xfaN4HQDKNY2JA=="
   "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-7.2.4.tgz"
@@ -9678,7 +9669,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0", "react@^16.14.0", "react@^16.14.0 || ^17.0.0", "react@^16.3.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@>= 16", "react@>=15", "react@>=16.6.0":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0", "react@^16.14.0", "react@^16.14.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@>= 16", "react@>=15", "react@>=16.6.0":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
   "version" "16.14.0"
@@ -9798,20 +9789,6 @@
   dependencies:
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
-
-"reduce-reducers@^1.0.4":
-  "integrity" "sha512-Mb2WZ2bJF597exiqX7owBzrqJ74DHLK3yOQjCyPAaNifRncE8OD0wFIuoMhXxTnHK07+8zZ2SJEKy/qtiyR7vw=="
-  "resolved" "https://registry.npmjs.org/reduce-reducers/-/reduce-reducers-1.0.4.tgz"
-  "version" "1.0.4"
-
-"redux-firestore@^0.12.0":
-  "integrity" "sha512-lfNnwhwN+7GBFom/73HKM9mTKA7L87snezvkdWXet+mCEeXuN14oeQMY2d+XGq7SqxD55mCrAl0YCOzbWVGN+Q=="
-  "resolved" "https://registry.npmjs.org/redux-firestore/-/redux-firestore-0.12.0.tgz"
-  "version" "0.12.0"
-  dependencies:
-    "immer" "5.0.0"
-    "lodash" "^4.17.15"
-    "reduce-reducers" "^1.0.4"
 
 "redux-thunk@^2.3.0":
   "integrity" "sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw=="

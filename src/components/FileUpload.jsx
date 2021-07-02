@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 
 
@@ -12,7 +13,6 @@ const FileUpload = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const formData = new FormData();
     formData.append("file", file);
     formData.append("token", JSON.parse(localStorage.getItem('token')));
@@ -22,8 +22,13 @@ const FileUpload = (props) => {
     })
     .then(data => data.json())
     .then(response => props.setLastMenu({hasMenu: true, pdfMenu: response.pdf_file, qrCode: response.qr_code}))
-    //
+    .then(response => $('#loader').hide(0))
     .catch(err => alert(err.message))
+  }
+
+
+  const loader = () => {
+    $('#loader').show(0)
   }
 
   return (
@@ -38,7 +43,7 @@ const FileUpload = (props) => {
         required
         onChange={(e) => handleImageChange(e)}/>
         <br /> <br />
-        <button type="submit" className="btn btn-warning">Upload</button>
+        <button type="submit" className="btn btn-warning" onClick={loader}>Upload</button>
       </form>
     </>
   );
