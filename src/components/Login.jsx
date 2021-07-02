@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { loginUser } from '../actions/user';
 import ErrorMessage from './ErrorMessage';
+import $ from 'jquery';
 
 const Login = (props) => {
 
@@ -14,7 +15,9 @@ const Login = (props) => {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     axios.post(`${process.env.REACT_APP_BASE_URL}/login`, login, {withCredentials: true})
-    .then(response => autentication(response)).catch(error => alert(error.message))
+    .then(response => autentication(response))
+    .then(response => $('#loader').hide(0))
+    .catch(error => alert(error.message))
   }
 
   const handleLoginInput = (e) => {
@@ -34,6 +37,10 @@ const Login = (props) => {
     }
   }
 
+  const loader = () => {
+    $('#loader').show(0)
+  }
+
   return (
     <>
       {renderError ? <ErrorMessage errors={{email: ["Email or Password is incorrect"]}}/> : null}
@@ -41,7 +48,7 @@ const Login = (props) => {
         <TextField label="Email" type="email" value={login.email} name="email"  onChange={(e) => handleLoginInput(e)}/>
         <TextField label="Password" type="password" value={login.password} name="password" onChange={(e) => handleLoginInput(e)}/>
         <br />
-        <button className='btn btn-success' type='submit'>Login</button>
+        <button className='btn btn-success' type='submit' onClick={loader}>Login</button>
       </form>
     </>
   );
