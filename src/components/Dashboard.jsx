@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import axios from 'axios';
 import FileUpload from './FileUpload';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
@@ -10,6 +11,8 @@ const Dashboard = (props) => {
 
   const [lastMenu, setLastMenu] = React.useState({hasMenu: false, pdfMenu: null, qrCode: null});
   const [menus, setMenus] = React.useState({menus: []});
+  const [isDataLoaded, setIsDataLoaded] = React.useState(false);
+  const [showResendButton, setShowResendButton] = React.useState(true)
 
   const checkLoginStatus = (props) => {
     if (!JSON.parse(localStorage.getItem('token'))) {
@@ -24,6 +27,21 @@ const Dashboard = (props) => {
         pdfMenu: data.last_menu.pdf_file,
         qrCode: data.last_menu.qr_code
       })
+      setIsDataLoaded(true)
+    }
+  }
+
+  const handleResend = (e) => {
+    e.preventDefault();
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/resend_qr_code`, {token: JSON.parse(localStorage.getItem('token'))})
+    .catch(err => alert(err.message))
+    setShowResendButton(false)
+    const timeId = setTimeout(() => {
+      setShowResendButton(true)
+    }, 5000)
+
+    return () => {
+      clearTimeout(timeId)
     }
   }
 
@@ -38,24 +56,39 @@ const Dashboard = (props) => {
   return (
     <div className='dashboard'>
       {
-      !lastMenu.hasMenu ?
-      <p className='text'>There is no file uploaded</p>
-      :
-      <>
-      <div className='menu'>
-        <div style={{margin: '2%'}}>
-          <p className='text'>QR Code:</p>
-          <iframe className='qrcode' src={lastMenu.qrCode}></iframe>
-          <br/>
-          <button className='btn btn-info' style={{marginTop: '15%'}}>Re-send this QR Code to my email</button>
-        </div>
-        <div style={{margin: '2%'}}>
-          <p className='text'>File:</p>
-          <iframe className='pdf' src={lastMenu.pdfMenu} ></iframe>
-        </div>
-      </div>
-        <p className='text' style={{paddingTop: '3%'}}>Upload new File</p>
-      </>
+        isDataLoaded ?
+          !lastMenu.hasMenu ?
+          <p className='text'>There is no file uploaded</p>
+          :
+          <>
+          <div className='menu'>
+            <div style={{margin: '2%'}}>
+              <p className='text'>QR Code:</p>
+              <img className='qrcode' src={lastMenu.qrCode}></img>
+              <br/> <br />
+              <a href={lastMenu.qrCode} target="_blank">Link to QR Code</a>
+              <br />
+              <button 
+              id='resend-qr'
+              className='btn btn-success'
+              style={{marginTop: '15%'}}
+              onClick={(e) => handleResend(e)}
+              disabled={!showResendButton}>
+              Re-send this QR Code to my email
+              </button>
+            </div>
+            <div style={{margin: '2%'}}>
+              <p className='text'>File:</p>
+              <iframe className='pdf' src={lastMenu.pdfMenu} ></iframe>
+            </div>
+          </div>
+            <p className='text' style={{paddingTop: '3%'}}>Upload new File</p>
+          </>
+        :
+        <>
+        <CircularProgress style={{color: '#ffc107'}}/>
+        <p className='text' style={{paddingTop: '3%'}}>Loading, please wait.</p>
+        </>
       }
       <FileUpload setLastMenu={setLastMenu}/>
     </div>
