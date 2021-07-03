@@ -16,8 +16,8 @@ const Demo = () => {
   }, []);
 
   return (
-    <div>
-      Demo page
+    <div style={{textAlign: 'center', justifyContent: 'center'}}>
+      <p className='text'>Demo page</p>
     </div>
   );
 }

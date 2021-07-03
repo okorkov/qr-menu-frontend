@@ -119,6 +119,14 @@ and (min-width : 481px) {
   .text {
     color: white;
     font-size: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* padding-top: 3%; */
+  }
+
+  .text-title {
+    color: white;
+    font-size: 36px;
     padding-top: 3%;
   }
 
@@ -367,6 +375,11 @@ and (max-device-width : 815px) {
   .text {
     color: white;
     font-size: 20px;
+  }
+
+  .text-title {
+    color: white;
+    font-size: 36px;
     padding-top: 3%;
   }
 
