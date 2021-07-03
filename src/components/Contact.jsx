@@ -2,7 +2,7 @@ import React from 'react';
 
   const Contact = (props) => {
 
-  let email = (props.data)? props.data.email : 'charles@ironhorsestudio.net';
+  let email = 'me@aokarkau.com';
 
   const [subject, setSubject] = React.useState({subject: ''});
   const [body, setBody] = React.useState({body: ''});
