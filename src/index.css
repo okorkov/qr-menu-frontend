@@ -113,7 +113,7 @@ and (min-width : 481px) {
   .dashboard {
     text-align: center;
     justify-content: center;
-    margin-top: 5%;
+    /* margin-top: 5%; */
   }
 
   .text {
@@ -234,6 +234,12 @@ and (min-width : 481px) {
     margin: 5px 0 0 0;
     outline: 0;
     padding: 10px 30px;
+  }
+
+  .log-out {
+    position:absolute;
+    right:5%;
+    top: 8%;
   }
 
 }
@@ -482,6 +488,10 @@ and (max-device-width : 815px) {
     margin: 5px 0 0 0;
     outline: 0;
     padding: 10px 30px;
+  }
+
+  .log-out {
+    margin-top: 15%;
   }
 
 

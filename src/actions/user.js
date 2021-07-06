@@ -13,3 +13,10 @@ export const signupUser = (payload) => {
   }
 }
 
+export const logOut = (payload) => {
+  return {
+    type: "LOGOUT",
+    payload
+  }
+}
+

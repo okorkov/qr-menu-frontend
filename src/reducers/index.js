@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import menus from './menus';
+import menus from './user';
 
 export default combineReducers({
   menus
