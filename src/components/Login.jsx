@@ -14,7 +14,7 @@ const Login = (props) => {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_BASE_URL}/login`, login, {withCredentials: true})
+    axios.post(`${process.env.REACT_APP_BASE_URL}/login`, login)
     .then(response => autentication(response))
     .then(response => $('#loader').hide(0))
     .catch(error => alert(error.message))

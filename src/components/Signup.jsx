@@ -40,7 +40,7 @@ function DraggableDialog(props) {
   };
 
   const handleLoginSubmit = (e) => {
-    axios.post(`${process.env.REACT_APP_BASE_URL}/users`, signup, {withCredentials: true})
+    axios.post(`${process.env.REACT_APP_BASE_URL}/users`, signup)
     .then(response => autentication(response))
     .then(response => $('#loader').hide(0))
     .catch(error => alert(error.message))

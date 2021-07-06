@@ -1,70 +1,18 @@
-# Getting Started with Create React App
+# [qr-menu.rest](https://qr-menu.rest)
+## [qr-file.digital](https://www.qr-file.digital:433/) - Backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Frontend [Repo](https://github.com/okorkov/qr-menu-frontend)
+### Backend [Repo](https://github.com/okorkov/qr-menu-backend)
 
-## Available Scripts
+##### What us QR-menu.rest?
 
-In the project directory, you can run:
+qr-menu.rest is an online platform that was designed for bars and restaurants to freely host their menus on the cloud with generated QR code that points at it, however,  there are no limitations on who can use it. During the pandemic many restaurants switched from paper menus to digital and planning to keep using them since it is more convenient to make changes, more eco-friendly, and less expensive to maintain. There are a few other similar services out there but the significant difference is that qr-menu.rest is free of charge! That's right, as the hospitality industry struggled throughout covid, this platform been created with the intention of supporting bars and restaurants by giving them an ability to host their QR menus for free.
 
-### `yarn start`
+![one](/public/one.png?raw=true "About Page")
+About page with description of the project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![two](/public/two.png?raw=true "Demo Page")
+Demo page for users to try it out before they decided to sign up.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Licensed under MIT License. Alex Okarkau.
