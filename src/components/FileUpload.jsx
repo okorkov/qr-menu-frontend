@@ -11,6 +11,10 @@ const FileUpload = (props) => {
     setFile(e.target.files[0]);
   }
 
+  const loader = () => {
+    $('#loader').show(0)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -24,11 +28,6 @@ const FileUpload = (props) => {
     .then(response => props.setLastMenu({hasMenu: true, pdfMenu: response.pdf_file, qrCode: response.qr_code}))
     .then(response => $('#loader').hide(0))
     .catch(err => alert(err.message))
-  }
-
-
-  const loader = () => {
-    $('#loader').show(0)
   }
 
   return (
