@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer className='footer text-lg-start'>
       <div className="text-white text-center" >
-        <p>© {new Date().getFullYear()} Alex Okarkau</p>
+        <p>© {new Date().getFullYear()} Alex Okarkau. Licensed under the MIT License.</p>
       </div>
     </footer>
   );
