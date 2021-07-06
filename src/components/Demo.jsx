@@ -17,7 +17,7 @@ const Demo = () => {
 
   return (
     <div style={{textAlign: 'center', justifyContent: 'center'}}>
-      <p className='text'>Demo page</p>
+      <p className='text'>Demo page is coming soon</p>
     </div>
   );
 }

@@ -21,9 +21,9 @@ const About = () => {
         What is qr-menu.rest?
       </h3>
       <p className='text'>
-        qr-menu.rest is a platform for uploading documents and getting a qr code for them.
-        It was designed for bars and restaurants to host their menus but it sure not limited to it and everyone is welcome
-        on this platform.
+      QR-menu.rest is a platform for uploading documents and getting a QR code for them. 
+      It was designed for bars and restaurants to host their menus but it sure is not 
+      limited to it and everyone is welcome on this platform.
       </p>
 
       <h3 className='text-title'>
@@ -44,6 +44,13 @@ const About = () => {
       </p>
       <p className='text'>
         3. Contactless and touchless experience.
+      </p>
+
+      <h3 className='text-title'>
+        Something is not working or I need assistance what should I do?
+      </h3>
+      <p className='text'>
+        Please feel free to reach out with any feedback or requests from the contact page.
       </p>
 
     </div>
