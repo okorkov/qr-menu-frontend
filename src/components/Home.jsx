@@ -26,8 +26,15 @@ const Home = (props) => {
 
   return (
     <div className="centered">
-      <p className="welcome-message">Welcome</p>
-      <p className="welcome-text">Sign in or sign up to upload your pdf menu and get a QR code for it for free</p>
+      {
+        (window.innerHeight > 700 && window.innerWidth > 600) ?
+        <>
+        <p className="welcome-message">Welcome</p>
+        <p className="welcome-text">Sign in or sign up to upload your pdf menu and get a QR code for it for free</p>
+        </>
+      :
+        null
+      }
       <Login />
       <br />
       <p style={{fontSize: '26px', color: 'white'}}>Or</p>
