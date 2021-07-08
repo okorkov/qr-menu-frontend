@@ -96,7 +96,8 @@ and (min-width : 481px) {
   .dashboard {
     text-align: center;
     justify-content: center;
-    /* margin-top: 5%; */
+    margin-top: 5%;
+    display: flex;
   }
 
   .text {
@@ -120,8 +121,12 @@ and (min-width : 481px) {
   }
 
   .pdf {
-    height: 600px;
-    width: 400px;
+    height: 700px;
+    width: 500px;
+  }
+
+  .makeStyles-root-2 {
+    max-width: none !important;
   }
 
   footer {
@@ -356,7 +361,8 @@ and (max-device-width : 815px) {
   .dashboard {
     text-align: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 15%;
+    display: flex;
   }
 
   .text {
@@ -379,6 +385,10 @@ and (max-device-width : 815px) {
   .pdf {
     height: 600px;
     width: 100%;
+  }
+
+  .makeStyles-root-2 {
+    max-width: none !important;
   }
 
   footer {

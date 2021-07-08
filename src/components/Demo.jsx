@@ -2,14 +2,56 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import $ from 'jquery';
-// import { connect } from 'react-redux';
-// import { withRouter } from "react-router";
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import { red } from '@material-ui/core/colors';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { withRouter } from "react-router";
+import { connect } from 'react-redux';
+import FileUpload from './FileUpload';
+import CropFreeIcon from '@material-ui/icons/CropFree';
+import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: '100%',
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+}));
 
 
 const Demo = (props) => {
 
+  const classes = useStyles();
+
   const [demo, setDemo] = React.useState({dataLoaded: false, data: {}});
+  const [expanded, setExpanded] = React.useState(false);
 
   const checkPath = () => {
     if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
@@ -18,6 +60,10 @@ const Demo = (props) => {
       document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
     }
   }
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
   
   useEffect(() => {
     checkPath()
@@ -50,46 +96,93 @@ const Demo = (props) => {
     $('#loader').show(0)
   }
 
+  const handleDate = (dateFromDB) => {
+    if (dateFromDB){
+      let getDate = dateFromDB.split('T');
+      let fullDate = getDate[0].split('-')
+      return `${fullDate[1]}/${fullDate[2]}/${fullDate[0]}`;
+    } else {
+      return 'unknown'
+    }
+  }
+
   return (
     <div style={{textAlign: 'center', justifyContent: 'center'}}>
       {
         demo ?
         <>
-        <p className='text-title'>This is a demo page, please don't use it for hosting your documents.</p>
-        <div className='menu'>
-              <div style={{margin: '2%'}}>
-                <p className='text'>QR Code:</p>
-                <img className='qrcode' src={demo.data.qr_code}></img>
-                <br/> <br />
-                <a href={demo.data.qr_code} target="_blank">Link to QR Code</a>
-                <br />
-                <button 
-                id='resend-qr'
-                className='btn btn-success'
-                style={{marginTop: '15%'}}
-                disabled>
-                Re-send this QR Code to my email (Disabled in demo mode)
-                </button>
-              </div>
-              <div style={{margin: '2%'}}>
-                <p className='text'>File:</p>
-                <iframe className='pdf' src={demo.data.pdf_file} ></iframe>
-              </div>
-            </div>
-              <p className='text' style={{paddingTop: '3%'}}>Upload new File</p>
-              <form onSubmit={(e) => handleDemoUpload(e)}>
-                <input
-                type="file" 
-                className="btn" 
-                style={{fontSize: '18px', color: 'white'}}
-                name="menu" 
-                accept=".doc, .pdf, image/png, image/jpeg, application/pdf" 
-                required
-                onChange={(e) => handleImageChange(e)}/>
-                <br /> <br />
-                <button type="submit" className="btn btn-warning" onClick={loader}>Upload</button>
-              </form>
-        </>
+    <div className='dashboard'>
+    <Card className={classes.root}>
+      <CardHeader
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+            <CropFreeIcon />
+          </Avatar>
+        }
+        title="Your most recent QR generated on:"
+        subheader={handleDate(demo.data.uploaded)}
+      />
+      <a href={demo.data.qr_code} target="_blank"><CardMedia
+        className={classes.media}
+        image={demo.data.qr_code}
+        title="QR Code"
+      />
+      </a>
+      <CardContent>
+      <button 
+        id='resend-qr'
+        className='btn btn-success'
+        style={{marginTop: '15%'}}
+        disabled>
+        Re-send this QR Code to my email (Disabled in Demo mode)
+      </button>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <iframe className='pdf' src={demo.data.pdf_file} ></iframe>
+          <br />
+          <a href={demo.data.pdf_file} target="_blank">Open file in new window</a>
+        </CardContent>
+      </Collapse>
+    </Card>
+    </div>
+    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>
+    <>
+      <form onSubmit={(e) => handleDemoUpload(e)}>
+        <input
+        type="file" 
+        className="btn btn-outline-warning" 
+        style={{fontSize: '18px', color: 'white'}}
+        accept=".doc, .pdf, image/png, image/jpeg, application/pdf" 
+        required
+        onChange={(e) => handleImageChange(e)}/>
+        <br /> <br />
+        <Button
+        variant="contained"
+        color="default"
+        className={classes.button}
+        startIcon={<CloudUploadIcon />}
+        onClick={loader}
+        type="submit"
+      >
+        Upload new file
+      </Button>
+      </form>
+    </>
+    </div>
+    </>
         :
         <CircularProgress />
       }
