@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import FileUpload from './FileUpload';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { logOut } from '../actions/user';
+
 
 
 
@@ -54,13 +54,6 @@ const Dashboard = (props) => {
     }
   }
 
-  const handleLogOut = () => {
-    props.dispatch(logOut())
-    localStorage.clear();
-    props.history.push('/')
-  }
-
-
   useEffect(() => {
     checkPath()
     checkLoginStatus(props)
@@ -107,7 +100,6 @@ const Dashboard = (props) => {
         </>
       }
       <FileUpload setLastMenu={setLastMenu}/>
-      <button className='btn btn-danger log-out' onClick={handleLogOut}>Log out</button>
     </div>
   );
 }

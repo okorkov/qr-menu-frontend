@@ -16,9 +16,10 @@ and (min-width : 481px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient( to left,#2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
   }
 
   .error-page {
@@ -29,24 +30,6 @@ and (min-width : 481px) {
     color: white;
     font-size: 36px;
     margin-top: 20%;
-  }
-
-  .navbar {
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .navbar-link {
-    text-decoration: none;
-    color: white;
-    font-size: 22px;
-  }
-
-  :hover.navbar-link {
-    color: #ffc107;
-    text-decoration: underline;
   }
   
   .home-link {
@@ -242,6 +225,20 @@ and (min-width : 481px) {
     top: 8%;
   }
 
+  .MuiTabs-flexContainer {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+  }
+
+  .MuiAppBar-colorPrimary {
+    background-color: #232526 !important;
+  }
+
+  .MuiTab-textColorPrimary {
+    color: white !important;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -269,9 +266,10 @@ and (max-device-width : 815px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient( to left,#2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
   }
 
   .error-page {
@@ -282,24 +280,6 @@ and (max-device-width : 815px) {
     color: white;
     font-size: 36px;
     margin-top: 20%;
-  }
-
-  .navbar {
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .navbar-link {
-    text-decoration: none;
-    color: white;
-    font-size: 22px;
-  }
-
-  :hover.navbar-link {
-    color: #ffc107;
-    text-decoration: underline;
   }
   
   .home-link {
@@ -492,6 +472,20 @@ and (max-device-width : 815px) {
 
   .log-out {
     margin-top: 15%;
+  }
+
+  .MuiTabs-flexContainer {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+  }
+
+  .MuiAppBar-colorPrimary {
+    background-color: #232526 !important;
+  }
+
+  .MuiTab-textColorPrimary {
+    color: white !important;
   }
 
 
