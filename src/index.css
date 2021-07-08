@@ -244,6 +244,10 @@ and (min-width : 481px) {
     color: white !important;
   }
 
+  .makeStyles-root-12 {
+    min-width: none !important;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -496,6 +500,10 @@ and (max-device-width : 815px) {
 
   .MuiTab-textColorPrimary {
     color: white !important;
+  }
+
+  .makeStyles-root-12 {
+    max-width: none !important;
   }
 
 
