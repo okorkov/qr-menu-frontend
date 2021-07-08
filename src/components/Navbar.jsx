@@ -26,9 +26,11 @@ function Navbar(props) {
   const classes = useStyles();
 
   const handleLogOut = () => {
-    props.dispatch(logOut())
-    localStorage.clear();
-    props.history.push('/')
+    if(window.confirm('Are you sure you want to log out?')){
+      props.dispatch(logOut())
+      localStorage.clear();
+      props.history.push('/')
+    }
   }
 
   return (
