@@ -35,8 +35,6 @@ function DraggableDialog(props) {
   const handleClose = (e) => {
     e.preventDefault();
     setOpen(false);
-    $('#loader').show(0)
-    handleLoginSubmit()
   };
 
   const handleLoginSubmit = (e) => {
@@ -71,6 +69,13 @@ function DraggableDialog(props) {
     $('#loader').show(0)
   }
 
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    setOpen(false);
+    $('#loader').show(0)
+    handleLoginSubmit()
+  }
+
   return (
     <div >
       {renderError.hasErrors ? <ErrorMessage errors={renderError.errors}/> : null}
@@ -98,7 +103,7 @@ function DraggableDialog(props) {
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={(e) => handleClose(e)} color="primary" type="submit">
+          <Button onClick={(e) => handleSignUp(e)} color="primary" type="submit">
             Register
           </Button>
         </DialogActions>
