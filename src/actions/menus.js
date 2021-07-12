@@ -1,6 +1,7 @@
-export const checkLoginStatus = (payload) => {
+
+export const singleFileUpload = (payload) => {
   return {
-    type: "CHECK_LOGIN_STATUS",
+    type: "SINGLE_FILE_UPLOAD",
     payload
   }
 }

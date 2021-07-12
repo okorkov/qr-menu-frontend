@@ -94,9 +94,6 @@ function SIngleFileComponent(props) {
   useEffect(() => {
     checkPath()
     checkLoginStatus(props)
-    // axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/find_menus`, {token: JSON.parse(localStorage.getItem('token'))})
-    // .then((response) => handleData(response.data))
-    // .catch(err => alert(err.message))
   }, []);
 
   const handleExpandClick = () => {

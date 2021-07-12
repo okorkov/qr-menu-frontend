@@ -12,6 +12,12 @@ import SubNavbar from './SubNavbar';
 
 function Dashboard(props) {
 
+  const checkLoginStatus = (props) => {
+    if (!JSON.parse(localStorage.getItem('token'))) {
+      props.history.push('/')
+    }
+  }
+
   const checkPath = () => {
     if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
       document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
@@ -21,6 +27,7 @@ function Dashboard(props) {
   }
 
   useEffect(() => {
+    checkLoginStatus(props)
     checkPath()
   });
 

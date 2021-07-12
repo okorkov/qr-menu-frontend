@@ -3,7 +3,7 @@
 const defaultState = {
   logged_in: false,
   isDataLoaded: false,
-  lastFile: { hasFile: false, pdfFile: null, qrCode: null, uploaded: null },
+  lastFile: { has_file: false, pdf_file: null, qr_code: null, uploaded: null },
   allFiles: [],
   allMenuFiles: [],
   menuQRLink: null
@@ -47,6 +47,12 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         logged_in: false
+      }
+
+    case 'SINGLE_FILE_UPLOAD':
+      return {
+        ...state,
+        lastFile: action.payload.last_file,
       }
 
     default:

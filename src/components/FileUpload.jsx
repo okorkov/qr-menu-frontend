@@ -3,6 +3,8 @@ import $ from 'jquery';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { singleFileUpload } from '../actions/menus';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -20,10 +22,6 @@ const FileUpload = (props) => {
     setFile(e.target.files[0]);
   }
 
-  const loader = () => {
-    $('#loader').show(0)
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     $('#loader').show(0)
@@ -35,8 +33,9 @@ const FileUpload = (props) => {
       body: formData
     })
     .then(data => data.json())
-    .then(response => props.setLastFile({hasFile: true, pdfFile: response.pdf_file, qrCode: response.qr_code, uploaded: response.uploaded}))
+    .then(response => props.dispatch(singleFileUpload(response)))
     .then(response => $('#loader').hide(0))
+    .then(response => document.querySelector('input').value = '')
     .catch(err => alert(err.message))
   }
 
@@ -65,4 +64,9 @@ const FileUpload = (props) => {
   );
 }
 
-export default FileUpload;
+
+const mapStateToProps = function(state) {
+  return state
+}
+
+export default connect(mapStateToProps)(FileUpload);

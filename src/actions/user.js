@@ -20,3 +20,9 @@ export const logOut = (payload) => {
   }
 }
 
+export const checkLogin = (payload) => {
+  return {
+    type: "CHECK_LOGIN_STATUS",
+    payload
+  }
+}

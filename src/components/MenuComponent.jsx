@@ -5,7 +5,13 @@ import axios from 'axios';
 import SubNavbar from './SubNavbar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const MenuComponent = () => {
+const MenuComponent = (props) => {
+
+  const checkLoginStatus = (props) => {
+    if (!JSON.parse(localStorage.getItem('token'))) {
+      props.history.push('/')
+    }
+  }
 
   const checkPath = () => {
     if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
@@ -17,6 +23,7 @@ const MenuComponent = () => {
 
   useEffect(() => {
     checkPath()
+    checkLoginStatus(props)
   });
 
 
