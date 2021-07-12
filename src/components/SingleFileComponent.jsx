@@ -18,6 +18,7 @@ import FileUpload from './FileUpload';
 import CropFreeIcon from '@material-ui/icons/CropFree';
 import SubNavbar from './SubNavbar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -120,55 +121,60 @@ function SIngleFileComponent(props) {
     <div className='dashboard'>
 
       {
-        !props.menus.lastFile.has_file ?
-          <p className="text">No files uploaded yet</p>
+        !props.menus.isDataLoaded ?
+        <div className='cp'>
+        <CircularProgress  style={{color: '#ffc107'}} />
+        </div>
         :
-        <Card className={classes.root}>
-          <CardHeader
-            avatar={
-              <Avatar aria-label="recipe" className={classes.avatar}>
-                <CropFreeIcon />
-              </Avatar>
-            }
-            title="Your most recent QR generated on:"
-            subheader={handleDate(props.menus.lastFile.uploaded)}
-          />
-          <a href={props.menus.lastFile.qr_code} target="_blank"><CardMedia
-            className={classes.media}
-            image={props.menus.lastFile.qr_code}
-            title="QR Code"
-          />
-          </a>
-          <CardContent>
-          <button 
-            id='resend-qr'
-            className='btn btn-success'
-            style={{marginTop: '15%'}}
-            onClick={(e) => handleResend(e)}
-            disabled={!showResendButton}>
-            Re-send this QR Code to my email
-          </button>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
+          !props.menus.lastFile.has_file ?
+            <p className="text">No files uploaded yet</p>
+          :
+          <Card className={classes.root}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  <CropFreeIcon />
+                </Avatar>
+              }
+              title="Your most recent QR generated on:"
+              subheader={handleDate(props.menus.lastFile.uploaded)}
+            />
+            <a href={props.menus.lastFile.qr_code} target="_blank"><CardMedia
+              className={classes.media}
+              image={props.menus.lastFile.qr_code}
+              title="QR Code"
+            />
+            </a>
             <CardContent>
-              <iframe className='pdf' src={props.menus.lastFile.pdf_file} ></iframe>
-              <br />
-              <a href={props.menus.lastFile.pdf_file} target="_blank">Open file in new window</a>
+            <button 
+              id='resend-qr'
+              className='btn btn-success'
+              style={{marginTop: '15%'}}
+              onClick={(e) => handleResend(e)}
+              disabled={!showResendButton}>
+              Re-send this QR Code to my email
+            </button>
             </CardContent>
-          </Collapse>
-        </Card> 
+            <CardActions disableSpacing>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <CardContent>
+                <iframe className='pdf' src={props.menus.lastFile.pdf_file} ></iframe>
+                <br />
+                <a href={props.menus.lastFile.pdf_file} target="_blank">Open file in new window</a>
+              </CardContent>
+            </Collapse>
+          </Card> 
       }
 
     </div>

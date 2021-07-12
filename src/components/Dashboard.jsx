@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
-import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SubNavbar from './SubNavbar';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 function Dashboard(props) {
@@ -33,8 +28,19 @@ function Dashboard(props) {
 
   return (
     <>
+
+    {
+      props.menus.isDataLoaded ?
+      <>
       <SubNavbar />
       <p className='text'>Dashboard goes here</p>
+      </>
+      :
+      <div className='cp'>
+        <CircularProgress  style={{color: '#ffc107'}} />
+      </div>
+    }
+      
     </>
   );
 }

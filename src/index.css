@@ -255,6 +255,13 @@ and (min-width : 481px) {
     text-align: center;
   }
 
+  .cp {
+    zoom: 2;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10%;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
