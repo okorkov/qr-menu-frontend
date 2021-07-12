@@ -46,8 +46,7 @@ function SIngleFileComponent(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const [lastMenu, setLastMenu] = React.useState({hasMenu: false, pdfMenu: null, qrCode: null});
-  const [menus, setMenus] = React.useState({menus: []});
+  const [lastFile, setLastFile] = React.useState({hasFile: false, pdfFile: null, qrCode: null, uploaded: 'unknown'});
   const [isDataLoaded, setIsDataLoaded] = React.useState(false);
   const [showResendButton, setShowResendButton] = React.useState(true)
 
@@ -58,12 +57,13 @@ function SIngleFileComponent(props) {
   }
 
   const handleData = (data) => {
-    if(data.last_menu){
-      setLastMenu({
-        hasMenu: data.last_menu.has_menu,
-        pdfMenu: data.last_menu.pdf_file,
-        qrCode: data.last_menu.qr_code,
-        uploaded: data.last_menu.uploaded
+    if(data.last_file){
+      
+      setLastFile({
+        hasFile: data.last_file.has_file,
+        pdfFile: data.last_file.pdf_file,
+        qrCode: data.last_file.qr_code,
+        uploaded: data.last_file.uploaded
       })
       setIsDataLoaded(true)
     }
@@ -112,7 +112,7 @@ function SIngleFileComponent(props) {
       return 'unknown'
     }
   }
-
+  
   return (
     <>
     <SubNavbar />
@@ -123,7 +123,7 @@ function SIngleFileComponent(props) {
     <div className='dashboard'>
 
       {
-        !lastMenu.hasMenu ?
+        !lastFile.hasFile ?
           <p className="text">No files uploaded yet</p>
         :
         <Card className={classes.root}>
@@ -134,11 +134,11 @@ function SIngleFileComponent(props) {
               </Avatar>
             }
             title="Your most recent QR generated on:"
-            subheader={handleDate(lastMenu.uploaded)}
+            subheader={handleDate(lastFile.uploaded)}
           />
-          <a href={lastMenu.qrCode} target="_blank"><CardMedia
+          <a href={lastFile.qrCode} target="_blank"><CardMedia
             className={classes.media}
-            image={lastMenu.qrCode}
+            image={lastFile.qrCode}
             title="QR Code"
           />
           </a>
@@ -166,9 +166,9 @@ function SIngleFileComponent(props) {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <iframe className='pdf' src={lastMenu.pdfMenu} ></iframe>
+              <iframe className='pdf' src={lastFile.pdfFile} ></iframe>
               <br />
-              <a href={lastMenu.pdfMenu} target="_blank">Open file in new window</a>
+              <a href={lastFile.pdfFile} target="_blank">Open file in new window</a>
             </CardContent>
           </Collapse>
         </Card> 
@@ -176,7 +176,7 @@ function SIngleFileComponent(props) {
 
     </div>
     <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>
-    <FileUpload setLastMenu={setLastMenu}/>
+    <FileUpload setLastFile={setLastFile}/>
     </div>
     </>
   );

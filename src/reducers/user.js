@@ -2,6 +2,11 @@
 
 const defaultState = {
   logged_in: false,
+  isDataLoaded: false,
+  lastFile: { hasFile: false, pdfFile: null, qrCode: null, uploaded: null },
+  allFiles: [],
+  allMenuFiles: [],
+  menuQRLink: null
 }
 
 export default (state = defaultState, action) => {
@@ -12,6 +17,9 @@ export default (state = defaultState, action) => {
         return {
           ...state,
           logged_in: action.payload.data.logged_in,
+          isDataLoaded: true,
+          lastFile: action.payload.data.last_file,
+          allFiles: action.payload.data.all_files
         };
 
     case 'LOGIN':

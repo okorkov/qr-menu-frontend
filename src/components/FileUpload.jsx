@@ -35,7 +35,7 @@ const FileUpload = (props) => {
       body: formData
     })
     .then(data => data.json())
-    .then(response => props.setLastMenu({hasMenu: true, pdfMenu: response.pdf_file, qrCode: response.qr_code, uploaded: response.uploaded}))
+    .then(response => props.setLastFile({hasFile: true, pdfFile: response.pdf_file, qrCode: response.qr_code, uploaded: response.uploaded}))
     .then(response => $('#loader').hide(0))
     .catch(err => alert(err.message))
   }
@@ -56,7 +56,6 @@ const FileUpload = (props) => {
         color="default"
         className={classes.button}
         startIcon={<CloudUploadIcon />}
-        // onClick={loader}
         type="submit"
       >
         Upload new file
