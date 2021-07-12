@@ -31,8 +31,8 @@ const SubNavbar = () => {
     <>
       <Paper className={classes.root}>
         <Tabs
-          value={value}
-          onChange={handleChange}
+          // value={value}
+          // onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"

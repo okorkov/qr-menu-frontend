@@ -17,6 +17,7 @@ import axios from 'axios';
 import FileUpload from './FileUpload';
 import CropFreeIcon from '@material-ui/icons/CropFree';
 import SubNavbar from './SubNavbar';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -115,7 +116,12 @@ function SIngleFileComponent(props) {
   return (
     <>
     <SubNavbar />
+    <p className="text">A single file upload will generate a QR code specifically for the file you wish to upload. 
+      When using this feature you won't be able to change the document that is attached to the already generated code. 
+      If you need to have only one QR code and be able to swap files attached to it please use <Link to="/qr-menu" style={{color: 'white', textDecoration: 'underline'}}>MANAGE QR MENU</Link>.
+    </p>
     <div className='dashboard'>
+
       {
         !lastMenu.hasMenu ?
           <p className="text">No files uploaded yet</p>
@@ -167,7 +173,7 @@ function SIngleFileComponent(props) {
           </Collapse>
         </Card> 
       }
-    
+
     </div>
     <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>
     <FileUpload setLastMenu={setLastMenu}/>
