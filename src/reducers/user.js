@@ -6,7 +6,8 @@ const defaultState = {
   lastFile: { has_file: false, pdf_file: null, qr_code: null, uploaded: null },
   allFiles: [],
   menuFile: null,
-  menuQRLink: null
+  menuQRLink: null,
+  domainLink: null
 }
 
 export default (state = defaultState, action) => {
@@ -20,7 +21,7 @@ export default (state = defaultState, action) => {
           isDataLoaded: true,
           lastFile: action.payload.data.last_file,
           allFiles: action.payload.data.all_files,
-          menuQRLink: `${process.env.REACT_APP_BASE_URL}/menu/${action.payload.data.menu_qr_link}`,
+          domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
           menuFile: action.payload.data.menu_file,
           menuQRLink: action.payload.data.menu_link,
         };
@@ -33,7 +34,7 @@ export default (state = defaultState, action) => {
         isDataLoaded: true,
         lastFile: action.payload.data.last_file,
         allFiles: action.payload.data.all_files,
-        menuQRLink: `${process.env.REACT_APP_BASE_URL}/menu/${action.payload.data.menu_qr_link}`,
+        domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
         menuFile: action.payload.data.menu_file,
         menuQRLink: action.payload.data.menu_link,
       }
@@ -59,6 +60,12 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         lastFile: action.payload.last_file,
+      }
+
+    case 'GENERATE_QR':
+      return {
+        ...state,
+        menuQRLink: action.payload.qr_code_link
       }
 
     default:

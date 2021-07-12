@@ -12,6 +12,7 @@ import Demo from "./components/Demo";
 import Footer from "./components/Footer";
 import SingleFileComponent from "./components/SingleFileComponent";
 import MenuComponent from "./components/MenuComponent";
+import RenderMenu from "./components/RenderMenu";
 
 
 
@@ -47,6 +48,7 @@ function App(props) {
         <Route path={'/demo'} exact component={Demo} />
         <Route path={'/single-file'} exact component={SingleFileComponent} />
         <Route path={'/qr-menu'} exact component={MenuComponent} />
+        <Route path={'/menu/:domain_param'} component={RenderMenu} />
         <Route component={ErrorPage} />
       </Switch>
       <Footer />

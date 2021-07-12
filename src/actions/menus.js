@@ -5,3 +5,11 @@ export const singleFileUpload = (payload) => {
     payload
   }
 }
+
+
+export const generateQR = (payload) => {
+  return {
+    type: "GENERATE_QR",
+    payload
+  }
+}
