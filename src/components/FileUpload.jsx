@@ -26,6 +26,7 @@ const FileUpload = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    $('#loader').show(0)
     const formData = new FormData();
     formData.append("file", file);
     formData.append("token", JSON.parse(localStorage.getItem('token')));
@@ -55,7 +56,7 @@ const FileUpload = (props) => {
         color="default"
         className={classes.button}
         startIcon={<CloudUploadIcon />}
-        onClick={loader}
+        // onClick={loader}
         type="submit"
       >
         Upload new file
