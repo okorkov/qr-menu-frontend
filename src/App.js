@@ -24,7 +24,8 @@ function App(props) {
       .then(response => {
         props.dispatch({
               type: "CHECK_LOGIN_STATUS",
-              payload: response
+              payload: response,
+              base_url: window.location.hostname
         })
       })
       .catch(err => alert(err.message))
@@ -57,4 +58,5 @@ const mapStateToProps = function(state) {
   return state
 }
 
-export default connect(mapStateToProps)(App)
+
+export default connect(mapStateToProps)(App);

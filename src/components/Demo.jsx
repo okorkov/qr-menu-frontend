@@ -14,9 +14,6 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { withRouter } from "react-router";
-import { connect } from 'react-redux';
-import FileUpload from './FileUpload';
 import CropFreeIcon from '@material-ui/icons/CropFree';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
@@ -190,10 +187,6 @@ const Demo = (props) => {
   );
 }
 
-const mapStateToProps = function(state) {
-  return state
-}
 
-// export default connect(mapStateToProps)(withRouter(Demo));
 export default Demo;
 

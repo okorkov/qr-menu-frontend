@@ -5,21 +5,24 @@ const defaultState = {
   isDataLoaded: false,
   lastFile: { has_file: false, pdf_file: null, qr_code: null, uploaded: null },
   allFiles: [],
-  allMenuFiles: [],
+  menuFile: null,
   menuQRLink: null
 }
 
 export default (state = defaultState, action) => {
 
   switch(action.type) {
-
+    
     case 'CHECK_LOGIN_STATUS':
         return {
           ...state,
           logged_in: action.payload.data.logged_in,
           isDataLoaded: true,
           lastFile: action.payload.data.last_file,
-          allFiles: action.payload.data.all_files
+          allFiles: action.payload.data.all_files,
+          menuQRLink: `${process.env.REACT_APP_BASE_URL}/menu/${action.payload.data.menu_qr_link}`,
+          menuFile: action.payload.data.menu_file,
+          menuQRLink: action.payload.data.menu_link,
         };
 
     case 'LOGIN':
@@ -29,7 +32,10 @@ export default (state = defaultState, action) => {
         logged_in: action.payload.data.logged_in,
         isDataLoaded: true,
         lastFile: action.payload.data.last_file,
-        allFiles: action.payload.data.all_files
+        allFiles: action.payload.data.all_files,
+        menuQRLink: `${process.env.REACT_APP_BASE_URL}/menu/${action.payload.data.menu_qr_link}`,
+        menuFile: action.payload.data.menu_file,
+        menuQRLink: action.payload.data.menu_link,
       }
 
     case 'SIGNUP':

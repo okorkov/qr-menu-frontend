@@ -38,7 +38,12 @@ const MenuComponent = (props) => {
         and being able to change the file attached to it. This a great option to manage a 
         restaurant menu and being able to seamlessly make changes during hours of service. If this is not working for you, please refer to a <Link to="/single-file" style={{color: 'white', textDecoration: 'underline'}}>SINGLE FILE UPLOAD</Link>.
         </p>
-        Menu Component Here
+        {
+          props.menus.menuQRLink ?
+          <p className="text">There is file and go ahead and render it</p>
+          :
+          <p className="text">There is no qr link for ya</p>
+        }
         </>
       :
       <div className='cp'>
