@@ -248,6 +248,13 @@ and (min-width : 481px) {
     min-width: none !important;
   }
 
+  .menu-description {
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-top: 2%;
+    text-align: center;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -504,6 +511,13 @@ and (max-device-width : 815px) {
 
   .makeStyles-root-12 {
     max-width: none !important;
+  }
+
+  .menu-description {
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-top: 2%;
+    text-align: center;
   }
 
 

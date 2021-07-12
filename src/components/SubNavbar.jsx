@@ -21,18 +21,11 @@ const useStyles = makeStyles({
 const SubNavbar = () => {
 
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   
   return (
     <>
       <Paper className={classes.root}>
         <Tabs
-          // value={value}
-          // onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"

@@ -12,12 +12,6 @@ import SubNavbar from './SubNavbar';
 
 function Dashboard(props) {
 
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   const checkPath = () => {
     if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
       document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';

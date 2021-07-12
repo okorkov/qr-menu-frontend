@@ -94,9 +94,9 @@ function SIngleFileComponent(props) {
   useEffect(() => {
     checkPath()
     checkLoginStatus(props)
-    axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/find_menus`, {token: JSON.parse(localStorage.getItem('token'))})
-    .then((response) => handleData(response.data))
-    .catch(err => alert(err.message))
+    // axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/find_menus`, {token: JSON.parse(localStorage.getItem('token'))})
+    // .then((response) => handleData(response.data))
+    // .catch(err => alert(err.message))
   }, []);
 
   const handleExpandClick = () => {
@@ -112,18 +112,18 @@ function SIngleFileComponent(props) {
       return 'unknown'
     }
   }
-  
+
   return (
     <>
     <SubNavbar />
-    <p className="text">A single file upload will generate a QR code specifically for the file you wish to upload. 
+    <p className="text menu-description">A single file upload will generate a QR code specifically for the file you wish to upload. 
       When using this feature you won't be able to change the document that is attached to the already generated code. 
       If you need to have only one QR code and be able to swap files attached to it please use <Link to="/qr-menu" style={{color: 'white', textDecoration: 'underline'}}>MANAGE QR MENU</Link>.
     </p>
     <div className='dashboard'>
 
       {
-        !lastFile.hasFile ?
+        !props.menus.lastFile.has_file ?
           <p className="text">No files uploaded yet</p>
         :
         <Card className={classes.root}>
@@ -134,11 +134,11 @@ function SIngleFileComponent(props) {
               </Avatar>
             }
             title="Your most recent QR generated on:"
-            subheader={handleDate(lastFile.uploaded)}
+            subheader={handleDate(props.menus.lastFile.uploaded)}
           />
-          <a href={lastFile.qrCode} target="_blank"><CardMedia
+          <a href={props.menus.lastFile.qr_code} target="_blank"><CardMedia
             className={classes.media}
-            image={lastFile.qrCode}
+            image={props.menus.lastFile.qr_code}
             title="QR Code"
           />
           </a>
@@ -166,9 +166,9 @@ function SIngleFileComponent(props) {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <iframe className='pdf' src={lastFile.pdfFile} ></iframe>
+              <iframe className='pdf' src={props.menus.lastFile.pdf_file} ></iframe>
               <br />
-              <a href={lastFile.pdfFile} target="_blank">Open file in new window</a>
+              <a href={props.menus.lastFile.pdf_file} target="_blank">Open file in new window</a>
             </CardContent>
           </Collapse>
         </Card> 

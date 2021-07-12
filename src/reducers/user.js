@@ -26,8 +26,10 @@ export default (state = defaultState, action) => {
       localStorage.setItem('token', JSON.stringify(action.payload.data.token));
       return {
         ...state,
-        logged_in: true,
-        token: action.payload.data.token
+        logged_in: action.payload.data.logged_in,
+        isDataLoaded: true,
+        lastFile: action.payload.data.last_file,
+        allFiles: action.payload.data.all_files
       }
 
     case 'SIGNUP':
@@ -38,7 +40,6 @@ export default (state = defaultState, action) => {
         return {
           ...state,
           logged_in: true,
-          token: action.payload.data.token
         }
       }
 
