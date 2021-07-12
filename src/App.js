@@ -10,6 +10,8 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import Demo from "./components/Demo";
 import Footer from "./components/Footer";
+import SingleFileComponent from "./components/SingleFileComponent";
+import MenuComponent from "./components/MenuComponent";
 
 
 
@@ -41,6 +43,8 @@ function App(props) {
         <Route path={'/contact'} exact component={Contact} />
         <Route path={'/about'} exact component={About} />
         <Route path={'/demo'} exact component={Demo} />
+        <Route path={'/single-file'} exact component={SingleFileComponent} />
+        <Route path={'/qr-menu'} exact component={MenuComponent} />
         <Route component={ErrorPage} />
       </Switch>
       <Footer />
