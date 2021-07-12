@@ -68,6 +68,12 @@ export default (state = defaultState, action) => {
         menuQRLink: action.payload.qr_code_link
       }
 
+    case 'UPLOAD_MENU':
+      return {
+        ...state,
+        menuFile: action.payload.file_link
+      }
+
     default:
       return state;
 

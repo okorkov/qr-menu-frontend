@@ -13,3 +13,10 @@ export const generateQR = (payload) => {
     payload
   }
 }
+
+export const uploadMenu = (payload) => {
+  return {
+    type: "UPLOAD_MENU",
+    payload
+  }
+}
