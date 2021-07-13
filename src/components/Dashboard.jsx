@@ -14,7 +14,7 @@ function Dashboard(props) {
   }
 
   const checkPath = () => {
-    if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
+    if(window.location.pathname === '/dashboard' && document.getElementsByClassName('footer')[0]) {
       document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
     } else {
       document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
@@ -34,7 +34,7 @@ function Dashboard(props) {
       <>
       <SubNavbar />
       <div className='dashboard'>
-        <DashboardAccordion />
+        <DashboardAccordion data={props.menus}/>
       </div>
       </>
       :

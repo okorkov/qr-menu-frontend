@@ -48,6 +48,7 @@ export default (state = defaultState, action) => {
           ...state,
           logged_in: action.payload.data.logged_in,
           isDataLoaded: true,
+          domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
         }
       }
 
