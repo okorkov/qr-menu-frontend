@@ -21,7 +21,7 @@ export default (state = defaultState, action) => {
           isDataLoaded: true,
           lastFile: action.payload.data.last_file,
           allFiles: action.payload.data.all_files,
-          domainLink: `menu/${action.payload.data.menu_qr_link}`,
+          domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
           menuFile: action.payload.data.menu_file,
           menuQRLink: action.payload.data.menu_link,
         };
@@ -34,7 +34,7 @@ export default (state = defaultState, action) => {
         isDataLoaded: true,
         lastFile: action.payload.data.last_file,
         allFiles: action.payload.data.all_files,
-        domainLink: `menu/${action.payload.data.menu_qr_link}`,
+        domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
         menuFile: action.payload.data.menu_file,
         menuQRLink: action.payload.data.menu_link,
       }
@@ -48,7 +48,7 @@ export default (state = defaultState, action) => {
           ...state,
           logged_in: action.payload.data.logged_in,
           isDataLoaded: true,
-          domainLink: `menu/${action.payload.data.menu_qr_link}`,
+          domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
         }
       }
 

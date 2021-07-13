@@ -65,7 +65,8 @@ export default function ControlledAccordions(props) {
           {
             props.data.menuFile ?
             <>
-            <a href={props.data.domainLink} style={{marginRight:'2em'}} target="_blank">View File</a>
+            <a href={`/menu/${props.data.domainLink.split('/')[props.data.domainLink.split('/').length - 1]}`} target="_blank">View File</a>
+            
             </>
             :
             <p style={{marginLeft:'2em'}}>No File Uploaded </p>

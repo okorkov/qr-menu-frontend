@@ -80,7 +80,7 @@ const MenuComponent = (props) => {
               props.menus.menuFile ?
               <>
                 <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/>
-                <a href={props.menus.domainLink} target="_blank" style={{fontSize:'22px'}}><p>Visit link</p></a>
+                <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>Visit link</p></a>
               </>
               :
               <p className="text"> No file uploaded yet</p>
