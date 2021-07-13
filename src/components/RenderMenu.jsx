@@ -13,6 +13,10 @@ const RenderMenu = (props) => {
       document.getElementsByClassName('makeStyles-root-1')[0].remove();
       document.getElementsByClassName('footer')[0].remove();
     }
+    if(document.querySelector('header') && document.querySelector('footer')) {
+      document.querySelector('header').remove();
+      document.querySelector('footer').remove();
+    }
     axios.get(`${process.env.REACT_APP_BASE_URL}/get_menu/${document.location.href.split('/')[document.location.href.split('/').length - 1]}`)
     .then(response => setState({isDataLoaded: true, hasFile: response.data.has_file, menuLink: response.data.menu_link}))
     .catch(error => alert(error.message))
