@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import RenderMenu from "./components/RenderMenu";
 import ErrorPage from './components/ErrorPage';
 import Dashboard from './components/Dashboard';
 import Home from "./components/Home";
@@ -12,7 +13,7 @@ import Demo from "./components/Demo";
 import Footer from "./components/Footer";
 import SingleFileComponent from "./components/SingleFileComponent";
 import MenuComponent from "./components/MenuComponent";
-import RenderMenu from "./components/RenderMenu";
+
 
 
 
@@ -48,7 +49,7 @@ function App(props) {
         <Route path={'/demo'} exact component={Demo} />
         <Route path={'/single-file'} exact component={SingleFileComponent} />
         <Route path={'/qr-menu'} exact component={MenuComponent} />
-        <Route path={'/menu/:domain_param'} component={RenderMenu} />
+        <Route path={'/menu/:id'} component={RenderMenu} />
         <Route component={ErrorPage} />
       </Switch>
       <Footer />

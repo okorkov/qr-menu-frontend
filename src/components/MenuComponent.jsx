@@ -2,14 +2,16 @@ import React, { useEffect } from 'react';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import SubNavbar from './SubNavbar';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import axios from 'axios';
 import $ from 'jquery';
 import { generateQR } from '../actions/menus';
 import MenuUpload from './MenuUpload';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const MenuComponent = (props) => {
+
+  const [showResendButton, setShowResendButton] = React.useState(true)
 
   const checkLoginStatus = (props) => {
     if (!JSON.parse(localStorage.getItem('token'))) {
@@ -40,7 +42,17 @@ const MenuComponent = (props) => {
 
   const handleEmailResend = (e) => {
     e.preventDefault();
+    axios.post(`${process.env.REACT_APP_BASE_URL}/resend_qr_menu`, {token: JSON.parse(localStorage.getItem('token'))})
+    .catch(err => alert(err.message))
+    setShowResendButton(false)
+    const timeId = setTimeout(() => {
+      setShowResendButton(true)
+    }, 8000)
+    return () => {
+      clearTimeout(timeId)
+    }
   }
+
 
   return (
     <>
@@ -59,13 +71,17 @@ const MenuComponent = (props) => {
           <>
             <p className='text'>Your QR Code</p>
             <a href={props.menus.menuQRLink} target="_blank"><img src={props.menus.menuQRLink}/></a>
+            <br /><br />
             <form onSubmit={(e) => handleEmailResend(e)}>
-            <button className="btn btn-success" type="submit" >Re-send this QR Code to my email</button>
+            <button className="btn btn-success" type="submit" disabled={!showResendButton}>Re-send this QR Code to my email</button>
             </form>
               <br /><br />
             {
               props.menus.menuFile ?
-              <iframe src={props.menus.menuFile}/>
+              <>
+                <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/>
+                <a href={props.menus.domainLink} target="_blank" style={{fontSize:'22px'}}><p>Visit link</p></a>
+              </>
               :
               <p className="text"> No file uploaded yet</p>
             }

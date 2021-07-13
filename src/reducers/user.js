@@ -65,7 +65,8 @@ export default (state = defaultState, action) => {
     case 'GENERATE_QR':
       return {
         ...state,
-        menuQRLink: action.payload.qr_code_link
+        menuQRLink: action.payload.qr_code_link,
+        domainLink: action.payload.domain
       }
 
     case 'UPLOAD_MENU':

@@ -261,6 +261,15 @@ and (min-width : 481px) {
     padding-top: 10%;
   }
 
+  .menu-render {
+    position: absolute;
+    height: 100% !important;
+  }
+
+  .render-iframe-menu {
+    height: 60rem;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -278,6 +287,7 @@ and (max-device-width : 815px) {
     scroll-behavior: smooth;
     cursor:'pointer';
     -webkit-overflow-scrolling:touch;
+    height: 1rem !important;
   }
   
   body {
@@ -525,5 +535,20 @@ and (max-device-width : 815px) {
     text-align: center;
   }
 
+  .cp {
+    zoom: 2;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10%;
+  }
+
+  .menu-render {
+    position: absolute;
+    height: 100% !important;
+  }
+
+  .render-iframe-menu {
+    height:25rem;
+  }
 
 }
