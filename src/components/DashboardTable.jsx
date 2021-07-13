@@ -44,7 +44,7 @@ export default function DenseTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.data.reverse().map((row) => (
+          {props.data.map((row) => (
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">
                 {row.link.split('/')[row.link.split('/').length - 1]}
