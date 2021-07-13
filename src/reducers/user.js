@@ -46,20 +46,30 @@ export default (state = defaultState, action) => {
         localStorage.setItem('token', JSON.stringify(action.payload.data.token));
         return {
           ...state,
-          logged_in: true,
+          logged_in: action.payload.data.logged_in,
+          isDataLoaded: true,
         }
       }
 
     case 'LOGOUT':
       return {
-        ...state,
-        logged_in: false
+        logged_in: false,
+        isDataLoaded: false,
+        lastFile: { has_file: false, pdf_file: null, qr_code: null, uploaded: null },
+        allFiles: [],
+        menuFile: null,
+        menuQRLink: null,
+        domainLink: null
       }
 
     case 'SINGLE_FILE_UPLOAD':
       return {
         ...state,
         lastFile: action.payload.last_file,
+        allFiles: [...state.allFiles, {
+          link: action.payload.last_file.pdf_file,
+          qr_code_link: action.payload.last_file.qr_code, 
+          updated_at: action.payload.last_file.uploaded}]
       }
 
     case 'GENERATE_QR':
