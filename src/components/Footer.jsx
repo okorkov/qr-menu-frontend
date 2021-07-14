@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Package from '../../package.json'
 
 const Footer = () => {
 
@@ -18,7 +19,7 @@ const Footer = () => {
   return (
     <footer className='footer text-lg-start'>
       <div className="text-white text-center" >
-        <p>© {new Date().getFullYear()} <a target="_blank" href="https://aokarkau.com">Alex Okarkau</a>. Licensed under the MIT License.</p>
+        <p>© {new Date().getFullYear()} <a target="_blank" href="https://aokarkau.com">Alex Okarkau</a>. Licensed under the MIT License. App v({Package.version})</p>
       </div>
     </footer>
   );

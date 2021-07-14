@@ -271,6 +271,16 @@ and (min-width : 481px) {
     border: 3px solid black;
   }
 
+  .home-page {
+    text-align: center;
+    justify-content: center;
+    padding-top: 5%;
+  }
+
+  .form {
+    width: 50%;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -550,6 +560,16 @@ and (max-device-width : 815px) {
 
   .render-iframe-menu {
     height:25rem;
+  }
+
+  .home-page {
+    text-align: center;
+    justify-content: center;
+    padding-top: 5%;
+  }
+
+  .form {
+    width: 95%;
   }
 
 
