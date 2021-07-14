@@ -6,6 +6,7 @@ import { withRouter } from "react-router";
 import { loginUser } from '../actions/user';
 import ErrorMessage from './ErrorMessage';
 import $ from 'jquery';
+import Button from '@material-ui/core/Button';
 
 const Login = (props) => {
 
@@ -48,7 +49,7 @@ const Login = (props) => {
         <TextField label="Email" type="email" value={login.email} name="email"  onChange={(e) => handleLoginInput(e)}/>
         <TextField label="Password" type="password" value={login.password} name="password" onChange={(e) => handleLoginInput(e)}/>
         <br />
-        <button className='btn btn-success' type='submit' onClick={loader}>Login</button>
+        <Button variant="contained" color="primary" type='submit' onClick={loader}> Login </ Button >
       </form>
     </>
   );

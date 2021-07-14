@@ -79,9 +79,7 @@ function DraggableDialog(props) {
   return (
     <div >
       {renderError.hasErrors ? <ErrorMessage errors={renderError.errors}/> : null}
-      <button className='btn btn-success' variant="outlined" color="primary" onClick={handleClickOpen}>
-        Sign Up
-      </button>
+      <Button variant="contained" color="primary" onClick={handleClickOpen}> SIGN UP  </ Button >
       <Dialog
         open={open}
         onClose={handleClose}

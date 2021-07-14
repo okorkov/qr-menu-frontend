@@ -24,6 +24,11 @@ const FileUpload = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (file.size > 5e+6) {
+      alert("File is too big! Keep it under 5 MB");
+      e.target.childNodes[0].value = ''
+      return null;
+    }
     $('#loader').show(0)
     const formData = new FormData();
     formData.append("file", file);

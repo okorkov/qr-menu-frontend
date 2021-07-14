@@ -17,15 +17,19 @@ require('dotenv').config()
 //   )       
 // );
 
+let store;
 
-
-
-const store = createStore(rootReducer, compose(
-  applyMiddleware(thunk)
-  ,
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-));
-
+if(process.env.NODE_ENV === 'development'){
+  store = createStore(rootReducer, compose(
+    applyMiddleware(thunk)
+    ,
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  ));
+} else {
+  store = createStore(rootReducer, compose(
+    applyMiddleware(thunk)
+  ));
+}
 
 ReactDOM.render(
   <Provider store={store} >

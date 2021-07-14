@@ -8,6 +8,7 @@ import $ from 'jquery';
 import { generateQR } from '../actions/menus';
 import MenuUpload from './MenuUpload';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 const MenuComponent = (props) => {
 
@@ -73,7 +74,11 @@ const MenuComponent = (props) => {
             <a href={props.menus.menuQRLink} target="_blank"><img src={props.menus.menuQRLink}/></a>
             <br /><br />
             <form onSubmit={(e) => handleEmailResend(e)}>
-            <button className="btn btn-success" type="submit" disabled={!showResendButton}>Re-send this QR Code to my email</button>
+            <Button variant="contained" color="primary"
+              type="submit"
+              disabled={!showResendButton}>
+              Re-send this QR Code to my email
+            </ Button >
             </form>
               <br /><br />
             {

@@ -19,6 +19,7 @@ import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 'none',
@@ -71,16 +72,24 @@ const Demo = (props) => {
 
   const handleDemoUpload = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", file);
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/demo_upload`, {
-      method: 'POST',
-      body: formData
-    })
-    .then(data => data.json())
-    .then(response => setDemo({...demo, data: response}))
-    .then(response => $('#loader').hide(0))
-    .catch(err => alert(err.message))
+    if (file.size > 5e+6) {
+      alert("File is too big! Keep it under 5 MB");
+      e.target.childNodes[0].value = ''
+      $('#loader').hide(0)
+      return null;
+    } else {
+      const formData = new FormData();
+      formData.append("file", file);
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/demo_upload`, {
+        method: 'POST',
+        body: formData
+      })
+      .then(data => data.json())
+      .then(response => setDemo({...demo, data: response}))
+      .then(response => document.querySelector('input').value = '')
+      .then(response => $('#loader').hide(0))
+      .catch(err => alert(err.message))
+    }
   }
 
   const [file, setFile] = React.useState(null);
@@ -126,13 +135,12 @@ const Demo = (props) => {
       />
       </a>
       <CardContent>
-      <button 
-        id='resend-qr'
-        className='btn btn-success'
-        style={{marginTop: '15%'}}
-        disabled>
-        Re-send this QR Code to my email (Disabled in Demo mode)
-      </button>
+      <Button variant="contained" color="primary"
+      id='resend-qr'
+      style={{marginTop: '15%'}}
+      disabled
+      >Re-send this QR Code to my email (Disabled in Demo mode)
+      </ Button >
       </CardContent>
       <CardActions disableSpacing>
         <IconButton

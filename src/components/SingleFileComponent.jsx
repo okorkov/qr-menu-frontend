@@ -19,6 +19,7 @@ import CropFreeIcon from '@material-ui/icons/CropFree';
 import SubNavbar from './SubNavbar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -146,14 +147,13 @@ function SIngleFileComponent(props) {
             />
             </a>
             <CardContent>
-            <button 
+            <Button variant="contained" color="primary"
               id='resend-qr'
-              className='btn btn-success'
               style={{marginTop: '15%'}}
               onClick={(e) => handleResend(e)}
               disabled={!showResendButton}>
               Re-send this QR Code to my email
-            </button>
+            </ Button >
             </CardContent>
             <CardActions disableSpacing>
               <IconButton
