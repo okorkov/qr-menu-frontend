@@ -18,6 +18,7 @@ import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css';
 const MenuComponent = (props) => {
 
   const [showResendButton, setShowResendButton] = React.useState(true)
+  const [loadedPDF, setLoadedPDF] = React.useState(false)
 
   const checkLoginStatus = (props) => {
     if (!JSON.parse(localStorage.getItem('token'))) {
@@ -36,6 +37,9 @@ const MenuComponent = (props) => {
   useEffect(() => {
     checkPath()
     checkLoginStatus(props)
+    if(document.getElementsByClassName('viewer-spinner')[0]){
+      document.getElementsByClassName('viewer-spinner')[0].remove()
+    }
   });
 
   const handleGenerateQR = () => {
@@ -89,10 +93,16 @@ const MenuComponent = (props) => {
             {
               props.menus.menuFile ?
               <div style={{ textAlign: 'center', justifyContent: 'center', width:"60%", display: 'inline-block'}}>
-              <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
-                <Viewer fileUrl={props.menus.menuFile} className='menu-render' />
-              </Worker>
-                {/* <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/> */}
+                <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
+                  <Viewer fileUrl={props.menus.menuFile} className='menu-render' onDocumentLoad={() => setLoadedPDF(true)}/>
+                </Worker>
+                {
+                  loadedPDF ?
+                  null
+                  :
+                  <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/>
+                }
+                
                 <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>Visit link</p></a>
               </div>
               :
