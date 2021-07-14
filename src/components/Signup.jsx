@@ -77,7 +77,7 @@ function DraggableDialog(props) {
   }
 
   return (
-    <div style={{paddingBottom: '15%'}}>
+    <div style={{paddingBottom: '5%'}}>
       {renderError.hasErrors ? <ErrorMessage errors={renderError.errors}/> : null}
       <Button variant="contained" color="primary" onClick={handleClickOpen}> SIGN UP  </ Button >
       <Dialog
