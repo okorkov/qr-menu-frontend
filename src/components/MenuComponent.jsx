@@ -9,6 +9,11 @@ import { generateQR } from '../actions/menus';
 import MenuUpload from './MenuUpload';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import Viewer, { Worker } from '@phuocng/react-pdf-viewer';
+import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css';
+
+
+
 
 const MenuComponent = (props) => {
 
@@ -83,10 +88,13 @@ const MenuComponent = (props) => {
               <br /><br />
             {
               props.menus.menuFile ?
-              <>
-                <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/>
+              <div style={{ textAlign: 'center', justifyContent: 'center', width:"60%", display: 'inline-block'}}>
+              <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
+                <Viewer fileUrl={props.menus.menuFile} className='menu-render' />
+              </Worker>
+                {/* <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/> */}
                 <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>Visit link</p></a>
-              </>
+              </div>
               :
               <p className="text"> No file uploaded yet</p>
             }

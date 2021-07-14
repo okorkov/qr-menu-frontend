@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { withRouter } from "react-router";
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import Viewer, { Worker } from '@phuocng/react-pdf-viewer';
+import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css';
 
 const RenderMenu = (props) => {
 
@@ -17,11 +18,11 @@ const RenderMenu = (props) => {
       document.querySelector('header').remove();
       document.querySelector('footer').remove();
     }
+
     axios.get(`${process.env.REACT_APP_BASE_URL}/get_menu/${document.location.href.split('/')[document.location.href.split('/').length - 1]}`)
     .then(response => setState({isDataLoaded: true, hasFile: response.data.has_file, menuLink: response.data.menu_link}))
     .catch(error => alert(error.message))
   }, []);
-
   
   return (
     <>
@@ -30,9 +31,14 @@ const RenderMenu = (props) => {
       <>
       {
         state.hasFile ?
-        <div>
-          <iframe heigh={window.innerHeight} width={window.innerWidth} src={state.menuLink} className='menu-render'/>
-        </div>
+        <>
+          {/* <iframe id="theFrame" heigh={window.innerHeight} width={window.innerWidth} src={state.menuLink} className='menu-render'/> */}
+          <div className="iframe-full-page" >
+            <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
+                    <Viewer fileUrl={state.menuLink} className='menu-render' onDocumentLoad={() => (document.getElementsByClassName('viewer-layout-toolbar')[0].remove())}/>
+            </Worker>
+          </div>
+        </>
         :
         <div>
           <p className='text dashboard'>Sorry, no file at this link</p>
