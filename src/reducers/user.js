@@ -7,7 +7,8 @@ const defaultState = {
   allFiles: [],
   menuFile: null,
   menuQRLink: null,
-  domainLink: null
+  domainLink: null,
+  lang: JSON.parse(localStorage.getItem('lang')) || 'en'
 }
 
 export default (state = defaultState, action) => {
@@ -84,6 +85,12 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         menuFile: action.payload.file_link
+      }
+
+    case 'CHANGE_LANGUAGE':
+      return {
+        ...state,
+        lang: action.payload
       }
 
     default:

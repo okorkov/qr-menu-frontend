@@ -85,8 +85,10 @@ and (min-width : 481px) {
   }
 
   .MuiInputBase-input {
-    min-width: 30rem!important;
+    /* min-width: 30rem!important; */
   }
+
+  
 
   .alert {
     font: 36px;
@@ -394,7 +396,7 @@ and (max-device-width : 815px) {
   }
 
   .MuiInputBase-input {
-    min-width: 15rem!important;
+    /* min-width: 15rem!important; */
   }
 
   .MuiDialogActions-root {
