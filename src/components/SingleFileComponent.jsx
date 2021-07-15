@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 function SIngleFileComponent(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(true);
 
   const [lastFile, setLastFile] = React.useState({hasFile: false, pdfFile: null, qrCode: null, uploaded: 'unknown'});
   const [isDataLoaded, setIsDataLoaded] = React.useState(false);

@@ -49,7 +49,7 @@ const Demo = (props) => {
   const classes = useStyles();
 
   const [demo, setDemo] = React.useState({dataLoaded: false, data: {}});
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(true);
 
   const checkPath = () => {
     if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
@@ -114,6 +114,8 @@ const Demo = (props) => {
 
   return (
     <div style={{textAlign: 'center', justifyContent: 'center'}}>
+      <p className='text-title' style={{paddingTop: '2.5%'}}>This is a demo page, please don't use it for hosting your documents.</p>
+      <p className='text' >Only 'Single File Upload' available on demo page, for QR menu please sign up to proceed. </p>
       {
         demo ?
         <>
@@ -130,7 +132,7 @@ const Demo = (props) => {
       />
       <a href={demo.data.qr_code} target="_blank"><CardMedia
         className={classes.media}
-        image={demo.data.qr_code}
+        image={demo.dataLoaded ? demo.data.qr_code : 'https://miro.medium.com/max/1080/0*DqHGYPBA-ANwsma2.gif'}
         title="QR Code"
       />
       </a>

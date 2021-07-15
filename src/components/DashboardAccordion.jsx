@@ -42,7 +42,7 @@ export default function ControlledAccordions(props) {
         </AccordionSummary>
         <AccordionDetails>
 
-          <DashboardTable data={props.data.allFiles.reverse()}/>
+          <DashboardTable data={props.data.allFiles}/>
 
         </AccordionDetails>
       </Accordion>
