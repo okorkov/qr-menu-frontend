@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import Package from '../../package.json'
+import Package from '../../package.json';
+import { connect } from 'react-redux';
 
-const Footer = () => {
+const Footer = (props) => {
 
   // const checkPath = () => {
   //   if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
@@ -11,6 +12,18 @@ const Footer = () => {
   //   }
   // }
 
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      name: 'Alex Okarkau',
+      licenseMIT: 'Licensed under the MIT License. App v'
+    },
+    ru: {
+      name: 'Александр Окорков',
+      licenseMIT: 'Лицензия МИТ. Версия приложения'
+    }
+  }
+
 
   useEffect(() => {
     // checkPath()
@@ -19,10 +32,15 @@ const Footer = () => {
   return (
     <footer className='footer text-lg-start'>
       <div className="text-white text-center" >
-        <p>© {new Date().getFullYear()} <a target="_blank" href="https://aokarkau.com">Alex Okarkau</a>. Licensed under the MIT License. App v({Package.version})</p>
+        <p>© {new Date().getFullYear()} <a target="_blank" href="https://aokarkau.com">{text[lang].name}</a>. {text[lang].licenseMIT}({Package.version})</p>
       </div>
     </footer>
   );
 }
 
-export default Footer;
+
+const mapStateToProps = function(state) {
+  return state
+}
+
+export default connect(mapStateToProps)(Footer);

@@ -1,8 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
   const Contact = (props) => {
 
   let email = 'me@aokarkau.com';
+
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      sendAnEmail: "Send an email!",
+      title: 'Title...',
+      content: 'Contents...',
+      sendButton: 'Send',
+    },
+    ru: {
+      sendAnEmail: "Связаться по имейл",
+      title: 'Заголовок...',
+      content: 'Сообщение...',
+      sendButton: 'Отправить',
+    }
+  }
 
   const [subject, setSubject] = React.useState({subject: ''});
   const [body, setBody] = React.useState({body: ''});
@@ -24,14 +41,17 @@ import React from 'react';
 
     return (
       <div id="contact">
-          <label className="text">Send an email!</label>
-          <input className="input" type="email" maxlength="50" placeholder="Title..." name="subject"  value={subject.subject} onChange={(e) => handleSubjectInput(e)}/>
-          <textarea className="input" rows="8" maxlength="500" placeholder="Contents..." name="body"  value={body.body} onChange={(e) => handleBodyInput(e)}/>
-          <a href={link} target="_blank" rel="noopener noreferrer"><button className="button btn">Send</button></a>
+          <label className="text">{text[lang].sendAnEmail}</label>
+          <input className="input" type="email" maxlength="50" placeholder={text[lang].title} name="subject"  value={subject.subject} onChange={(e) => handleSubjectInput(e)}/>
+          <textarea className="input" rows="8" maxlength="500" placeholder={text[lang].content} name="body"  value={body.body} onChange={(e) => handleBodyInput(e)}/>
+          <a href={link} target="_blank" rel="noopener noreferrer"><button className="button btn">{text[lang].sendButton}</button></a>
         </div>
       );
   }
 
-  export default Contact;
 
-
+  const mapStateToProps = function(state) {
+    return state
+  }
+  
+  export default connect(mapStateToProps)(Contact);
