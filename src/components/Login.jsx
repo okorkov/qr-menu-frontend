@@ -26,8 +26,8 @@ const Login = (props) => {
     }
   }
 
-  const [login, setLogin] = React.useState({email: '', password: ''});
   const [renderError, setRenderError] = React.useState(false);
+  const [login, setLogin] = React.useState({email: '', password: ''});
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();

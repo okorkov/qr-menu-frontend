@@ -8,7 +8,8 @@ const defaultState = {
   menuFile: null,
   menuQRLink: null,
   domainLink: null,
-  lang: JSON.parse(localStorage.getItem('lang')) || 'en'
+  qrLinks: [],
+  lang: JSON.parse(localStorage.getItem('lang')) || 'en',
 }
 
 export default (state = defaultState, action) => {
@@ -25,6 +26,7 @@ export default (state = defaultState, action) => {
           domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
           menuFile: action.payload.data.menu_file,
           menuQRLink: action.payload.data.menu_link,
+          qrLinks: action.payload.data.links,
         };
 
     case 'LOGIN':
@@ -38,6 +40,7 @@ export default (state = defaultState, action) => {
         domainLink: `${document.location.host}/menu/${action.payload.data.menu_qr_link}`,
         menuFile: action.payload.data.menu_file,
         menuQRLink: action.payload.data.menu_link,
+        qrLinks: action.payload.data.links,
       }
 
     case 'SIGNUP':
@@ -60,6 +63,7 @@ export default (state = defaultState, action) => {
         isDataLoaded: false,
         lastFile: { has_file: false, pdf_file: null, qr_code: null, uploaded: null },
         allFiles: [],
+        qrLinks: [],
         menuFile: null,
         menuQRLink: null,
         domainLink: null

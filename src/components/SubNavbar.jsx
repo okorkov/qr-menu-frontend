@@ -28,11 +28,13 @@ const SubNavbar = (props) => {
       tab1: 'Dashboard',
       tab2: 'Single File Upload',
       tab3: 'Manage QR Menu',
+      tab4: 'QR for a Link'
     },
     ru: {
       tab1: 'Быстрый Доступ',
       tab2: 'Одиночные Файлы',
       tab3: 'QR Меню Панель',
+      tab4: 'QR на ссылку',
     }
   }
   
@@ -48,6 +50,7 @@ const SubNavbar = (props) => {
           <Tab className={classes.tabs} label={text[lang].tab1} component={Link} to={'/dashboard'}/>
           <Tab className={classes.tabs} label={text[lang].tab2} component={Link} to={'/single-file'}/>
           <Tab className={classes.tabs} label={text[lang].tab3} component={Link} to={'/qr-menu'}/>
+          <Tab className={classes.tabs} label={text[lang].tab4} component={Link} to={'/qr-link'}/>
         </Tabs>
       </Paper>
     </>
