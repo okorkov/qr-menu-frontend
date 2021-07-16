@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles({
   table: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles({
 
 
 
-export default function DenseTable(props) {
+function DenseTable(props) {
   const classes = useStyles();
 
   const handleDate = (dateFromDB) => {
@@ -32,15 +33,45 @@ export default function DenseTable(props) {
     }
   }
 
+  const handleDateRu = (dateFromDB) => {
+    if (dateFromDB){
+      let getDate = dateFromDB.split('T');
+      let fullDate = getDate[0].split('-')
+      return `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
+    } else {
+      return 'unknown'
+    }
+  }
+
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      fileName: 'File Name',
+      file: 'File',
+      qrCode: 'QR Code',
+      uploaded: 'Uploaded',
+      openFile: 'Open File',
+      openQr: 'Open QR',
+    },
+    ru: {
+      fileName: 'Имя Файла',
+      file: 'Файл',
+      qrCode: 'QR Код',
+      uploaded: 'Дата Загрузки',
+      openFile: 'Открыть Файл',
+      openQr: 'Открыть QR Код',
+    }
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell className={classes.center}>File Name</TableCell>
-            <TableCell className={classes.center} align="right">File </TableCell>
-            <TableCell className={classes.center} align="right">QR Code</TableCell>
-            <TableCell className={classes.center} align="right">Uploaded</TableCell>
+            <TableCell className={classes.center}>{text[lang].fileName}</TableCell>
+            <TableCell className={classes.center} align="right">{text[lang].file}</TableCell>
+            <TableCell className={classes.center} align="right">{text[lang].qrCode}</TableCell>
+            <TableCell className={classes.center} align="right">{text[lang].uploaded}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -49,9 +80,9 @@ export default function DenseTable(props) {
               <TableCell component="th" scope="row">
                 {row.link.split('/')[row.link.split('/').length - 1]}
               </TableCell>
-             <TableCell className={classes.center} align="right"><a href={row.link} target="_blank">Open File</a></TableCell>
-              <TableCell className={classes.center} align="right"><a href={row.qr_code_link} target="_blank">Open QR</a></TableCell>
-              <TableCell className={classes.center} align="right">{handleDate(row.updated_at)}</TableCell>
+             <TableCell className={classes.center} align="right"><a href={row.link} target="_blank">{text[lang].openFile}</a></TableCell>
+              <TableCell className={classes.center} align="right"><a href={row.qr_code_link} target="_blank">{text[lang].openQr}</a></TableCell>
+              <TableCell className={classes.center} align="right">{(lang === 'en') ? handleDate(row.updated_at) : handleDateRu(row.updated_at)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -59,3 +90,9 @@ export default function DenseTable(props) {
     </TableContainer>
   );
 }
+
+const mapStateToProps = function(state) {
+  return state
+}
+
+export default connect(mapStateToProps)(DenseTable);

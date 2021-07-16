@@ -90,7 +90,7 @@ function Navbar(props) {
   }
 
   const handleLogOut = () => {
-    if(window.confirm('Are you sure you want to log out?')){
+    if(window.confirm((lang === 'en') ? 'Are you sure you want to log out?' : 'Уверены что хотите выйти?')){
       props.dispatch(logOut())
       localStorage.removeItem('token');
       props.history.push('/')

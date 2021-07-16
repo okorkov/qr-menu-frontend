@@ -63,7 +63,7 @@ const MenuUpload = (props) => {
         startIcon={<CloudUploadIcon />}
         type="submit"
       >
-        Upload new file
+        {(props.menus.lang === 'en') ? 'Upload new file' : 'Загрузить новый файл'}
       </Button>
       </form>
     </>

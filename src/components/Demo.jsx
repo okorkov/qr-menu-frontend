@@ -17,7 +17,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CropFreeIcon from '@material-ui/icons/CropFree';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-
+import { connect } from 'react-redux';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +45,26 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Demo = (props) => {
+
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      header1: "This is a demo page, please don't use it for hosting your documents.",
+      header2: "Only 'Single File Upload' available on demo page, for QR menu please sign up to proceed.",
+      title: "Your most recent QR generated on:",
+      resend: 'Re-send this QR Code to my email (Disabled in Demo mode)',
+      openFile: 'Open file in new window',
+      uploadFile: 'Upload new file',
+    },
+    ru: {
+      header1: "Это демо страница, пожалуйста не используйте сгенерированные тут QR коды так как они буду удалены.",
+      header2: "В демо режиме доступна только загрузка одиночных файлов. Для QR меню пожалуйста создайте аккаунт.",
+      title: "Последний QR загружен:",
+      resend: 'Отправить QR на имейл (недоступно в демо режиме)',
+      openFile: 'открыть файл в новом окне',
+      uploadFile: 'Загрузить файл',
+    }
+  }
 
   const classes = useStyles();
 
@@ -112,10 +132,20 @@ const Demo = (props) => {
     }
   }
 
+  const handleDateRu = (dateFromDB) => {
+    if (dateFromDB){
+      let getDate = dateFromDB.split('T');
+      let fullDate = getDate[0].split('-')
+      return `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
+    } else {
+      return 'unknown'
+    }
+  }
+
   return (
     <div style={{textAlign: 'center', justifyContent: 'center'}}>
-      <p className='text-title' style={{paddingTop: '2.5%'}}>This is a demo page, please don't use it for hosting your documents.</p>
-      <p className='text' >Only 'Single File Upload' available on demo page, for QR menu please sign up to proceed. </p>
+      <p className='text-title' style={{paddingTop: '2.5%'}}>{text[lang].header1}</p>
+      <p className='text' >{text[lang].header2}</p>
       {
         demo ?
         <>
@@ -127,8 +157,8 @@ const Demo = (props) => {
             <CropFreeIcon />
           </Avatar>
         }
-        title="Your most recent QR generated on:"
-        subheader={handleDate(demo.data.uploaded)}
+        title={text[lang].title}
+        subheader={(lang === 'en') ? handleDate(demo.data.uploaded) : handleDateRu(demo.data.uploaded)}
       />
       <a href={demo.data.qr_code} target="_blank"><CardMedia
         className={classes.media}
@@ -141,7 +171,7 @@ const Demo = (props) => {
       id='resend-qr'
       style={{marginTop: '15%'}}
       disabled
-      >Re-send this QR Code to my email (Disabled in Demo mode)
+      >{text[lang].resend}
       </ Button >
       </CardContent>
       <CardActions disableSpacing>
@@ -160,7 +190,7 @@ const Demo = (props) => {
         <CardContent>
           <iframe className='pdf' src={demo.data.pdf_file} ></iframe>
           <br />
-          <a href={demo.data.pdf_file} target="_blank">Open file in new window</a>
+          <a href={demo.data.pdf_file} target="_blank">{text[lang].resend}</a>
         </CardContent>
       </Collapse>
     </Card>
@@ -184,7 +214,7 @@ const Demo = (props) => {
         onClick={loader}
         type="submit"
       >
-        Upload new file
+        {text[lang].uploadFile}
       </Button>
       </form>
     </>
@@ -198,5 +228,10 @@ const Demo = (props) => {
 }
 
 
-export default Demo;
+
+const mapStateToProps = function(state) {
+  return state
+}
+
+export default connect(mapStateToProps)(Demo);
 

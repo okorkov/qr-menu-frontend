@@ -50,7 +50,27 @@ function SIngleFileComponent(props) {
 
   const [lastFile, setLastFile] = React.useState({hasFile: false, pdfFile: null, qrCode: null, uploaded: 'unknown'});
   const [isDataLoaded, setIsDataLoaded] = React.useState(false);
-  const [showResendButton, setShowResendButton] = React.useState(true)
+  const [showResendButton, setShowResendButton] = React.useState(true);
+
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      description: "A single file upload will generate a QR code specifically for the file you wish to upload. When using this feature you won't be able to change the document that is attached to the already generated code. If you need to have only one QR code and be able to swap files attached to it please use ",
+      link1: 'MANAGE QR MENU',
+      noFile: 'No files uploaded yet',
+      recentQr: 'Your most recent QR generated on:',
+      resend: 'Re-send this QR Code to my email',
+      openFile: 'Open file in new window',
+    },
+    ru: {
+      description: 'Для каждого загруженного файла будет сгенерирован новый уникальный QR код, замена файлов ассоциированных с кодом невозможна. Если вам нужен только 1 код с возможностью менять файлы ассоциированные с ним, пожалуйста используйте ',
+      link1: 'QR МЕНЮ ПАНЕЛЬ',
+      noFile: 'Файл не загружен',
+      recentQr: 'Дата загрузки файла',
+      resend: 'Отправить QR на мой имейл адрес',
+      openFile: 'Открыть Файл',
+    }
+  }
 
   const checkLoginStatus = (props) => {
     if (!JSON.parse(localStorage.getItem('token'))) {
@@ -112,13 +132,26 @@ function SIngleFileComponent(props) {
     }
   }
 
+  const handleDateRu = (dateFromDB) => {
+    if (dateFromDB){
+      let getDate = dateFromDB.split('T');
+      let fullDate = getDate[0].split('-')
+      return `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
+    } else {
+      return 'unknown'
+    }
+  }
+
   return (
     <>
     <SubNavbar />
-    <p className="text menu-description">A single file upload will generate a QR code specifically for the file you wish to upload. 
-      When using this feature you won't be able to change the document that is attached to the already generated code. 
-      If you need to have only one QR code and be able to swap files attached to it please use <Link to="/qr-menu" style={{color: 'white', textDecoration: 'underline'}}>MANAGE QR MENU</Link>.
-    </p>
+    {
+      !props.menus.lastFile.has_file ?
+      <p className="text menu-description">{text[lang].description}<Link to="/qr-menu" style={{color: 'white', textDecoration: 'underline'}}>{text[lang].link1}</Link>.
+      </p>
+      :
+      null
+    }
     <div className='dashboard'>
 
       {
@@ -128,7 +161,7 @@ function SIngleFileComponent(props) {
         </div>
         :
           !props.menus.lastFile.has_file ?
-            <p className="text">No files uploaded yet</p>
+            <p className="text">{text[lang].noFile}</p>
           :
           <Card className={classes.root}>
             <CardHeader
@@ -137,8 +170,8 @@ function SIngleFileComponent(props) {
                   <CropFreeIcon />
                 </Avatar>
               }
-              title="Your most recent QR generated on:"
-              subheader={handleDate(props.menus.lastFile.uploaded)}
+              title={text[lang].recentQr}
+              subheader={(lang === 'en') ? handleDate(props.menus.lastFile.uploaded) : handleDateRu(props.menus.lastFile.uploaded)}
             />
             <a href={props.menus.lastFile.qr_code} target="_blank"><CardMedia
               className={classes.media}
@@ -152,7 +185,7 @@ function SIngleFileComponent(props) {
               style={{marginTop: '15%'}}
               onClick={(e) => handleResend(e)}
               disabled={!showResendButton}>
-              Re-send this QR Code to my email
+              {text[lang].resend}
             </ Button >
             </CardContent>
             <CardActions disableSpacing>
@@ -171,7 +204,7 @@ function SIngleFileComponent(props) {
               <CardContent>
                 <iframe className='pdf' src={props.menus.lastFile.pdf_file} ></iframe>
                 <br />
-                <a href={props.menus.lastFile.pdf_file} target="_blank">Open file in new window</a>
+                <a href={props.menus.lastFile.pdf_file} target="_blank">{text[lang].openFile}</a>
               </CardContent>
             </Collapse>
           </Card> 

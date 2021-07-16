@@ -15,7 +15,32 @@ import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css';
 
 
 
+
 const MenuComponent = (props) => {
+
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      description: "Manage QR Menu is a feature that will allow you to generate only one QR code and being able to change the file attached to it. This a great option to manage a restaurant menu and being able to seamlessly make changes during hours of service. If this is not working for you, please refer to a ",
+      link1: 'SINGLE FILE UPLOAD',
+      qr: 'Your QR Code',
+      resend: 'Re-send this QR Code to my email',
+      visitLink: 'Visit link',
+      noFile: ' No file uploaded yet',
+      noQr: "Seems like you don't have QR generated for you yet, go ahead a create one by clicking the button below:",
+      generateQr: 'Generate QR',
+    },
+    ru: {
+      description: "В QR Меню панели можно сгенерировать один код и менять файлы которые к нему привязаны. Все изменения вступают в силу моментально, что являеться идеальным инструментом для обновления меню бара или ресторана. Если эта опция вам не подходит, попробуйте ",
+      link1: 'ОДИНОЧНЫЕ ФАЙЛЫ',
+      qr: 'QR Код',
+      resend: 'Отправить QR на мой имейл адрес',
+      visitLink: 'Перейти на страницу с меню',
+      noFile: 'Файл не добавлен, пожалуйста загрузите файл',
+      noQr: "QR код не обнаружен, что бы продолжить нажмите 'Сгенерировать QR Код'",
+      generateQr: 'Сгенерировать QR Код',
+    }
+  }
 
   const [showResendButton, setShowResendButton] = React.useState(true)
   const [loadedPDF, setLoadedPDF] = React.useState(false)
@@ -70,23 +95,26 @@ const MenuComponent = (props) => {
       props.menus.isDataLoaded ?
         <>
         <SubNavbar />
-        <p className="text menu-description"> 
-        Manage QR Menu is a feature that will allow you to generate only one QR code 
-        and being able to change the file attached to it. This a great option to manage a 
-        restaurant menu and being able to seamlessly make changes during hours of service. If this is not working for you, please refer to a <Link to="/single-file" style={{color: 'white', textDecoration: 'underline'}}>SINGLE FILE UPLOAD</Link>.
-        </p>
+       {
+         !props.menus.menuFile ?
+          <p className="text menu-description"> 
+          {text[lang].description}<Link to="/single-file" style={{color: 'white', textDecoration: 'underline'}}>{text[lang].link1}</Link>.
+          </p>
+          :
+          null
+       }
         <div style={{textAlign: 'center', justifyContent: 'center', paddingTop: '5%'}}>
         {
           props.menus.menuQRLink ?
           <>
-            <p className='text'>Your QR Code</p>
+            <p className='text'>{text[lang].qr}</p>
             <a href={props.menus.menuQRLink} target="_blank"><img src={props.menus.menuQRLink}/></a>
             <br /><br />
             <form onSubmit={(e) => handleEmailResend(e)}>
             <Button variant="contained" color="primary"
               type="submit"
               disabled={!showResendButton}>
-              Re-send this QR Code to my email
+              {text[lang].resend}
             </ Button >
             </form>
               <br /><br />
@@ -103,17 +131,17 @@ const MenuComponent = (props) => {
                   <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/>
                 }
                 
-                <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>Visit link</p></a>
+                <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>{text[lang].visitLink}</p></a>
               </div>
               :
-              <p className="text"> No file uploaded yet</p>
+              <p className="text">{text[lang].noFile}</p>
             }
             <MenuUpload />
           </>
           :
           <>
-            <p className="text" style={{color: '#ffc107'}}>Seems like you don't have QR generated for you yet, go ahead a create one by clicking the button below:</p>
-            <button className="btn btn-success" onClick={handleGenerateQR}>Generate QR</button>
+            <p className="text" style={{color: '#ffc107'}}>{text[lang].noQr}</p>
+            <button className="btn btn-success" onClick={handleGenerateQR}>{text[lang].generateQr}</button>
           </>
         }
         </div>
