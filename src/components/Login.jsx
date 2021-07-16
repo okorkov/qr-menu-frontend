@@ -10,6 +10,22 @@ import Button from '@material-ui/core/Button';
 
 const Login = (props) => {
 
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      error: 'Email or Password is incorrect',
+      emailLabel: "Email",
+      passwordLabel: "Password",
+      loginButton: 'Login',
+    },
+    ru: {
+      error: 'Имейл или пароль введены неверно',
+      emailLabel: "Имейл адрес",
+      passwordLabel: "Пароль",
+      loginButton: 'Войти',
+    }
+  }
+
   const [login, setLogin] = React.useState({email: '', password: ''});
   const [renderError, setRenderError] = React.useState(false);
 
@@ -44,12 +60,12 @@ const Login = (props) => {
 
   return (
     <>
-      {renderError ? <ErrorMessage errors={{email: ["Email or Password is incorrect"]}}/> : null}
+      {renderError ? <ErrorMessage errors={{email: [text[lang].error]}}/> : null}
       <form className="form" onSubmit={(e) => handleLoginSubmit(e)}>
-        <TextField label="Email" type="email" value={login.email} name="email"  onChange={(e) => handleLoginInput(e)}/>
-        <TextField label="Password" type="password" value={login.password} name="password" onChange={(e) => handleLoginInput(e)}/>
+        <TextField label={text[lang].emailLabel} type="email" value={login.email} name="email"  onChange={(e) => handleLoginInput(e)}/>
+        <TextField label={text[lang].passwordLabel} type="password" value={login.password} name="password" onChange={(e) => handleLoginInput(e)}/>
         <br />
-        <Button variant="contained" color="primary" type='submit' onClick={loader}> Login </ Button >
+        <Button variant="contained" color="primary" type='submit' onClick={loader}> {text[lang].loginButton} </ Button >
       </form>
     </>
   );

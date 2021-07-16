@@ -28,9 +28,8 @@ const useStyles = makeStyles((theme) => ({
   },
   margin: {
     flexDirection: 'row',
-    
-  }
 
+  }
 }));
 
 const BootstrapInput = withStyles((theme) => ({
@@ -68,13 +67,32 @@ const BootstrapInput = withStyles((theme) => ({
   },
 }))(InputBase);
 
+
 function Navbar(props) {
   const classes = useStyles();
+
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      home: "Home",
+      about: 'About',
+      demo: "Demo",
+      contact: "Contact",
+      logout: "Logout"
+    },
+    ru: {
+      home: "Главная",
+      about: 'О Проекте',
+      demo: "Демо",
+      contact: "Контакт",
+      logout: "Выйти"
+    }
+  }
 
   const handleLogOut = () => {
     if(window.confirm('Are you sure you want to log out?')){
       props.dispatch(logOut())
-      localStorage.clear();
+      localStorage.removeItem('token');
       props.history.push('/')
     }
   }
@@ -93,17 +111,17 @@ function Navbar(props) {
           indicatorColor="primary"
           textColor="primary"
         >
-          <Tab label="Home" value='/' icon={<HomeIcon />} component={Link} to={props.menus.logged_in ? '/dashboard' : '/'} />
-          <Tab label="About" icon={<InfoIcon />} component={Link} to={'/about'}  />
+          <Tab label={text[lang].home} value='/' icon={<HomeIcon />} component={Link} to={props.menus.logged_in ? '/dashboard' : '/'} />
+          <Tab label={text[lang].about} icon={<InfoIcon />} component={Link} to={'/about'}  />
           {props.menus.logged_in ?
             null
             :
-            <Tab label="Demo" icon={<PersonPinIcon />} component={Link} to={'/demo'} />
+            <Tab label={text[lang].demo} icon={<PersonPinIcon />} component={Link} to={'/demo'} />
           }
-          <Tab label="Contact" icon={<ContactMailIcon />} component={Link} to={'/contact'} />
+          <Tab label={text[lang].contact} icon={<ContactMailIcon />} component={Link} to={'/contact'} />
           {
             props.menus.logged_in ?
-            <Tab label='Log out' icon={<ExitToAppIcon />} onClick={handleLogOut} />
+            <Tab label={text[lang].logout} icon={<ExitToAppIcon />} onClick={handleLogOut} />
             :
             null
           } 

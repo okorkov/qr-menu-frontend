@@ -28,6 +28,26 @@ function DraggableDialog(props) {
   const [signup, setSignup] = React.useState({email: '', password: '', password_confirmation: ''});
   const [renderError, setRenderError] = React.useState({hasErrors: false, errors: []});
 
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      signup: 'SIGN UP',
+      newAccount: 'Create a new account',
+      emailLabel: 'Email',
+      passwordLabel: 'Password',
+      passwordConfLabel: 'Password Confirmation',
+      register: 'Register',
+    },
+    ru: {
+      signup: 'СОЗДАТЬ АККАУНТ',
+      newAccount: 'Новый аккаунт',
+      emailLabel: 'Имейл',
+      passwordLabel: 'Пароль',
+      passwordConfLabel: 'Подтвердить пароль',
+      register: 'Зарегестрироваться',
+    }
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -79,7 +99,7 @@ function DraggableDialog(props) {
   return (
     <div style={{paddingBottom: '5%'}}>
       {renderError.hasErrors ? <ErrorMessage errors={renderError.errors}/> : null}
-      <Button variant="contained" color="primary" onClick={handleClickOpen}> SIGN UP  </ Button >
+      <Button variant="contained" color="primary" onClick={handleClickOpen}> {text[lang].signup}  </ Button >
       <Dialog
         open={open}
         onClose={handleClose}
@@ -87,22 +107,22 @@ function DraggableDialog(props) {
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Create a new account
+        {text[lang].newAccount}
         </DialogTitle>
         <form className="form-signup" >
         <DialogContent>
         
-        <TextField label="Email" type="email" value={signup.email} name="email"  onChange={(e) => handleSignupInput(e)}/>
+        <TextField label={text[lang].emailLabel} type="email" value={signup.email} name="email"  onChange={(e) => handleSignupInput(e)}/>
         <br />
-        <TextField label="Password" type="password" value={signup.password} name="password" onChange={(e) => handleSignupInput(e)}/>
+        <TextField label={text[lang].passwordLabel} type="password" value={signup.password} name="password" onChange={(e) => handleSignupInput(e)}/>
         <br />
-        <TextField label="Password Confirmation" type="password" value={signup.password_confirmation} name="password_confirmation" onChange={(e) => handleSignupInput(e)}/>
+        <TextField label={text[lang].passwordConfLabel} type="password" value={signup.password_confirmation} name="password_confirmation" onChange={(e) => handleSignupInput(e)}/>
         <br />
 
         </DialogContent>
         <DialogActions>
           <Button onClick={(e) => handleSignUp(e)} color="primary" type="submit">
-            Register
+          {text[lang].register}
           </Button>
         </DialogActions>
         </form>

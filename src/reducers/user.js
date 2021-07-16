@@ -55,6 +55,7 @@ export default (state = defaultState, action) => {
 
     case 'LOGOUT':
       return {
+        ...state,
         logged_in: false,
         isDataLoaded: false,
         lastFile: { has_file: false, pdf_file: null, qr_code: null, uploaded: null },
