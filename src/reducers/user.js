@@ -98,6 +98,12 @@ export default (state = defaultState, action) => {
         lang: action.payload
       }
 
+    case 'GENERATE_QR_LINK':
+      return {
+        ...state,
+        qrLinks: [...state.qrLinks, action.payload]
+      }
+
     default:
       return state;
 

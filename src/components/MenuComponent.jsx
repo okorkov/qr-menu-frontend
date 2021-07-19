@@ -120,7 +120,7 @@ const MenuComponent = (props) => {
               <br /><br />
             {
               props.menus.menuFile ?
-              <div style={{ textAlign: 'center', justifyContent: 'center', width:"60%", display: 'inline-block'}}>
+              <div style={{ textAlign: 'center', justifyContent: 'center', width:"80%", display: 'inline-block'}}>
                 <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
                   <Viewer fileUrl={props.menus.menuFile} className='menu-render' onDocumentLoad={() => setLoadedPDF(true)}/>
                 </Worker>

@@ -20,3 +20,10 @@ export const uploadMenu = (payload) => {
     payload
   }
 }
+
+export const generateQRLink = (payload) => {
+  return {
+    type: "GENERATE_QR_LINK",
+    payload
+  }
+}
