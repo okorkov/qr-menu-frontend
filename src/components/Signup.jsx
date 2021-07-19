@@ -112,11 +112,11 @@ function DraggableDialog(props) {
         <form className="form-signup" >
         <DialogContent>
         
-        <TextField label={text[lang].emailLabel} type="email" value={signup.email} name="email"  onChange={(e) => handleSignupInput(e)}/>
+        <TextField label={text[lang].emailLabel} type="email" value={signup.email} name="email"  onChange={(e) => handleSignupInput(e)} style={{minWidth: '30rem'}}/>
         <br />
-        <TextField label={text[lang].passwordLabel} type="password" value={signup.password} name="password" onChange={(e) => handleSignupInput(e)}/>
+        <TextField label={text[lang].passwordLabel} type="password" value={signup.password} name="password" onChange={(e) => handleSignupInput(e)} style={{minWidth: '30rem'}}/>
         <br />
-        <TextField label={text[lang].passwordConfLabel} type="password" value={signup.password_confirmation} name="password_confirmation" onChange={(e) => handleSignupInput(e)}/>
+        <TextField label={text[lang].passwordConfLabel} type="password" value={signup.password_confirmation} name="password_confirmation" onChange={(e) => handleSignupInput(e)} style={{minWidth: '30rem'}}/>
         <br />
 
         </DialogContent>
