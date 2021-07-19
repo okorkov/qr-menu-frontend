@@ -293,6 +293,10 @@ and (min-width : 481px) {
     font-family: "Optima";
   }
 
+  .home-description {
+    max-width: 70%;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
