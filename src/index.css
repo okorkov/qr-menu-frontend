@@ -16,9 +16,10 @@ and (min-width : 481px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #232526;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #28282B;
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #28282B, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #28282B, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
   }
 
@@ -34,15 +35,6 @@ and (min-width : 481px) {
   
   .home-link {
     color: white;
-  }
-
-  :hover.home-link {
-    color: #ffc107;
-    text-decoration: underline;
-  }
-
-  .MuiInput-underline:after {
-    border-bottom: 2px solid #ffc107 !important;
   }
 
   .centered {
@@ -82,13 +74,7 @@ and (min-width : 481px) {
     padding: 20px;
     margin-top: 30px;
     min-width: 30rem;
-  }
-
-  .MuiInputBase-input {
-    /* min-width: 30rem!important; */
-  }
-
-  
+  }  
 
   .alert {
     font: 36px;
@@ -134,8 +120,10 @@ and (min-width : 481px) {
   }
 
   footer {
-    padding-top: 5%;
+    padding-top: 2%;
     padding-bottom: 2%;
+    margin-top: 5%;
+    background: #353935;
   }
 
   .menu {
@@ -241,7 +229,7 @@ and (min-width : 481px) {
   }
 
   .MuiAppBar-colorPrimary {
-    background-color: #232526 !important;
+    background-color: #353935 !important;
   }
 
   .MuiTab-textColorPrimary {
@@ -326,9 +314,9 @@ and (max-device-width : 815px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #232526;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #28282B; /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
   }
 
@@ -346,10 +334,6 @@ and (max-device-width : 815px) {
     color: white;
   }
 
-  :hover.home-link {
-    color: #ffc107;
-    text-decoration: underline;
-  }
 
   .MuiInput-underline:after {
     border-bottom: 2px solid #e5f65f !important;
@@ -393,10 +377,6 @@ and (max-device-width : 815px) {
     padding: 20px;
     margin-top: 30px;
     min-width: 30rem;
-  }
-
-  .MuiInputBase-input {
-    /* min-width: 15rem!important; */
   }
 
   .MuiDialogActions-root {
@@ -550,7 +530,7 @@ and (max-device-width : 815px) {
   }
 
   .MuiAppBar-colorPrimary {
-    background-color: #232526 !important;
+    background-color: #353935 !important;
   }
 
   .MuiTab-textColorPrimary {

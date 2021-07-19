@@ -71,20 +71,11 @@ const Demo = (props) => {
   const [demo, setDemo] = React.useState({dataLoaded: false, data: {}});
   const [expanded, setExpanded] = React.useState(true);
 
-  const checkPath = () => {
-    if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
-    } else {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
-    }
-  }
-
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
   
   useEffect(() => {
-    checkPath()
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/demo`)
     .then(response => setDemo({dataLoaded: true, data: response.data}))
     .catch(error => alert(error.message))

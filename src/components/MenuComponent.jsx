@@ -51,16 +51,7 @@ const MenuComponent = (props) => {
     }
   }
 
-  const checkPath = () => {
-    if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
-    } else {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
-    }
-  }
-
   useEffect(() => {
-    checkPath()
     checkLoginStatus(props)
     if(document.getElementsByClassName('viewer-spinner')[0]){
       document.getElementsByClassName('viewer-spinner')[0].remove()

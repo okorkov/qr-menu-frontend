@@ -13,17 +13,8 @@ function Dashboard(props) {
     }
   }
 
-  const checkPath = () => {
-    if(window.location.pathname === '/dashboard' && document.getElementsByClassName('footer')[0]) {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
-    } else {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
-    }
-  }
-
   useEffect(() => {
     checkLoginStatus(props)
-    checkPath()
   });
 
   return (

@@ -85,10 +85,6 @@ function DraggableDialog(props) {
     }
   }
 
-  const loader = () => {
-    $('#loader').show(0)
-  }
-
   const handleSignUp = (e) => {
     e.preventDefault();
     setOpen(false);

@@ -59,14 +59,6 @@ const Qrlinks = (props) => {
     .catch(error => alert(error.message));
   }
 
-  const checkPath = () => {
-    if(window.location.pathname === '/qr-link' && document.getElementsByClassName('footer')[0]) {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
-    } else {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
-    }
-  }
-
   const handleInput = (e) => {
     setInput({
       [e.target.name]: e.target.value
@@ -80,7 +72,6 @@ const Qrlinks = (props) => {
   }
 
   useEffect(() => {
-    checkPath()
     checkLoginStatus(props)
   });
 

@@ -26,16 +26,7 @@ const Home = (props) => {
     }
   }
 
-  const checkPath = () => {
-    if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
-    } else {
-      document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
-    }
-  }
-
   useEffect(() => {
-    checkPath()
     checkLoginStatus(props)
   });
 
