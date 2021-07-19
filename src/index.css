@@ -11,7 +11,7 @@ and (min-width : 481px) {
   body {
     margin: 0;
     padding: 0px;
-    font-family: "Raleway";
+    font-family: "Optima";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
@@ -54,6 +54,8 @@ and (min-width : 481px) {
   .welcome-text {
     font-size: 34px;
     color:white;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .form {
@@ -252,6 +254,7 @@ and (min-width : 481px) {
     justify-content: center;
     text-align: center;
     padding-top: 10%;
+    padding-bottom: 25%;
   }
 
   .menu-render {
@@ -286,6 +289,10 @@ and (min-width : 481px) {
     width: 50%;
   }
 
+  .MuiTab-wrapper {
+    font-family: "Optima";
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -309,7 +316,7 @@ and (max-device-width : 815px) {
   body {
     margin: 0;
     padding: 0px;
-    font-family: "Raleway";
+    font-family: "Optima";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
@@ -356,6 +363,8 @@ and (max-device-width : 815px) {
   .welcome-text {
     font-size: 34px;
     color:white;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .form {
@@ -431,8 +440,10 @@ and (max-device-width : 815px) {
   }
 
   footer {
-    padding-top: 5%;
+    padding-top: 2%;
     padding-bottom: 2%;
+    margin-top: 5%;
+    background: #353935;
   }
 
   .hidden {
@@ -553,6 +564,7 @@ and (max-device-width : 815px) {
     justify-content: center;
     text-align: center;
     padding-top: 10%;
+    padding-bottom: 100%;
   }
 
   .menu-render {
@@ -585,10 +597,9 @@ and (max-device-width : 815px) {
   .form {
     width: 95%;
   }
-/* 
-  .iframe-full-page {
-    overflow: auto!important; 
-    -webkit-overflow-scrolling: touch!important;
-  } */
+
+  .MuiTab-wrapper {
+    font-family: "Optima";
+  }
 
 }

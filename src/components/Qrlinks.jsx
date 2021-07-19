@@ -13,6 +13,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import $ from 'jquery';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles({
   table: {
@@ -53,9 +55,11 @@ const Qrlinks = (props) => {
 
   const handleInputSubmit = (e) => {
     e.preventDefault();
+    $('#loader').show(0)
     e.target.value = '';
     axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links`, {input: input.link, token: JSON.parse(localStorage.getItem('token'))})
     .then(response => props.dispatch(generateQRLink(response.data)))
+    .then(response => $('#loader').hide(0))
     .catch(error => alert(error.message));
   }
 
@@ -77,48 +81,57 @@ const Qrlinks = (props) => {
 
 
   return (
-    <div>
-      <SubNavbar />
+    <>
       {
-        (props.menus.qrLinks.length === 0) ?
-        <p className="text menu-description">
-          {text[lang].description}
-        </p>
+        props.menus.isDataLoaded ?
+        <>
+          <SubNavbar />
+          {
+            (props.menus.qrLinks.length === 0) ?
+            <p className="text menu-description">
+              {text[lang].description}
+            </p>
+            :
+            null
+          }
+    
+          <form className="form" onSubmit={(e) => handleInputSubmit(e)} style={{marginTop: '5%'}}>
+            <TextField label={text[lang].enterLink} type="text" value={input.link} name="link"  onChange={(e) => handleInput(e)}/>
+            <br />
+            <Button variant="contained" color="primary" type='submit' > {text[lang].generateQr} </ Button >
+          </form>
+          <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', paddingTop: '5%'}}>
+            <TableContainer component={Paper} style={{width: '90%'}}>
+              <Table className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell className={classes.center}>{text[lang].webAddress}</TableCell>
+                    <TableCell className={classes.center} align="right">{text[lang].qrLink}</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {(props.menus.qrLinks.length > 0 ? props.menus.qrLinks : [{address: text[lang].na, qr_code: text[lang].na}]).slice(0).reverse().map((row) => (
+                    <TableRow key={row.address}>
+                      <TableCell className={classes.center} component="th" scope="row">
+                        {row.address === text[lang].na ? text[lang].na : <a href={row.address} target="_blank">{(row.address.length > 40) ? `${row.address.slice(0, 30)}...` : row.address}</a>}
+                      </TableCell>
+                      <TableCell className={classes.center} align="right">
+                        {row.qr_code === text[lang].na ? text[lang].na : <a href={row.qr_code} target="_blank">{text[lang].openLink}</a>}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+          </>
         :
-        null
+        <div className='cp'>
+          <CircularProgress  style={{color: '#ffc107'}} />
+        </div>
       }
-
-      <form className="form" onSubmit={(e) => handleInputSubmit(e)} style={{marginTop: '5%'}}>
-        <TextField label={text[lang].enterLink} type="text" value={input.link} name="link"  onChange={(e) => handleInput(e)}/>
-        <br />
-        <Button variant="contained" color="primary" type='submit' > {text[lang].generateQr} </ Button >
-      </form>
-      <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', paddingTop: '5%'}}>
-        <TableContainer component={Paper} style={{width: '90%'}}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell className={classes.center}>{text[lang].webAddress}</TableCell>
-                <TableCell className={classes.center} align="right">{text[lang].qrLink}</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {(props.menus.qrLinks.length > 0 ? props.menus.qrLinks : [{address: text[lang].na, qr_code: text[lang].na}]).map((row) => (
-                <TableRow key={row.address}>
-                  <TableCell className={classes.center} component="th" scope="row">
-                    {row.address === text[lang].na ? text[lang].na : <a href={row.address} target="_blank">{(row.address.length > 40) ? `${row.address.slice(0, 30)}...` : row.address}</a>}
-                  </TableCell>
-                  <TableCell className={classes.center} align="right">
-                    {row.qr_code === text[lang].na ? text[lang].na : <a href={row.qr_code} target="_blank">{text[lang].openLink}</a>}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    </div>
-
+      
+    </>
   );
 }
 

@@ -9,12 +9,12 @@ const Home = (props) => {
   const lang = props.menus.lang
   const text = {
     en: {
-      welcome: 'Welcome',
+      welcome: 'QR-menu.rest',
       signinMessage: 'Sign in or sign up to upload your pdf menu and get a QR code for it for free',
       or: 'Or',
     },
     ru: {
-      welcome: 'Добро Пожаловать',
+      welcome: 'QR-menu.rest',
       signinMessage: 'Чтобы продолжить зайдите в свой аккаунт или зарегистрируйте новый',
       or: 'Или',
     }
