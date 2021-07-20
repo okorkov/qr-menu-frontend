@@ -181,7 +181,7 @@ const Demo = (props) => {
         <CardContent>
           <iframe className='pdf' src={demo.data.pdf_file} ></iframe>
           <br />
-          <a href={demo.data.pdf_file} target="_blank">{text[lang].resend}</a>
+          <a href={demo.data.pdf_file} target="_blank">{text[lang].openFile}</a>
         </CardContent>
       </Collapse>
     </Card>
