@@ -202,7 +202,7 @@ function SIngleFileComponent(props) {
       }
 
     </div>
-    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>
+    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%', paddingBottom: '12%'}}>
     <FileUpload setLastFile={setLastFile}/>
     </div>
     </>

@@ -130,10 +130,10 @@ const MenuComponent = (props) => {
             <MenuUpload />
           </>
           :
-          <>
+          <div style={{paddingBottom: '20%'}}>
             <p className="text" style={{color: '#ffc107'}}>{text[lang].noQr}</p>
             <button className="btn btn-success" onClick={handleGenerateQR}>{text[lang].generateQr}</button>
-          </>
+          </div>
         }
         </div>
         </>
