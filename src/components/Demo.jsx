@@ -50,7 +50,7 @@ const Demo = (props) => {
   const text = {
     en: {
       header1: "This is a demo page, please don't use it for hosting your documents.",
-      header2: "Only 'Single File Upload' available on demo page, for QR menu please sign up to proceed.",
+      header2: "Only 'Single File Upload' available on demo page, for 'QR Menu' or 'QR Link' please sign up to proceed.",
       title: "Your most recent QR generated on:",
       resend: 'Re-send this QR Code to my email (Disabled in Demo mode)',
       openFile: 'Open file in new window',
@@ -58,7 +58,7 @@ const Demo = (props) => {
     },
     ru: {
       header1: "Это демо страница, пожалуйста не используйте сгенерированные тут QR коды так как они буду удалены.",
-      header2: "В демо режиме доступна только загрузка одиночных файлов. Для QR меню пожалуйста создайте аккаунт.",
+      header2: "В демо режиме доступна только загрузка одиночных файлов. Для 'QR меню' или 'QR на ссылку' пожалуйста создайте аккаунт.",
       title: "Последний QR загружен:",
       resend: 'Отправить QR на имейл (недоступно в демо режиме)',
       openFile: 'открыть файл в новом окне',

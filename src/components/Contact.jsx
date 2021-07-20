@@ -12,12 +12,14 @@ import { connect } from 'react-redux';
       title: 'Title...',
       content: 'Contents...',
       sendButton: 'Send',
+      message: 'Please reach out with any questions, concerns, or contribution proposals.'
     },
     ru: {
       sendAnEmail: "Связаться по имейл",
       title: 'Заголовок...',
       content: 'Сообщение...',
       sendButton: 'Отправить',
+      message: 'Используйте имейль для связи по любым вопросам и предложениям.'
     }
   }
 
@@ -40,12 +42,15 @@ import { connect } from 'react-redux';
   }
 
     return (
-      <div id="contact">
+      <>
+        <h3 className='text-title' style={{textAlign: 'center', justifyContent: 'center'}}>{text[lang].message}</h3>
+        <div id="contact">
           <label className="text">{text[lang].sendAnEmail}</label>
           <input className="input" type="email" maxlength="50" placeholder={text[lang].title} name="subject"  value={subject.subject} onChange={(e) => handleSubjectInput(e)}/>
           <textarea className="input" rows="8" maxlength="500" placeholder={text[lang].content} name="body"  value={body.body} onChange={(e) => handleBodyInput(e)}/>
           <a href={link} target="_blank" rel="noopener noreferrer"><button className="button btn">{text[lang].sendButton}</button></a>
         </div>
+      </>
       );
   }
 

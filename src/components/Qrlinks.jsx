@@ -94,13 +94,13 @@ const Qrlinks = (props) => {
             :
             null
           }
-    
+
           <form className="form" onSubmit={(e) => handleInputSubmit(e)} style={{marginTop: '5%'}}>
             <TextField label={text[lang].enterLink} type="text" value={input.link} name="link"  onChange={(e) => handleInput(e)}/>
             <br />
             <Button variant="contained" color="primary" type='submit' > {text[lang].generateQr} </ Button >
           </form>
-          <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', paddingTop: '5%'}}>
+          <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', paddingTop: '5%', paddingBottom: '7%'}}>
             <TableContainer component={Paper} style={{width: '90%'}}>
               <Table className={classes.table} aria-label="simple table">
                 <TableHead>
