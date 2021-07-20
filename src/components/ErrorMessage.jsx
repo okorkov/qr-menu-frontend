@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { Alert, AlertTitle } from '@material-ui/lab';
     
 const Message = (props) => {
   const [show, setShow] = useState(true)
@@ -18,11 +19,12 @@ const Message = (props) => {
   }
   return (
     <div>
-      {props.errors.email ? props.errors.email.map(err => <p className='alert'>{err}</p>) : null}
-      {props.errors.password ? props.errors.password.map(err => <p className='alert'>{err}</p>) : null}
-      {props.errors.password_confirmation ? props.errors.password_confirmation.map(err => <p className='alert'>{err}</p>) : null}
+      {props.errors.email ? props.errors.email.map(err => <Alert severity="error" style={{textAlign: 'center', justifyContent: 'center'}}> <AlertTitle>Error</AlertTitle>{err}</Alert>) : null}
+      {props.errors.password ? props.errors.password.map(err => <Alert severity="error" style={{textAlign: 'center', justifyContent: 'center'}}> <AlertTitle>Error</AlertTitle>{err}</Alert>) : null}
+      {props.errors.password_confirmation ? props.errors.password_confirmation.map(err => <Alert severity="error" style={{textAlign: 'center', justifyContent: 'center'}}> <AlertTitle>Error</AlertTitle>{err}</Alert>) : null}
     </div>
   )
 }
 
 export default Message;
+

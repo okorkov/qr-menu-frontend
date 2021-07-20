@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import SubNavbar from './SubNavbar';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import DashboardAccordion from './DashboardAccordion'
+
 
 function Dashboard(props) {
 
@@ -25,7 +25,7 @@ function Dashboard(props) {
       <>
       <SubNavbar />
       <div className='dashboard'>
-        <DashboardAccordion data={props.menus}/>
+        <p className='text'> Dashboard</p> 
       </div>
       </>
       :
