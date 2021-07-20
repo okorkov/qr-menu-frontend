@@ -51,10 +51,34 @@ const Home = (props) => {
     }
   }
 
+  const [number, setNumber] = React.useState(3);
+  
+  const getRandomNumber = () => {
+    let randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
+    if(randomNumber === number) {
+      if(randomNumber === number) {
+        return Math.floor(Math.random() * (4 - 1) + 1);
+      } else {
+        return Math.floor(Math.random() * (4 - 1) + 1);
+      }
+    } else {
+      return randomNumber;
+    }
+  }
+
   useEffect(() => {
     checkLoginStatus(props)
-  });
 
+    const interval = setInterval(
+      () => setNumber(getRandomNumber()),
+      3000
+    );
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  
   return (
     <div className="home-page">
       <p className="welcome-message ">{text[lang].welcome}</p>
@@ -65,7 +89,7 @@ const Home = (props) => {
       <Signup />
       <br />
       <div style={{display: 'flex', direction: 'column', justifyContent: 'center', flexWrap: 'wrap'}}>
-        <img src="/phone_view.png" alt="image" style={{zoom: '0.4'}}/>
+        <img src={`/phone_view${number}.png`} alt="image" style={{zoom: '0.4'}}/>
         <div className="home-description">
           <p className="text-title">{text[lang].whyUse}</p>
           <p className="text">{text[lang].offering}</p>
