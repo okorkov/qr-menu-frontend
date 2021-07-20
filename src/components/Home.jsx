@@ -105,7 +105,7 @@ const Home = (props) => {
         <p className="text">{text[lang].o5}</p>
         <p className="text">{text[lang].o6}</p>
         </div>
-        <img src="/qr_core.png" alt="image" style={{zoom: '0.7'}}/>
+        <img src="/qr_core.png" alt="image" style={{zoom: '0.7', border: '7px solid black'}}/>
       </div>
     </div>
   );

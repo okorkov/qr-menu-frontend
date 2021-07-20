@@ -125,7 +125,10 @@ and (min-width : 481px) {
     padding-top: 2%;
     padding-bottom: 2%;
     margin-top: 5%;
-    background: #353935;
+    background: #28282B;
+        -webkit-box-shadow: 10px 0px 10px black;
+    -moz-box-shadow: 10px 0px 10px black;
+    box-shadow: 10px 0px 10px black;
   }
 
   .menu {
