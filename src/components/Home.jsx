@@ -52,17 +52,16 @@ const Home = (props) => {
   }
 
   const [number, setNumber] = React.useState(3);
+
   
-  const getRandomNumber = () => {
-    let randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
-    if(randomNumber === number) {
-      if(randomNumber === number) {
-        return Math.floor(Math.random() * (4 - 1) + 1);
-      } else {
-        return Math.floor(Math.random() * (4 - 1) + 1);
-      }
-    } else {
-      return randomNumber;
+  const resetNumber = () => {
+    const currentNumber = parseInt(document.getElementById('iphone').src.split('.png')[0][document.getElementById('iphone').src.split('.png')[0].length - 1]);
+    if (currentNumber === 3) {
+      setNumber(2)
+    } else if (currentNumber === 2) {
+      setNumber(1)
+    } else if (currentNumber === 1) {
+      setNumber(3)
     }
   }
 
@@ -70,7 +69,7 @@ const Home = (props) => {
     checkLoginStatus(props)
 
     const interval = setInterval(
-      () => setNumber(getRandomNumber()),
+      () => resetNumber(),
       3000
     );
     return () => {
@@ -89,7 +88,7 @@ const Home = (props) => {
       <Signup />
       <br />
       <div style={{display: 'flex', direction: 'column', justifyContent: 'center', flexWrap: 'wrap'}}>
-        <img src={`/phone_view${number}.png`} alt="image" style={{zoom: '0.4'}}/>
+        <img src={`/phone_view${number}.png`} alt="image" style={{zoom: '0.4'}} id='iphone'/>
         <div className="home-description">
           <p className="text-title">{text[lang].whyUse}</p>
           <p className="text">{text[lang].offering}</p>
