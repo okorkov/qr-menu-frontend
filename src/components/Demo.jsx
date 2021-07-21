@@ -140,7 +140,7 @@ const Demo = (props) => {
       {
         demo ?
         <>
-    <div className='dashboard'>
+    <div className='dashboard' style={{display: 'flex'}}>
     <Card className={classes.root}>
       <CardHeader
         avatar={
