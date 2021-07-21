@@ -288,7 +288,8 @@ and (min-width : 481px) {
   }
 
   .form {
-    width: 50%;
+    width: 40%;
+    max-width: 700px;
   }
 
   .MuiTab-wrapper {
@@ -374,7 +375,7 @@ and (max-device-width : 815px) {
   }
 
   .form {
-    max-width: 100%;
+    max-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
