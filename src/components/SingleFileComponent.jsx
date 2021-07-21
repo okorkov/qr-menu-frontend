@@ -143,7 +143,7 @@ function SIngleFileComponent(props) {
       :
       null
     }
-    <div className='dashboard'>
+    <div className='dashboard' style={{display: 'flex'}}>
 
       {
         !props.menus.isDataLoaded ?

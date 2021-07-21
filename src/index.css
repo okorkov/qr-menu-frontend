@@ -87,7 +87,6 @@ and (min-width : 481px) {
     text-align: center;
     justify-content: center;
     margin-top: 5%;
-    display: flex;
   }
 
   .text {
