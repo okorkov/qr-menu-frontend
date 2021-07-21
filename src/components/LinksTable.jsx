@@ -128,7 +128,7 @@ function LinksTable(props) {
           ).slice(0).reverse().map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
-                <a href={row.address}>{row.address}</a>
+                <a href={row.address}>{(row.address.length > 40) ? `${row.address.slice(0, 30)}...` : row.address}</a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
                 <a href={row.qr_code} target="_blank"><img src={row.qr_code} style={{width:'40px', height:'40px'}}/></a>

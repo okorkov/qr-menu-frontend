@@ -107,10 +107,10 @@ function SMTable(props) {
   const lang = props.menus.lang
   const text = {
     en: {
-      
+      viewFile: 'View File',
     },
     ru: {
-
+      viewFile: 'Открыть Файл',
     }
   }
 
@@ -144,7 +144,7 @@ function SMTable(props) {
           ).slice(0).reverse().map((row) => (
             <TableRow key={row.address} >
               <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
-                <a href={row.link} target="_blank">View File</a>
+                <a href={row.link} target="_blank">{text[lang].viewFile}</a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
                 <a href={row.qr_code_link} target="_blank"><img src={row.qr_code_link} style={{width:'40px', height:'40px'}}/></a>

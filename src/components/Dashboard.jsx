@@ -24,10 +24,20 @@ function Dashboard(props) {
   const lang = props.menus.lang
   const text = {
     en: {
-
+      singleFile: 'Single File Upload',
+      qrForLink: 'QR FOR A LINK',
+      qrMenu: 'QR MENU',
+      noQr: "QR Code hasn't been generated yet.",
+      viewFile: 'View File',
+      noFile: 'No file attached yet',
     },
     ru: {
-
+      singleFile: 'Одиночных Файлов',
+      qrForLink: 'QR-ов на ссылку',
+      qrMenu: 'QR Меню',
+      noQr: "QR код еще не был сгенерирован.",
+      viewFile: 'Открыть Файл',
+      noFile: 'Файл не был добавлен',
     }
   }
 
@@ -40,21 +50,21 @@ function Dashboard(props) {
       <>
       <SubNavbar />
       <div className='dashboard'>
-        <div style={{display: 'flex', direction: 'column', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
-          <div  style={{marginBottom: '2rem'}}>
-            <Link to="/single-file" style={{textDecoration: 'none'}}>
+        <div style={{display: 'flex', direction: 'column', justifyContent: 'space-evenly', flexWrap: 'wrap', paddingBottom: '2rem', width:'100%'}}>
+          <div className="mobile-table">
+            <Link to="/single-file" style={{textDecoration: 'none',}}>
               <Button
                 variant="contained"
                 color={props.menus.allFiles.length > 0 ? "primary" : "secondary"}
                 startIcon={JSON.stringify(props.menus.allFiles.length)}
                 style={{zoom: '1.8', minWidth: '12rem', marginBottom: '2rem'}}
                 >
-              Single File Upload
+              {text[lang].singleFile}
               </Button>
             </Link>
             <SMTable data={props.menus.allFiles}/>
           </div>
-          <div>
+          <div className="mobile-table">
             <Link to="/qr-link" style={{textDecoration: 'none'}}>
               <Button
                 variant="contained"
@@ -62,10 +72,41 @@ function Dashboard(props) {
                 startIcon={JSON.stringify(props.menus.qrLinks.length)}
                 style={{zoom: '1.8', minWidth: '12rem', marginBottom: '2rem'}}
                 >
-                QR FOR A LINK
+                {text[lang].qrForLink}
               </Button>
             </Link>
             <LinksTable data={props.menus.qrLinks}/>
+          </div>
+        </div>
+      </div>
+      <div style={{justifyContent: 'center', textAlign: 'center'}}>
+      <Link to="/qr-menu" style={{textDecoration: 'none'}}>
+          <Button
+          variant="contained"
+          color={props.menus.menuQRLink ? "primary" : "secondary"}
+          style={{zoom: '1.8', minWidth: '12rem', marginBottom: '2rem'}}
+          >
+            {text[lang].qrMenu}
+          </Button>
+        </Link>
+        <div style={{justifyContent: 'center', textAlign: 'center'}}>
+          {
+            props.menus.menuQRLink ?
+            <a href={props.menus.menuQRLink} target="_blank"><img src={props.menus.menuQRLink} style={{width:'300px', height:'300px'}}/></a>
+            :
+            <>
+              <img src='https://www.qrcodepress.com/wp-content/uploads/2014/09/QR-code-detective-when-not-to-use.jpg' style={{width:'200px', height:'200px', borderRadius: '50%'}}/>
+              <br /> <br />
+              <p className="text">{text[lang].noQr}</p>
+            </>
+          }
+          <div style={{paddingTop: '2%'}}>
+            {
+              props.menus.menuFile ?
+              <p className="text"><a href={props.menus.domainLink} target="_blank">{text[lang].viewFile}</a></p>
+              :
+              <p className="text">{text[lang].noFile}</p>
+            }
           </div>
         </div>
       </div>

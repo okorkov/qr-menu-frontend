@@ -611,4 +611,9 @@ and (max-device-width : 815px) {
     font-family: "Optima";
   }
 
+  .mobile-table {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
 }
