@@ -30,14 +30,16 @@ const RenderMenu = (props) => {
     setLoadedPDF(true)
   }
 
+
   const handleSpinner = () => {
     if(document.getElementsByClassName('viewer-spinner')[0]){
       document.getElementsByClassName('viewer-spinner')[0].remove()
     }
   }
   
+  
   return (
-    <div>
+    <div >
     {
       state.isDataLoaded ?
       <div>
