@@ -87,16 +87,17 @@ const Demo = (props) => {
     .catch(error => alert(error.message))
   }, []);
 
-  const handleDemoUpload = (e) => {
-    e.preventDefault();
-    if (file.size > 5e+6) {
+  const handleImageChange = (e) => {
+    if (e.target.files[0].size > 5e+6) {
       alert("File is too big! Keep it under 5 MB");
       e.target.childNodes[0].value = ''
       $('#loader').hide(0)
       return null;
     } else {
+      loader()
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("file", e.target.files[0]);
+      e.target.value = '';
       fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/demo_upload`, {
         method: 'POST',
         body: formData
@@ -107,12 +108,6 @@ const Demo = (props) => {
       .then(response => $('#loader').hide(0))
       .catch(err => alert(err.message))
     }
-  }
-
-  const [file, setFile] = React.useState(null);
-
-  const handleImageChange = (e) => {
-    setFile(e.target.files[0]);
   }
 
   const loader = () => {
@@ -191,7 +186,7 @@ const Demo = (props) => {
 
     <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>
     <>
-      <form onSubmit={(e) => handleDemoUpload(e)}>
+      <form>
         <input
         type="file" 
         className="btn btn-outline-warning" 
@@ -200,16 +195,6 @@ const Demo = (props) => {
         required
         onChange={(e) => handleImageChange(e)}/>
         <br /> <br />
-        <Button
-        variant="contained"
-        color="default"
-        className={classes.button}
-        startIcon={<CloudUploadIcon />}
-        onClick={loader}
-        type="submit"
-      >
-        {text[lang].uploadFile}
-      </Button>
       </form>
     </>
     </div>

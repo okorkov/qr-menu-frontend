@@ -17,23 +17,18 @@ const useStyles = makeStyles((theme) => ({
 const MenuUpload = (props) => {
 
   const classes = useStyles();
-  const [file, setFile] = React.useState(null);
 
   const handleImageChange = (e) => {
-    setFile(e.target.files[0]);
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (file.size > 5e+6) {
+    if (e.target.files[0].size > 5e+6) {
       alert("File is too big! Keep it under 5 MB");
       e.target.childNodes[0].value = ''
       return null;
     }
     $('#loader').show(0)
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("file", e.target.files[0]);
     formData.append("token", JSON.parse(localStorage.getItem('token')));
+    e.target.value = '';
     fetch(`${process.env.REACT_APP_BASE_URL}/upload_file`, {
       method: 'POST',
       body: formData
@@ -45,9 +40,10 @@ const MenuUpload = (props) => {
     .catch(err => alert(err.message))
   }
 
+
   return (
     <>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form >
         <input
         type="file" 
         className="btn btn-outline-warning" 
@@ -56,15 +52,6 @@ const MenuUpload = (props) => {
         required
         onChange={(e) => handleImageChange(e)}/>
         <br /> <br />
-        <Button
-        variant="contained"
-        color="default"
-        className={classes.button}
-        startIcon={<CloudUploadIcon />}
-        type="submit"
-      >
-        {(props.menus.lang === 'en') ? 'Upload new file' : 'Загрузить новый файл'}
-      </Button>
       </form>
     </>
   );
