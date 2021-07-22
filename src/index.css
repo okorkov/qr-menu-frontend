@@ -636,4 +636,8 @@ and (max-device-width : 815px) {
     margin-bottom: 10%;
   }
 
+  .qr-mobile {
+    width: 100%;
+  }
+
 }

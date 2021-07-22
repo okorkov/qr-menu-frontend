@@ -6,11 +6,9 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import { red } from '@material-ui/core/colors';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import axios from 'axios';
@@ -143,7 +141,7 @@ function SIngleFileComponent(props) {
       :
       null
     }
-    <div className='dashboard' style={{display: 'flex'}}>
+    <div className='dashboard'>
 
       {
         !props.menus.isDataLoaded ?
@@ -154,55 +152,55 @@ function SIngleFileComponent(props) {
           !props.menus.lastFile.has_file ?
             <p className="text">{text[lang].noFile}</p>
           :
-          <Card className={classes.root}>
-            <CardHeader
-              avatar={
-                <Avatar aria-label="recipe" className={classes.avatar}>
-                  <CropFreeIcon />
-                </Avatar>
-              }
-              title={text[lang].recentQr}
-              subheader={(lang === 'en') ? handleDate(props.menus.lastFile.uploaded) : handleDateRu(props.menus.lastFile.uploaded)}
-            />
-            <a href={props.menus.lastFile.qr_code} target="_blank"><CardMedia
-              className={classes.media}
-              image={props.menus.lastFile.qr_code}
-              title="QR Code"
-            />
-            </a>
-            <CardContent>
-            <Button variant="contained" color="primary"
-              id='resend-qr'
-              style={{marginTop: '15%'}}
-              onClick={(e) => handleResend(e)}
-              disabled={!showResendButton}>
-              {text[lang].resend}
-            </ Button >
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <>
+            <Card className='qr-card'>
+              <CardHeader
+                avatar={
+                  <Avatar aria-label="recipe" className={classes.avatar}>
+                    <CropFreeIcon />
+                  </Avatar>
+                }
+                title={text[lang].recentQr}
+                subheader={(lang === 'en') ? handleDate(props.menus.lastFile.uploaded) : handleDateRu(props.menus.lastFile.uploaded)}
+              />
+              <a href={props.menus.lastFile.qr_code} target="_blank"><CardMedia
+                className={classes.media}
+                image={props.menus.lastFile.qr_code}
+                title="QR Code"
+              />
+              </a>
               <CardContent>
-                <iframe className='pdf' src={props.menus.lastFile.pdf_file} ></iframe>
-                <br />
-                <a href={props.menus.lastFile.pdf_file} target="_blank">{text[lang].openFile}</a>
+              <Button variant="contained" color="primary"
+                id='resend-qr'
+                style={{marginTop: '15%'}}
+                onClick={(e) => handleResend(e)}
+                disabled={!showResendButton}>
+                {text[lang].resend}
+              </ Button >
               </CardContent>
-            </Collapse>
-          </Card> 
+              <CardActions disableSpacing>
+                <IconButton
+                  className={clsx(classes.expand, {
+                    [classes.expandOpen]: expanded,
+                  })}
+                  onClick={handleExpandClick}
+                  aria-expanded={expanded}
+                  aria-label="show more"
+                >
+                </IconButton>
+              </CardActions>
+            </Card> 
+              <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'2%'}}>
+              <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                <iframe src={props.menus.lastFile.pdf_file} className="img" style={{height: '67%', width: '87.9%', marginLeft: '2px'}}/>
+              </div>
+            </div>
+            <a href={props.menus.lastFile.pdf_file} target="_blank">{text[lang].openFile}</a>
+          </>
       }
 
     </div>
-    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%', paddingBottom: '12%'}}>
+    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%', paddingBottom: '2%'}}>
     <FileUpload setLastFile={setLastFile}/>
     </div>
     </>

@@ -99,7 +99,7 @@ const MenuComponent = (props) => {
           props.menus.menuQRLink ?
           <>
             <p className='text'>{text[lang].qr}</p>
-            <a href={props.menus.menuQRLink} target="_blank"><img src={props.menus.menuQRLink}/></a>
+            <a href={props.menus.menuQRLink} target="_blank"><img className="qr-mobile" src={props.menus.menuQRLink}/></a>
             <br /><br />
             <form onSubmit={(e) => handleEmailResend(e)}>
             <Button variant="contained" color="primary"
@@ -111,17 +111,15 @@ const MenuComponent = (props) => {
               <br /><br />
             {
               props.menus.menuFile ?
-              <div style={{ textAlign: 'center', justifyContent: 'center', width:"80%", display: 'inline-block'}}>
-                <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
+              <div style={{ textAlign: 'center', justifyContent: 'center', width:"100%", display: 'inline-block'}}>
+                {/* <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
                   <Viewer fileUrl={props.menus.menuFile} className='menu-render' onDocumentLoad={() => setLoadedPDF(true)}/>
-                </Worker>
-                {
-                  loadedPDF ?
-                  null
-                  :
-                  <iframe src={props.menus.menuFile} width={window.innerWidth / 1.5} className="render-iframe-menu" allowfullscreen/>
-                }
-                
+                </Worker> */}
+                <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'2%'}}>
+                  <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                    <iframe src={props.menus.menuFile} className="img" style={{height: '67%', width: '87.9%', marginLeft: '2px'}}/>
+                  </div>
+                </div>
                 <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>{text[lang].visitLink}</p></a>
               </div>
               :

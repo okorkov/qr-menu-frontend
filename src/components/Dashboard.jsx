@@ -57,7 +57,7 @@ function Dashboard(props) {
                 variant="contained"
                 color={props.menus.allFiles.length > 0 ? "primary" : "secondary"}
                 startIcon={JSON.stringify(props.menus.allFiles.length)}
-                style={{zoom: '1.8', minWidth: '12rem', marginBottom: '2rem'}}
+                style={{zoom: '1.8', minWidth: '12rem', marginBottom: '0.7rem'}}
                 >
               {text[lang].singleFile}
               </Button>
@@ -70,7 +70,7 @@ function Dashboard(props) {
                 variant="contained"
                 color={props.menus.qrLinks.length > 0 ? "primary" : "secondary"}
                 startIcon={JSON.stringify(props.menus.qrLinks.length)}
-                style={{zoom: '1.8', minWidth: '12rem', marginBottom: '2rem'}}
+                style={{zoom: '1.8', minWidth: '12rem', marginBottom: '0.7rem'}}
                 >
                 {text[lang].qrForLink}
               </Button>
@@ -84,7 +84,7 @@ function Dashboard(props) {
           <Button
           variant="contained"
           color={props.menus.menuQRLink ? "primary" : "secondary"}
-          style={{zoom: '1.8', minWidth: '12rem', marginBottom: '2rem'}}
+          style={{zoom: '1.8', minWidth: '12rem', marginBottom: '0.7rem'}}
           >
             {text[lang].qrMenu}
           </Button>
