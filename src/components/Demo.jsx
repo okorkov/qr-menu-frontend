@@ -22,8 +22,14 @@ import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 'none',
+    maxWidth: '500px',
+    width: '50%',
+    justifyContent: 'center',
+    textAlign: 'center',
+    display: 'inline-block',
+    marginBottom: '5%'
   },
+
   media: {
     height: 0,
     paddingTop: '100%',
@@ -140,52 +146,48 @@ const Demo = (props) => {
       {
         demo ?
         <>
-    <div className='dashboard' style={{display: 'flex'}}>
-    <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            <CropFreeIcon />
-          </Avatar>
-        }
-        title={text[lang].title}
-        subheader={(lang === 'en') ? handleDate(demo.data.uploaded) : handleDateRu(demo.data.uploaded)}
-      />
-      <a href={demo.data.qr_code} target="_blank"><CardMedia
-        className={classes.media}
-        image={demo.dataLoaded ? demo.data.qr_code : 'https://miro.medium.com/max/1080/0*DqHGYPBA-ANwsma2.gif'}
-        title="QR Code"
-      />
-      </a>
-      <CardContent>
-      <Button variant="contained" color="primary"
-      id='resend-qr'
-      style={{marginTop: '15%'}}
-      disabled
-      >{text[lang].resend}
-      </ Button >
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+    <div className='dashboard'>
+      <Card className='qr-card'>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              <CropFreeIcon />
+            </Avatar>
+          }
+          title={text[lang].title}
+          subheader={(lang === 'en') ? handleDate(demo.data.uploaded) : handleDateRu(demo.data.uploaded)}
+        />
+        <a href={demo.data.qr_code} target="_blank"><CardMedia
+          className={classes.media}
+          image={demo.dataLoaded ? demo.data.qr_code : 'https://miro.medium.com/max/1080/0*DqHGYPBA-ANwsma2.gif'}
+          title="QR Code"
+        />
+        </a>
         <CardContent>
-          <iframe className='pdf' src={demo.data.pdf_file} ></iframe>
-          <br />
-          <a href={demo.data.pdf_file} target="_blank">{text[lang].openFile}</a>
+        <Button variant="contained" color="primary"
+        id='resend-qr'
+        style={{marginTop: '1%'}}
+        disabled
+        >{text[lang].resend}
+        </ Button >
         </CardContent>
-      </Collapse>
-    </Card>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+          </IconButton>
+        </Card>
+        <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'5%'}}>
+          <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+            <iframe src={demo.data.pdf_file} className="img" style={{height: '67%', width: '87.9%', marginLeft: '3px'}}/>
+          </div>
+        </div>
     </div>
+
     <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>
     <>
       <form onSubmit={(e) => handleDemoUpload(e)}>

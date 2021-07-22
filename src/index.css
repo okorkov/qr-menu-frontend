@@ -300,6 +300,17 @@ and (min-width : 481px) {
     max-width: 70%;
   }
 
+  .qr-card {
+    max-width: 500px;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 5%;
+    padding-top: 3%;
+  }
+  
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -413,7 +424,6 @@ and (max-device-width : 815px) {
     text-align: center;
     justify-content: center;
     margin-top: 15%;
-    display: flex;
   }
 
   .text {
@@ -615,6 +625,15 @@ and (max-device-width : 815px) {
   .mobile-table {
     margin-bottom: 2rem;
     width: 100%;
+  }
+
+  .qr-card {
+    max-width: 500px;
+    width: 90%;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10%;
   }
 
 }
