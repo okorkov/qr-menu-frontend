@@ -15,6 +15,10 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import $ from 'jquery';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import IconButton from '@material-ui/core/IconButton';
+import { deleteQRLink } from '../actions/menus';
+
 
 const useStyles = makeStyles({
   table: {
@@ -38,7 +42,8 @@ const Qrlinks = (props) => {
       webAddress: 'Web Address',
       qrLink: 'QR Code Link',
       openLink: 'Open Link',
-      na: 'N/A'
+      na: 'N/A',
+      delete: 'Delete'
     },
     ru: {
       description: "Сгенерировать QR код на веб адрес, пример: https://qr-menu.rest/about",
@@ -47,7 +52,8 @@ const Qrlinks = (props) => {
       webAddress: 'Веб адрес',
       qrLink: 'Ссылка на QR код',
       openLink: 'Открыть в новой вкладке',
-      na: 'пока пусто'
+      na: 'пока пусто',
+      delete: 'Удалить'
     }
   }
 
@@ -60,6 +66,7 @@ const Qrlinks = (props) => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links`, {input: input.link, token: JSON.parse(localStorage.getItem('token'))})
     .then(response => props.dispatch(generateQRLink(response.data)))
     .then(response => $('#loader').hide(0))
+    .then(response => document.getElementById('link-input').value = '')
     .catch(error => alert(error.message));
   }
 
@@ -79,6 +86,14 @@ const Qrlinks = (props) => {
     checkLoginStatus(props)
   });
 
+  const handleDelete = (row) => {
+    if (window.confirm('Are you sure you want to delete?')){
+      axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
+      .then(response => props.dispatch(deleteQRLink(response)))
+      .catch(err => alert(err))
+    }
+  }
+
 
   return (
     <>
@@ -96,9 +111,9 @@ const Qrlinks = (props) => {
           }
 
           <form className="form" onSubmit={(e) => handleInputSubmit(e)} style={{marginTop: '5%'}}>
-            <TextField label={text[lang].enterLink} type="text" value={input.link} name="link"  onChange={(e) => handleInput(e)}/>
+            <TextField id="link-input" label={text[lang].enterLink} type="text" value={input.link} name="link"  onChange={(e) => handleInput(e)}/>
             <br />
-            <Button variant="contained" color="primary" type='submit' > {text[lang].generateQr} </ Button >
+            <Button variant="contained" color="primary" type='submit' style={{backgroundColor: '#e3a765'}}> {text[lang].generateQr} </ Button >
           </form>
           <div style={{textAlign: 'center', justifyContent: 'center', display: 'flex', paddingTop: '5%', paddingBottom: '7%'}}>
             <TableContainer component={Paper} style={{width: '90%'}}>
@@ -107,6 +122,7 @@ const Qrlinks = (props) => {
                   <TableRow>
                     <TableCell className={classes.center}>{text[lang].webAddress}</TableCell>
                     <TableCell className={classes.center} align="right">{text[lang].qrLink}</TableCell>
+                    <TableCell className={classes.center} align="right">{text[lang].delete}</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -117,6 +133,11 @@ const Qrlinks = (props) => {
                       </TableCell>
                       <TableCell className={classes.center} align="right">
                         {row.qr_code === text[lang].na ? text[lang].na : <a href={row.qr_code} target="_blank">{text[lang].openLink}</a>}
+                      </TableCell>
+                      <TableCell className={classes.center} align="right">
+                        <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => handleDelete(row)}>
+                          <HighlightOffIcon />
+                        </IconButton>
                       </TableCell>
                     </TableRow>
                   ))}

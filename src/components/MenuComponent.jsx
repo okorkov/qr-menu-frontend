@@ -124,7 +124,7 @@ const MenuComponent = (props) => {
                     <div id="pdf-div"  onDocumentLoad={loadPDF()} className="img" style={{height: '79%', width: '87.9%', marginLeft: '2px', marginTop: '3%'}}></div>
                   </div>
                 </div>
-                <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>{text[lang].visitLink}</p></a>
+                <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}} className="text"><p>{text[lang].visitLink}</p></a>
               </div>
               :
               <p className="text">{text[lang].noFile}</p>

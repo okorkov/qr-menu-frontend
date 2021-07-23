@@ -27,3 +27,10 @@ export const generateQRLink = (payload) => {
     payload
   }
 }
+
+export const deleteQRLink = (payload) => {
+  return {
+    type: "DELETE_QR_LINK",
+    payload
+  }
+}

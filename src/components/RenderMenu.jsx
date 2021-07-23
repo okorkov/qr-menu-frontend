@@ -7,6 +7,7 @@ import ViewSDKClient from './SDKclient';
 const RenderMenu = (props) => {
 
   const [state, setState] = React.useState({isDataLoaded: false, menuLink: null, hasFile: false});
+  const [noFile, setNoFile] = React.useState('Sorry, no file at this link');
 
   useEffect(() => {
     if(document.getElementsByClassName('makeStyles-root-1')[0]){
@@ -20,7 +21,24 @@ const RenderMenu = (props) => {
     axios.get(`${process.env.REACT_APP_BASE_URL}/get_menu/${document.location.href.split('/')[document.location.href.split('/').length - 1]}`)
     .then(response => setState({isDataLoaded: true, hasFile: response.data.has_file, menuLink: response.data.menu_link}))
     .catch(error => alert(error.message))
+
+    const interval = setInterval(
+      () => resetNoFile(),
+      3000
+    );
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
+
+  const resetNoFile = () => {
+    const file = document.getElementById("no-file").innerHTML;
+    if (file === 'Sorry, no file at this link') {
+      setNoFile('Файл не добавлен');
+    } else {
+      setNoFile('Sorry, no file at this link');
+    }
+  }
 
   const loadPDF = () => {
     const viewSDKClient = new ViewSDKClient();
@@ -42,7 +60,7 @@ const RenderMenu = (props) => {
         </>
         :
         <div>
-          <p className='text dashboard'>Sorry, no file at this link</p>
+          <p className='text dashboard' id="no-file">{noFile}</p>
         </div>
       }
       </div>

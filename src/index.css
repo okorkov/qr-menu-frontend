@@ -16,7 +16,7 @@ and (min-width : 481px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #28282B;
+    background: #28252e;
     /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #28282B, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #28282B, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -59,13 +59,15 @@ and (min-width : 481px) {
   }
 
   .form {
-    max-width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     background: white;
     padding: 20px;
     margin-top: 30px;
+    width: 40%;
+    max-width: 700px;
+    min-width: 400px;
   }
 
   .form-signup {
@@ -98,12 +100,12 @@ and (min-width : 481px) {
   }
 
   .text-title {
-    color: white;
     font-size: 36px;
     padding-top: 3%;
     color: #ffc107;
     padding-left: 5%;
     padding-right: 5%;
+    font-weight: bold;
   }
 
   .qrcode {
@@ -124,7 +126,7 @@ and (min-width : 481px) {
     padding-top: 1%;
     padding-bottom: 1%;
     margin-top: 5%;
-    background: #28282B;
+    background: #28252e;
     -webkit-box-shadow: 10px 0px 10px black;
     -moz-box-shadow: 10px 0px 10px black;
     box-shadow: 10px 0px 10px black;
@@ -233,7 +235,7 @@ and (min-width : 481px) {
   }
 
   .MuiAppBar-colorPrimary {
-    background-color: #353935 !important;
+    background-color: #5d6d7c !important;
   }
 
   .MuiTab-textColorPrimary {
@@ -285,11 +287,6 @@ and (min-width : 481px) {
     text-align: center;
     justify-content: center;
     padding-top: 5%;
-  }
-
-  .form {
-    width: 40%;
-    max-width: 700px;
   }
 
   .MuiTab-wrapper {
@@ -347,7 +344,7 @@ and (max-device-width : 815px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #28282B; /* fallback for old browsers */
+    background: #5d6d7c; /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
@@ -468,7 +465,7 @@ and (max-device-width : 815px) {
     padding-top: 1%;
     padding-bottom: 1%;
     margin-top: 5%;
-    background: #28282B;
+    background: #28252e;
     -webkit-box-shadow: 10px 0px 10px black;
     -moz-box-shadow: 10px 0px 10px black;
     box-shadow: 10px 0px 10px black;
@@ -569,7 +566,7 @@ and (max-device-width : 815px) {
   }
 
   .MuiAppBar-colorPrimary {
-    background-color: #353935 !important;
+    background-color: #5d6d7c !important;
   }
 
   .MuiTab-textColorPrimary {

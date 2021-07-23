@@ -95,7 +95,7 @@ function DraggableDialog(props) {
   return (
     <div style={{paddingBottom: '5%'}}>
       {renderError.hasErrors ? <ErrorMessage errors={renderError.errors}/> : null}
-      <Button variant="contained" color="primary" onClick={handleClickOpen}> {text[lang].signup}  </ Button >
+      <Button variant="contained" color="primary" onClick={handleClickOpen} style={{backgroundColor: '#e3a765'}}> {text[lang].signup}  </ Button >
       <Dialog
         open={open}
         onClose={handleClose}
@@ -117,7 +117,7 @@ function DraggableDialog(props) {
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={(e) => handleSignUp(e)} color="primary" type="submit">
+          <Button onClick={(e) => handleSignUp(e)} color="primary" type="submit" style={{backgroundColor: '#e3a765'}}>
           {text[lang].register}
           </Button>
         </DialogActions>

@@ -65,7 +65,7 @@ const Login = (props) => {
         <TextField label={text[lang].emailLabel} type="email" value={login.email} name="email"  onChange={(e) => handleLoginInput(e)}/>
         <TextField label={text[lang].passwordLabel} type="password" value={login.password} name="password" onChange={(e) => handleLoginInput(e)}/>
         <br />
-        <Button variant="contained" color="primary" type='submit' onClick={loader}> {text[lang].loginButton} </ Button >
+        <Button variant="contained" style={{backgroundColor: '#e3a765'}} type='submit' onClick={loader}> {text[lang].loginButton} </ Button >
       </form>
     </>
   );

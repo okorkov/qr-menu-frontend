@@ -104,6 +104,12 @@ export default (state = defaultState, action) => {
         qrLinks: [...state.qrLinks, action.payload]
       }
 
+    case 'DELETE_QR_LINK':
+      return {
+        ...state,
+        qrLinks: state.qrLinks.filter(element => element.id !== parseInt(action.payload.data.id))
+      }
+
     default:
       return state;
 

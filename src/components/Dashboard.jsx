@@ -103,7 +103,7 @@ function Dashboard(props) {
           <div style={{paddingTop: '2%'}}>
             {
               props.menus.menuFile ?
-              <p className="text"><a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank">{text[lang].viewFile}</a></p>
+              <p className="text"><a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" className="text">{text[lang].viewFile}</a></p>
               :
               <p className="text">{text[lang].noFile}</p>
             }

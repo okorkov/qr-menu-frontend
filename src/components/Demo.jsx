@@ -181,7 +181,7 @@ const Demo = (props) => {
             <iframe src={demo.data.pdf_file} className="img" style={{height: '79%', width: '87.9%', marginLeft: '2px', marginTop: '3%'}}/>
           </div>
         </div>
-        <a href={demo.data.pdf_file} target="_blank">{text[lang].openFile}</a>
+        <a href={demo.data.pdf_file} target="_blank" className="text">{text[lang].openFile}</a>
     </div>
 
     <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>

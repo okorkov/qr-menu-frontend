@@ -195,7 +195,7 @@ function SIngleFileComponent(props) {
                 <iframe src={props.menus.lastFile.pdf_file} className="img" style={{height: '79%', width: '87.9%', marginLeft: '2px', marginTop: '3%'}}/>
               </div>
             </div>
-            <a href={props.menus.lastFile.pdf_file} target="_blank">{text[lang].openFile}</a>
+            <a href={props.menus.lastFile.pdf_file} className="text" target="_blank">{text[lang].openFile}</a>
           </>
       }
 
