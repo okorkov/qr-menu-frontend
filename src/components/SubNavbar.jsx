@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    backgroundColor: '#023020',
+    backgroundColor: '#343f44',
   },
   tabs: {
     fontWeight: 'bold',

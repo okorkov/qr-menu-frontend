@@ -121,7 +121,7 @@ const MenuComponent = (props) => {
               <div style={{ textAlign: 'center', justifyContent: 'center', width:"100%", display: 'inline-block'}}>
                 <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'2%'}}>
                   <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                    <div id="pdf-div"  onDocumentLoad={loadPDF()} className="img" style={{height: '67%', width: '87.9%', marginLeft: '2px'}}></div>
+                    <div id="pdf-div"  onDocumentLoad={loadPDF()} className="img" style={{height: '79%', width: '87.9%', marginLeft: '2px', marginTop: '3%'}}></div>
                   </div>
                 </div>
                 <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>{text[lang].visitLink}</p></a>
