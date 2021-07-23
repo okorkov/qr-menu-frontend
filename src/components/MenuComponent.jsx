@@ -9,8 +9,7 @@ import { generateQR } from '../actions/menus';
 import MenuUpload from './MenuUpload';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
-import Viewer, { Worker } from '@phuocng/react-pdf-viewer';
-import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css';
+import ViewSDKClient from './SDKclient';
 
 
 
@@ -79,6 +78,13 @@ const MenuComponent = (props) => {
     }
   }
 
+  const loadPDF = () => {
+    const viewSDKClient = new ViewSDKClient();
+    viewSDKClient.ready().then(() => {
+      viewSDKClient.previewFile("pdf-div", {}, props.menus.menuFile);
+    });
+  }
+
 
   return (
     <>
@@ -112,12 +118,9 @@ const MenuComponent = (props) => {
             {
               props.menus.menuFile ?
               <div style={{ textAlign: 'center', justifyContent: 'center', width:"100%", display: 'inline-block'}}>
-                {/* <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.4.456/build/pdf.worker.min.js" >
-                  <Viewer fileUrl={props.menus.menuFile} className='menu-render' onDocumentLoad={() => setLoadedPDF(true)}/>
-                </Worker> */}
                 <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'2%'}}>
                   <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                    <iframe src={props.menus.menuFile} className="img" style={{height: '67%', width: '87.9%', marginLeft: '2px'}}/>
+                    <div id="pdf-div"  onDocumentLoad={loadPDF()} className="img" style={{height: '67%', width: '87.9%', marginLeft: '2px'}}></div>
                   </div>
                 </div>
                 <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}}><p>{text[lang].visitLink}</p></a>

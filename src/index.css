@@ -310,6 +310,13 @@ and (min-width : 481px) {
     padding-top: 3%;
   }
   
+  .full-window-div {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
 }
 
@@ -639,6 +646,14 @@ and (max-device-width : 815px) {
 
   .qr-mobile {
     width: 100%;
+  }
+
+  .full-window-div {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
 }
