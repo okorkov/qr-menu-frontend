@@ -25,7 +25,8 @@ const RenderMenu = (props) => {
   const loadPDF = () => {
     const viewSDKClient = new ViewSDKClient();
     viewSDKClient.ready().then(() => {
-      viewSDKClient.previewFile("pdf-div", {}, state.menuLink);
+      viewSDKClient.previewFile("pdf-div", {showAnnotationTools: false, showLeftHandPanel: false, showPageControls: false, 
+        showDownloadPDF: false, showPrintPDF: false}, state.menuLink);
     });
   }
   

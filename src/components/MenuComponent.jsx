@@ -81,7 +81,8 @@ const MenuComponent = (props) => {
   const loadPDF = () => {
     const viewSDKClient = new ViewSDKClient();
     viewSDKClient.ready().then(() => {
-      viewSDKClient.previewFile("pdf-div", {}, props.menus.menuFile);
+      viewSDKClient.previewFile("pdf-div", {showAnnotationTools: false, showLeftHandPanel: false, showPageControls: false, 
+        showDownloadPDF: false, showPrintPDF: false}, props.menus.menuFile);
     });
   }
 
