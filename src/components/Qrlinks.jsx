@@ -66,6 +66,7 @@ const Qrlinks = (props) => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links`, {input: input.link, token: JSON.parse(localStorage.getItem('token'))})
     .then(response => props.dispatch(generateQRLink(response.data)))
     .then(response => $('#loader').hide(0))
+    .then(response => setInput(''))
     .then(response => document.getElementById('link-input').value = '')
     .catch(error => alert(error.message));
   }

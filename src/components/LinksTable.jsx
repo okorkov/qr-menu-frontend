@@ -15,6 +15,9 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import { deleteQRLink } from '../actions/menus';
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -107,6 +110,14 @@ function LinksTable(props) {
     setPage(0);
   };
 
+  const handleDelete = (row) => {
+    if (window.confirm('Are you sure you want to delete?')){
+      axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
+      .then(response => props.dispatch(deleteQRLink(response)))
+      .catch(err => alert(err))
+    }
+  }
+
   const lang = props.menus.lang
   const text = {
     en: {
@@ -132,6 +143,11 @@ function LinksTable(props) {
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
                 <a href={row.qr_code} target="_blank"><img src={row.qr_code} style={{width:'40px', height:'40px'}}/></a>
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => handleDelete(row)}>
+                <HighlightOffIcon />
+              </IconButton>
               </TableCell>
             </TableRow>
           ))}
