@@ -24,6 +24,11 @@ const MenuUpload = (props) => {
       e.target.childNodes[0].value = ''
       return null;
     }
+    if (e.target.value.split('.')[e.target.value.split('.').length - 1] !== 'pdf') {
+      alert("Only PDF Files are accepted for the QR Menu");
+      e.target.childNodes[0].value = ''
+      return null;
+    }
     $('#loader').show(0)
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
@@ -48,7 +53,7 @@ const MenuUpload = (props) => {
         type="file" 
         className="btn btn-outline-warning" 
         style={{fontSize: '18px', color: 'white'}}
-        accept=".doc, .pdf, image/png, image/jpeg, application/pdf" 
+        accept=".pdf, application/pdf" 
         required
         onChange={(e) => handleImageChange(e)}/>
         <br /> <br />
