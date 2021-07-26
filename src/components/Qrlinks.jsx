@@ -87,8 +87,9 @@ const Qrlinks = (props) => {
     checkLoginStatus(props)
   });
 
-  const handleDelete = (row) => {
+  const handleDelete = (e, row) => {
     if (window.confirm('Are you sure you want to delete?')){
+      e.target.parentElement.remove();
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => props.dispatch(deleteQRLink(response)))
       .catch(err => alert(err))
@@ -136,9 +137,13 @@ const Qrlinks = (props) => {
                         {row.qr_code === text[lang].na ? text[lang].na : <a href={row.qr_code} target="_blank">{text[lang].openLink}</a>}
                       </TableCell>
                       <TableCell className={classes.center} align="right">
-                        <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => handleDelete(row)}>
+                        {row.qr_code !== text[lang].na ?
+                        <IconButton color="primary" aria-label="upload picture" component="span" onClick={(e) => handleDelete(e ,row)}>
                           <HighlightOffIcon />
                         </IconButton>
+                        :
+                        null
+                        }
                       </TableCell>
                     </TableRow>
                   ))}

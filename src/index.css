@@ -319,6 +319,10 @@ and (min-width : 481px) {
     padding-bottom: 3rem;
   }
 
+  .oauth {
+    padding-top: 5%;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -660,6 +664,10 @@ and (max-device-width : 815px) {
   .btn-outline-warning {
     width: 80%;
     max-width: 25rem;
+  }
+
+  .oauth {
+    padding-top: 10%;
   }
 
 }
