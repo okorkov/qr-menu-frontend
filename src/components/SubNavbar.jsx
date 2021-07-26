@@ -26,7 +26,7 @@ const SubNavbar = (props) => {
   const text = {
     en: {
       tab1: 'Dashboard',
-      tab2: 'Single File Upload',
+      tab2: 'Single File',
       tab3: 'Manage QR Menu',
       tab4: 'QR for a Link'
     },

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { withRouter } from "react-router";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import ViewSDKClient from './SDKclient';
+import ViewSDKClient from './ViewSDKClient.js';
 
 const RenderMenu = (props) => {
 
@@ -32,8 +32,8 @@ const RenderMenu = (props) => {
   }, []);
 
   const resetNoFile = () => {
-    const file = document.getElementById("no-file").innerHTML;
-    if (file === 'Sorry, no file at this link') {
+    const file = document.getElementById("no-file");
+    if (file && file.innerHTML === 'Sorry, no file at this link') {
       setNoFile('Файл не добавлен');
     } else {
       setNoFile('Sorry, no file at this link');

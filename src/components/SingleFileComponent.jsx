@@ -191,8 +191,8 @@ function SIngleFileComponent(props) {
               </CardActions>
             </Card> 
               <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'2%'}}>
-              <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                <iframe src={props.menus.lastFile.pdf_file} className="img" style={{height: '79%', width: '87.9%', marginLeft: '2px', marginTop: '3%'}}/>
+              <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '46rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                <iframe src={props.menus.lastFile.pdf_file} className="img" style={{height: '79%', width: '88%', marginLeft: '0px', marginTop: '3%'}}/>
               </div>
             </div>
             <a href={props.menus.lastFile.pdf_file} className="text" target="_blank">{text[lang].openFile}</a>

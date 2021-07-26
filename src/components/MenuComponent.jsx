@@ -9,7 +9,7 @@ import { generateQR } from '../actions/menus';
 import MenuUpload from './MenuUpload';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
-import ViewSDKClient from './SDKclient';
+import ViewSDKClient from './ViewSDKClient.js';
 
 
 
@@ -120,8 +120,8 @@ const MenuComponent = (props) => {
               props.menus.menuFile ?
               <div style={{ textAlign: 'center', justifyContent: 'center', width:"100%", display: 'inline-block'}}>
                 <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'2%'}}>
-                  <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                    <div id="pdf-div"  onDocumentLoad={loadPDF()} className="img" style={{height: '79%', width: '87.9%', marginLeft: '2px', marginTop: '3%'}}></div>
+                  <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '46rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                    <div id="pdf-div"  onDocumentLoad={loadPDF()} className="img" style={{height: '79%', width: '88%', marginLeft: '0px', marginTop: '3%'}}></div>
                   </div>
                 </div>
                 <a href={`/menu/${props.menus.domainLink.split('/')[props.menus.domainLink.split('/').length - 1]}`} target="_blank" style={{fontSize:'22px'}} className="text"><p>{text[lang].visitLink}</p></a>

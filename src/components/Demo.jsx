@@ -141,7 +141,7 @@ const Demo = (props) => {
       {
         demo ?
         <>
-    <div className='dashboard'>
+    <div className='dashboard' >
       <Card className='qr-card'>
         <CardHeader
           avatar={
@@ -176,15 +176,15 @@ const Demo = (props) => {
           >
           </IconButton>
         </Card>
-        <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'2%'}}>
-          <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '45rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-            <iframe src={demo.data.pdf_file} className="img" style={{height: '79%', width: '87.9%', marginLeft: '2px', marginTop: '3%'}}/>
+        <div style={{ justifyContent: 'center', textAlign: 'center', display: 'flex', paddingBottom:'4%'}}>
+          <div className="iphone-demo" style={{backgroundImage: `url('/phone_template.png')`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '46rem', width: '23rem', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+            <iframe src={demo.data.pdf_file} className="img" style={{height: '79%', width: '88%', marginLeft: '0px', marginTop: '3%'}}/>
           </div>
         </div>
         <a href={demo.data.pdf_file} target="_blank" className="text">{text[lang].openFile}</a>
     </div>
 
-    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%'}}>
+    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '4%'}}>
     <>
       <form>
         <input
