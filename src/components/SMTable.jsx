@@ -17,6 +17,9 @@ import LastPageIcon from '@material-ui/icons/LastPage';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import { deleteMenu } from '../actions/menus';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -144,6 +147,15 @@ function SMTable(props) {
     }
   }
 
+  const handleDelete = (e, row) => {
+    if (window.confirm('Are you sure you want to delete?')){
+      e.target.parentElement.remove();
+      axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/menus/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
+      .then(response => props.dispatch(deleteMenu(response)))
+      .catch(err => alert(err))
+    }
+  }
+
   return (
     <TableContainer component={Paper} >
       <Table className={classes.table} aria-label="custom pagination table" >
@@ -166,7 +178,7 @@ function SMTable(props) {
           ).slice(0).reverse().map((row) => (
             <TableRow key={row.address} >
               <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
-                <a href={row.link} target="_blank">{row.file_name || text[lang].viewFile}</a>
+                <a href={row.link} target="_blank">{(row.file_name === 'null' || row.file_name === '') ? text[lang].viewFile : row.file_name}</a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
                 <a href={row.qr_code_link} target="_blank"><img src={row.qr_code_link} style={{width:'40px', height:'40px'}}/></a>
@@ -175,7 +187,7 @@ function SMTable(props) {
                 {(lang === 'en') ? handleDate(row.updated_at) : handleDateRu(row.updated_at)}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
-              <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => console.log(row)}>
+              <IconButton color="primary" aria-label="upload picture" component="span" onClick={(e) => handleDelete(e, row)}>
                 <HighlightOffIcon />
               </IconButton>
               </TableCell>

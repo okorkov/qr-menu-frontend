@@ -110,8 +110,9 @@ function LinksTable(props) {
     setPage(0);
   };
 
-  const handleDelete = (row) => {
+  const handleDelete = (e, row) => {
     if (window.confirm('Are you sure you want to delete?')){
+      e.target.parentElement.remove();
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => props.dispatch(deleteQRLink(response)))
       .catch(err => alert(err))
@@ -158,7 +159,7 @@ function LinksTable(props) {
                 <a href={row.qr_code} target="_blank"><img src={row.qr_code} style={{width:'40px', height:'40px'}}/></a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
-              <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => handleDelete(row)}>
+              <IconButton color="primary" aria-label="upload picture" component="span" onClick={(e) => handleDelete(e, row)}>
                 <HighlightOffIcon />
               </IconButton>
               </TableCell>

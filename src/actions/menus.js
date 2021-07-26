@@ -34,3 +34,10 @@ export const deleteQRLink = (payload) => {
     payload
   }
 }
+
+export const deleteMenu = (payload) => {
+  return {
+    type: "DELETE_MENU",
+    payload
+  }
+}

@@ -78,7 +78,7 @@ export default (state = defaultState, action) => {
           qr_code_link: action.payload.last_file.qr_code, 
           updated_at: action.payload.last_file.uploaded,
           id: action.payload.last_file.id,
-          fine_name: action.payload.last_file.file_name,
+          file_name: action.payload.last_file.file_name,
         }]
       }
 
@@ -111,6 +111,19 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         qrLinks: state.qrLinks.filter(element => element.id !== parseInt(action.payload.data.id))
+      }
+
+    case 'DELETE_MENU':
+      let lastFileUpdated;
+      if(state.lastFile.id === parseInt(action.payload.data.id)) {
+        lastFileUpdated = state.allFiles[state.allFiles.length - 1];
+      } else {
+        lastFileUpdated = state.lastFile
+      }
+      return {
+        ...state,
+        allFiles: state.allFiles.filter(element => element.id !== parseInt(action.payload.data.id)),
+        lastFile: lastFileUpdated
       }
 
     default:

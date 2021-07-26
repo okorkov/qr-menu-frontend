@@ -43,11 +43,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SIngleFileComponent(props) {
+
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(true);
-
-  const [lastFile, setLastFile] = React.useState({hasFile: false, pdfFile: null, qrCode: null, uploaded: 'unknown'});
-  const [isDataLoaded, setIsDataLoaded] = React.useState(false);
   const [showResendButton, setShowResendButton] = React.useState(true);
 
   const lang = props.menus.lang
@@ -76,18 +74,6 @@ function SIngleFileComponent(props) {
     }
   }
 
-  const handleData = (data) => {
-    if(data.last_file){
-      
-      setLastFile({
-        hasFile: data.last_file.has_file,
-        pdfFile: data.last_file.pdf_file,
-        qrCode: data.last_file.qr_code,
-        uploaded: data.last_file.uploaded
-      })
-      setIsDataLoaded(true)
-    }
-  }
 
   const handleResend = (e) => {
     e.preventDefault();
@@ -201,7 +187,7 @@ function SIngleFileComponent(props) {
 
     </div>
     <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%', paddingBottom: '2%'}}>
-    <FileUpload setLastFile={setLastFile}/>
+    <FileUpload />
     </div>
     </>
   );
