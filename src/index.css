@@ -657,4 +657,9 @@ and (max-device-width : 815px) {
     left: 0;
   }
 
+  .btn-outline-warning {
+    width: 80%;
+    max-width: 25rem;
+  }
+
 }

@@ -121,10 +121,14 @@ function LinksTable(props) {
   const lang = props.menus.lang
   const text = {
     en: {
-      
+      link: 'Link',
+      qr: 'QR',
+      delete: 'Delete'
     },
     ru: {
-
+      link: 'Ссылка',
+      qr: 'QR код',
+      delete: 'Удалить'
     }
   }
 
@@ -133,6 +137,15 @@ function LinksTable(props) {
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="custom pagination table">
         <TableBody>
+              <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
+                {text[lang].link}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+                {text[lang].qr}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+                {text[lang].delete}
+              </TableCell>
           {(rowsPerPage > 0
             ? props.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : props.data

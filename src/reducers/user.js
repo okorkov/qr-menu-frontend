@@ -76,7 +76,10 @@ export default (state = defaultState, action) => {
         allFiles: [...state.allFiles, {
           link: action.payload.last_file.pdf_file,
           qr_code_link: action.payload.last_file.qr_code, 
-          updated_at: action.payload.last_file.uploaded}]
+          updated_at: action.payload.last_file.uploaded,
+          id: action.payload.last_file.id,
+          fine_name: action.payload.last_file.file_name,
+        }]
       }
 
     case 'GENERATE_QR':

@@ -106,7 +106,7 @@ const MenuComponent = (props) => {
           props.menus.menuQRLink ?
           <>
             <p className='text'>{text[lang].qr}</p>
-            <a href={props.menus.menuQRLink} target="_blank"><img className="qr-mobile" src={props.menus.menuQRLink}/></a>
+            <a href={props.menus.menuQRLink} target="_blank"><img className="qr-mobile" style={{border: '5px solid black'}} src={props.menus.menuQRLink}/></a>
             <br /><br />
             <form onSubmit={(e) => handleEmailResend(e)}>
             <Button variant="contained" color="primary"

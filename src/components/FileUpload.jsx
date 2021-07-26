@@ -23,9 +23,11 @@ const FileUpload = (props) => {
       e.target.childNodes[0].value = ''
       return null;
     }
+    let fileName = window.prompt('Enter File Name')
     $('#loader').show(0)
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
+    formData.append("file_name", fileName);
     formData.append("token", JSON.parse(localStorage.getItem('token')));
     e.target.value = '';
     fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/menus`, {

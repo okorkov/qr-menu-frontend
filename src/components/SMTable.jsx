@@ -15,6 +15,8 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -108,9 +110,17 @@ function SMTable(props) {
   const text = {
     en: {
       viewFile: 'View File',
+      link: 'Link',
+      qr: 'QR',
+      uploaded: 'Uploaded on',
+      delete: 'Delete'
     },
     ru: {
       viewFile: 'Открыть Файл',
+      link: 'Ссылка',
+      qr: 'QR код',
+      uploaded: 'Дата загрузки',
+      delete: 'Удалить'
     }
   }
 
@@ -138,19 +148,36 @@ function SMTable(props) {
     <TableContainer component={Paper} >
       <Table className={classes.table} aria-label="custom pagination table" >
         <TableBody >
+              <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
+                {text[lang].link}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+                {text[lang].qr}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+                {text[lang].uploaded}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+                {text[lang].delete}
+              </TableCell>
           {(rowsPerPage > 0
             ? props.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : props.data
           ).slice(0).reverse().map((row) => (
             <TableRow key={row.address} >
               <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
-                <a href={row.link} target="_blank">{text[lang].viewFile}</a>
+                <a href={row.link} target="_blank">{row.file_name || text[lang].viewFile}</a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
                 <a href={row.qr_code_link} target="_blank"><img src={row.qr_code_link} style={{width:'40px', height:'40px'}}/></a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
                 {(lang === 'en') ? handleDate(row.updated_at) : handleDateRu(row.updated_at)}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => console.log(row)}>
+                <HighlightOffIcon />
+              </IconButton>
               </TableCell>
             </TableRow>
           ))}
