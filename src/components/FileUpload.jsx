@@ -17,14 +17,27 @@ const FileUpload = (props) => {
 
   const classes = useStyles();
 
+  const lang = props.menus.lang
+  const text = {
+    en: {
+      fileTooBig: 'File is too big! Keep it under 5 MB',
+      fileName: 'Enter File Name',
+    },
+    ru: {
+      fileTooBig: 'Файл слишком большой, лимит 5 МБ',
+      fileName: 'Введите имя файла',
+    }
+  }
+
+
   const handleImageChange = (e) => {
     if (e.target.files[0].size > 5e+6) {
-      alert("File is too big! Keep it under 5 MB");
+      alert(text[lang].fileTooBig);
       document.querySelectorAll('input')[1].value = '';
       return null;
     }
     let fileName
-    fileName = window.prompt('Enter File Name');
+    fileName = window.prompt(text[lang].fileName);
     if (fileName === null){
       console.log(document.querySelector('input').value)
       document.querySelectorAll('input')[1].value = '';

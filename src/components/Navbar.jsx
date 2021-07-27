@@ -80,8 +80,8 @@ function Navbar(props) {
       logout: "Logout"
     },
     ru: {
-      home: "Главная",
-      about: 'О Проекте',
+      home: "Домой",
+      about: 'Инфо',
       demo: "Демо",
       contact: "Контакт",
       logout: "Выйти"
