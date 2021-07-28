@@ -111,6 +111,7 @@ const MenuComponent = (props) => {
             <form onSubmit={(e) => handleEmailResend(e)}>
             <Button variant="contained" color="primary"
               type="submit"
+              style={{backgroundColor: '#e3a765'}}
               disabled={!showResendButton}>
               {text[lang].resend}
             </ Button >

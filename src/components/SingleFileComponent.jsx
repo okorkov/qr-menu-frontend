@@ -158,7 +158,7 @@ function SIngleFileComponent(props) {
               <CardContent>
               <Button variant="contained" color="primary"
                 id='resend-qr'
-                style={{marginTop: '15%'}}
+                style={{marginTop: '15%', backgroundColor: '#e3a765'}}
                 onClick={(e) => handleResend(e)}
                 disabled={!showResendButton}>
                 {text[lang].resend}
