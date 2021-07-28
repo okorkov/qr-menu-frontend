@@ -134,10 +134,10 @@ const Qrlinks = (props) => {
                         {row.address === text[lang].na ? text[lang].na : <a href={row.address} target="_blank">{(row.address.length > 40) ? `${row.address.slice(0, 30)}...` : row.address}</a>}
                       </TableCell>
                       <TableCell className={classes.center} align="right">
-                        {row.qr_code === text[lang].na ? text[lang].na : <a href={row.qr_code} target="_blank">{text[lang].openLink}</a>}
+                        {row.qr_code_link === text[lang].na ? text[lang].na : <a href={row.qr_code_link} target="_blank">{text[lang].openLink}</a>}
                       </TableCell>
                       <TableCell className={classes.center} align="right">
-                        {row.qr_code !== text[lang].na ?
+                        {row.qr_code_link !== text[lang].na ?
                         <IconButton color="primary" aria-label="upload picture" component="span" onClick={(e) => handleDelete(e ,row)}>
                           <HighlightOffIcon />
                         </IconButton>

@@ -156,7 +156,7 @@ function LinksTable(props) {
                 <a href={row.address}>{(row.address.length > 40) ? `${row.address.slice(0, 30)}...` : row.address}</a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
-                <a href={row.qr_code} target="_blank"><img src={row.qr_code} style={{width:'40px', height:'40px'}}/></a>
+                <a href={row.qr_code_link} target="_blank"><img src={row.qr_code_link} style={{width:'40px', height:'40px'}}/></a>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
               <IconButton color="primary" aria-label="upload picture" component="span" onClick={(e) => handleDelete(e, row)}>
