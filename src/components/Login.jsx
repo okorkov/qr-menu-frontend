@@ -63,7 +63,7 @@ const Login = (props) => {
 
   const responseGoogle = (response) => {
     loader()
-    axios.post(`${process.env.REACT_APP_BASE_URL}/google_auth`, {email: response.profileObj.email})
+    axios.post(`${process.env.REACT_APP_BASE_URL}/google_auth`, {email: response.profileObj.email, idpid: response.tokenObj.idpId})
     .then(response => autentication(response))
     .then(response => $('#loader').hide(0))
     .catch(error => alert(error.message))
