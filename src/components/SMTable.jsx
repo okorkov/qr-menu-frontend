@@ -18,7 +18,6 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import { deleteMenu } from '../actions/menus';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const useStyles1 = makeStyles((theme) => ({

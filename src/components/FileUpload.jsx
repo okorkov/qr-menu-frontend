@@ -1,8 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { singleFileUpload } from '../actions/menus';
 import { connect } from 'react-redux';
 

@@ -1,16 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Package from '../../package.json';
 import { connect } from 'react-redux';
 
 const Footer = (props) => {
-
-  // const checkPath = () => {
-  //   if(window.location.pathname === '/' && document.getElementsByClassName('footer')[0]) {
-  //     document.getElementsByClassName('footer')[0].className = 'footer text-lg-start fixed-bottom';
-  //   } else {
-  //     document.getElementsByClassName('footer')[0].className = 'footer text-lg-start';
-  //   }
-  // }
 
   const lang = props.menus.lang
   const text = {
