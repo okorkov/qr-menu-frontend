@@ -101,17 +101,7 @@ function SIngleFileComponent(props) {
     if (dateFromDB){
       let getDate = dateFromDB.split('T');
       let fullDate = getDate[0].split('-')
-      return `${fullDate[1]}/${fullDate[2]}/${fullDate[0]}`;
-    } else {
-      return 'unknown'
-    }
-  }
-
-  const handleDateRu = (dateFromDB) => {
-    if (dateFromDB){
-      let getDate = dateFromDB.split('T');
-      let fullDate = getDate[0].split('-')
-      return `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
+      return (lang === 'en') ? `${fullDate[1]}/${fullDate[2]}/${fullDate[0]}` : `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
     } else {
       return 'unknown'
     }
@@ -147,7 +137,7 @@ function SIngleFileComponent(props) {
                   </Avatar>
                 }
                 title={text[lang].recentQr}
-                subheader={(lang === 'en') ? handleDate(props.menus.lastFile.uploaded) : handleDateRu(props.menus.lastFile.uploaded)}
+                subheader={handleDate(props.menus.lastFile.uploaded)}
               />
               <a href={props.menus.lastFile.qr_code} target="_blank"><CardMedia
                 className={classes.media}

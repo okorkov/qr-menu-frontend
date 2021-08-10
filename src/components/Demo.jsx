@@ -114,17 +114,7 @@ const Demo = (props) => {
     if (dateFromDB){
       let getDate = dateFromDB.split('T');
       let fullDate = getDate[0].split('-')
-      return `${fullDate[1]}/${fullDate[2]}/${fullDate[0]}`;
-    } else {
-      return 'unknown'
-    }
-  }
-
-  const handleDateRu = (dateFromDB) => {
-    if (dateFromDB){
-      let getDate = dateFromDB.split('T');
-      let fullDate = getDate[0].split('-')
-      return `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
+      return (lang === 'en') ? `${fullDate[1]}/${fullDate[2]}/${fullDate[0]}` : `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
     } else {
       return 'unknown'
     }
@@ -146,7 +136,7 @@ const Demo = (props) => {
             </Avatar>
           }
           title={text[lang].title}
-          subheader={(lang === 'en') ? handleDate(demo.data.uploaded) : handleDateRu(demo.data.uploaded)}
+          subheader={handleDate(demo.data.uploaded)}
         />
         <a href={demo.data.qr_code} target="_blank"><CardMedia
           className={classes.media}
