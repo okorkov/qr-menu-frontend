@@ -96,7 +96,6 @@ const Qrlinks = (props) => {
     }
   }
 
-
   return (
     <>
       {
@@ -128,7 +127,7 @@ const Qrlinks = (props) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {(props.menus.qrLinks.length > 0 ? props.menus.qrLinks : [{address: text[lang].na, qr_code: text[lang].na}]).slice(0).reverse().map((row) => (
+                  {(props.menus.qrLinks.length > 0 ? props.menus.qrLinks : [{address: text[lang].na, qr_code_link: text[lang].na}]).slice(0).reverse().map((row) => (
                     <TableRow key={row.address}>
                       <TableCell className={classes.center} component="th" scope="row">
                         {row.address === text[lang].na ? text[lang].na : <a href={row.address} target="_blank">{(row.address.length > 40) ? `${row.address.slice(0, 30)}...` : row.address}</a>}
