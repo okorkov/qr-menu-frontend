@@ -176,7 +176,7 @@ function SIngleFileComponent(props) {
       }
 
     </div>
-    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%', paddingBottom: '15%'}}>
+    <div style={{justifyContent: 'center', textAlign: 'center', paddingTop: '3%', paddingBottom: '3%'}}>
     <FileUpload />
     </div>
     </>

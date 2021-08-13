@@ -47,10 +47,10 @@ const SubNavbar = (props) => {
           variant="fullWidth"
           centered
         >
-          <Tab className={classes.tabs} label={text[lang].tab1} component={Link} to={'/dashboard'}/>
-          <Tab className={classes.tabs} label={text[lang].tab2} component={Link} to={'/single-file'}/>
-          <Tab className={classes.tabs} label={text[lang].tab3} component={Link} to={'/qr-menu'}/>
-          <Tab className={classes.tabs} label={text[lang].tab4} component={Link} to={'/qr-link'}/>
+          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab1}</div>} component={Link} to={'/dashboard'}/>
+          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab2}</div>} component={Link} to={'/single-file'}/>
+          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab3}</div>} component={Link} to={'/qr-menu'}/>
+          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab4}</div>} component={Link} to={'/qr-link'}/>
         </Tabs>
       </Paper>
     </>

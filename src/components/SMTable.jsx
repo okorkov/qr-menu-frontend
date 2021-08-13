@@ -112,14 +112,14 @@ function SMTable(props) {
   const text = {
     en: {
       viewFile: 'View File',
-      link: 'Link',
+      link: 'File Name',
       qr: 'QR',
       uploaded: 'Uploaded on',
       delete: 'Delete'
     },
     ru: {
       viewFile: 'Открыть Файл',
-      link: 'Ссылка',
+      link: 'Имя Файла',
       qr: 'QR код',
       uploaded: 'Дата загрузки',
       delete: 'Удалить'
