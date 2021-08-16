@@ -16,7 +16,8 @@ and (min-width : 481px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background-image: linear-gradient(to right, #023047 , #af9144);
+    background-color: #045de9;
+    background-image: linear-gradient(315deg, #045de9 25%, #09c6f9 74%);
     /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #28282B, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #28282B, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -102,7 +103,7 @@ and (min-width : 481px) {
   .text-title {
     font-size: 36px;
     padding-top: 3%;
-    color: #ffc107;
+    color: #FFB703;
     padding-left: 5%;
     padding-right: 5%;
     font-weight: bold;
@@ -234,9 +235,9 @@ and (min-width : 481px) {
     justify-content: space-around;
   }
 
-  .MuiAppBar-colorPrimary {
+  /* .MuiAppBar-colorPrimary {
     background-color: #023047 !important;
-  }
+  } */
 
   .MuiTab-textColorPrimary {
     color: white !important;
@@ -352,7 +353,8 @@ and (max-device-width : 815px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background-image: linear-gradient(to right, #023047 , #af9144);
+    background-color: #045de9;
+    background-image: linear-gradient(315deg, #045de9 25%, #09c6f9 74%);
     /* background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
@@ -450,9 +452,10 @@ and (max-device-width : 815px) {
     color: white;
     font-size: 36px;
     padding-top: 3%;
-    color: #ffc107;
+    color: #FFB703;
     padding-left: 3%;
     padding-right: 3%;
+    font-weight: bold;
   }
 
   .qrcode {
@@ -473,7 +476,7 @@ and (max-device-width : 815px) {
     padding-top: 1%;
     padding-bottom: 1%;
     margin-top: 5%;
-    background: #28252e;
+    background: #219EBC;
     -webkit-box-shadow: 10px 0px 10px black;
     -moz-box-shadow: 10px 0px 10px black;
     box-shadow: 10px 0px 10px black;
@@ -573,9 +576,9 @@ and (max-device-width : 815px) {
     justify-content: space-around;
   }
 
-  .MuiAppBar-colorPrimary {
+  /* .MuiAppBar-colorPrimary {
     background-color: #023047 !important;
-  }
+  } */
 
   .MuiTab-textColorPrimary {
     color: white !important;

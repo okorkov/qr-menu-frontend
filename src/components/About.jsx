@@ -36,7 +36,7 @@ const About = (props) => {
   }
 
 
-  let sectionStyle = {
+  const sectionStyle = {
     width: "100%",
     height: "100px",
     backgroundImage: "url(/qr_bg.png)",

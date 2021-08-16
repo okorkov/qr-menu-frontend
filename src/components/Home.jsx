@@ -77,11 +77,25 @@ const Home = (props) => {
     };
   }, []);
 
+  const logoStyle = {
+    width: "278px",
+    height: "200px",
+    backgroundImage: "url(/logo.png)",
+    backgroundPosition: "center",
+  }
+
   
   return (
     <div className="home-page">
-      <p className="welcome-message ">{text[lang].welcome}</p>
-      <p className="welcome-text">{text[lang].signinMessage}</p>
+
+      <div style={{display: 'flex', textAlign: 'center', justifyContent: 'center'}}>
+        <section style={ logoStyle }>
+        </section>
+      </div>
+
+      <div className="welcome-text">
+        {text[lang].signinMessage}
+      </div>
       <Login />
       <br />
       <p style={{fontSize: '26px', color: 'white'}}>{text[lang].or}</p>
