@@ -112,7 +112,7 @@ function LinksTable(props) {
 
   const handleDelete = (e, row) => {
     if (window.confirm('Are you sure you want to delete?')){
-      e.target.parentElement.remove();
+      e.target.parentElement.style.color = 'red';
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => props.dispatch(deleteQRLink(response)))
       .catch(err => alert(err))

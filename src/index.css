@@ -17,7 +17,7 @@ and (min-width : 481px) {
     overflow:scroll;
     height: auto;
     background-color: #045de9;
-    background-image: linear-gradient(315deg, #045de9 25%, #09c6f9 74%);
+    background-image: linear-gradient(to right bottom, #045de9 25%, #09c6f9 74%);
     /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #28282B, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #28282B, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -45,11 +45,6 @@ and (min-width : 481px) {
     transform: translate(-50%, -50%);
     text-align: center;
     width: 50%;
-  }
-
-  .welcome-message {
-    font-size: 44px;
-    color:white;
   }
 
   .welcome-text {
@@ -81,11 +76,6 @@ and (min-width : 481px) {
     min-width: 30rem;
   }  
 
-  .alert {
-    font: 36px;
-    color: crimson;
-  }
-
   .dashboard {
     text-align: center;
     justify-content: center;
@@ -97,7 +87,7 @@ and (min-width : 481px) {
     font-size: 20px;
     padding-left: 5%;
     padding-right: 5%;
-    
+    font-weight: 600;
   }
 
   .text-title {
@@ -107,6 +97,7 @@ and (min-width : 481px) {
     padding-left: 5%;
     padding-right: 5%;
     font-weight: bold;
+    text-shadow: 2px 2px black;
   }
 
   .qrcode {
@@ -388,11 +379,6 @@ and (max-device-width : 815px) {
     width: 90%;
   }
 
-  .welcome-message {
-    font-size: 44px;
-    color:white;
-  }
-
   .welcome-text {
     font-size: 34px;
     color:white;
@@ -429,11 +415,6 @@ and (max-device-width : 815px) {
     width: 15rem !important;
   }
 
-  .alert {
-    font: 36px;
-    color: crimson;
-    
-  }
 
   .dashboard {
     text-align: center;

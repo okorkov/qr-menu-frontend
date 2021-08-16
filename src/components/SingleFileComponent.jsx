@@ -126,7 +126,7 @@ function SIngleFileComponent(props) {
         </div>
         :
           !props.menus.lastFile.has_file ?
-            <p className="text">{text[lang].noFile}</p>
+            <p className="text" style={{paddingBottom: '12%'}}>{text[lang].noFile}</p>
           :
           <>
             <Card className='qr-card'>
