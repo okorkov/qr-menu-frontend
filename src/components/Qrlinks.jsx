@@ -18,6 +18,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import { deleteQRLink } from '../actions/menus';
+import ReactDOM from 'react-dom';
 
 
 const useStyles = makeStyles({
@@ -89,7 +90,9 @@ const Qrlinks = (props) => {
 
   const handleDelete = (e, row) => {
     if (window.confirm('Are you sure you want to delete?')){
-      e.target.parentElement.remove();
+      const grandParent = e.target.parentElement;
+      // e.target.parentElement.remove();
+      ReactDOM.render(<CircularProgress style={{zoom: '0.5'}}/>, grandParent)
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => props.dispatch(deleteQRLink(response)))
       .catch(err => alert(err))

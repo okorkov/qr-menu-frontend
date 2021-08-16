@@ -108,9 +108,10 @@ export default (state = defaultState, action) => {
       }
 
     case 'DELETE_QR_LINK':
+        const qrLinks = state.qrLinks.filter(element => element.id !== parseInt(action.payload.data.id))
       return {
         ...state,
-        qrLinks: state.qrLinks.filter(element => element.id !== parseInt(action.payload.data.id))
+        qrLinks
       }
 
     case 'DELETE_MENU':

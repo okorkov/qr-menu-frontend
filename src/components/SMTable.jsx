@@ -18,6 +18,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import { deleteMenu } from '../actions/menus';
+import $ from 'jquery';
 
 
 const useStyles1 = makeStyles((theme) => ({
@@ -138,9 +139,10 @@ function SMTable(props) {
 
   const handleDelete = (e, row) => {
     if (window.confirm('Are you sure you want to delete?')){
-      e.target.parentElement.remove();
+      $('#loader').show(0)
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/menus/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => props.dispatch(deleteMenu(response)))
+      .then(response => $('#loader').hide(0))
       .catch(err => alert(err))
     }
   }

@@ -18,6 +18,8 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import { deleteQRLink } from '../actions/menus';
+import $ from 'jquery';
+
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -99,7 +101,7 @@ function LinksTable(props) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, (props.data.length === 0 ? 3 : props.data.length) - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, (props.menus.qrLinks.length === 0 ? 3 : props.menus.qrLinks.length) - page * rowsPerPage);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -112,9 +114,10 @@ function LinksTable(props) {
 
   const handleDelete = (e, row) => {
     if (window.confirm('Are you sure you want to delete?')){
-      e.target.parentElement.style.color = 'red';
+      $('#loader').show(0)
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => props.dispatch(deleteQRLink(response)))
+      .then(response => $('#loader').hide(0))
       .catch(err => alert(err))
     }
   }
@@ -148,8 +151,8 @@ function LinksTable(props) {
                 {text[lang].delete}
               </TableCell>
           {(rowsPerPage > 0
-            ? props.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : props.data
+            ? props.menus.qrLinks.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : props.menus.qrLinks
           ).slice(0).reverse().map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
@@ -177,7 +180,7 @@ function LinksTable(props) {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={3}
-              count={props.data.length}
+              count={props.menus.qrLinks.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
