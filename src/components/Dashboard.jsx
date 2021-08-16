@@ -55,7 +55,7 @@ function Dashboard(props) {
             <Link to="/single-file" style={{textDecoration: 'none',}}>
               <Button
                 variant="contained"
-                color={props.menus.allFiles.length > 0 ? "primary" : "secondary"}
+                color={props.menus.allFiles.length > 0 ? "primary" : "white"}
                 startIcon={JSON.stringify(props.menus.allFiles.length)}
                 style={{zoom: '1.8', minWidth: '12rem', marginBottom: '0.7rem'}}
                 >
@@ -68,7 +68,7 @@ function Dashboard(props) {
             <Link to="/qr-link" style={{textDecoration: 'none'}}>
               <Button
                 variant="contained"
-                color={props.menus.qrLinks.length > 0 ? "primary" : "secondary"}
+                color={props.menus.qrLinks.length > 0 ? "primary" : "white"}
                 startIcon={JSON.stringify(props.menus.qrLinks.length)}
                 style={{zoom: '1.8', minWidth: '12rem', marginBottom: '0.7rem'}}
                 >
@@ -83,7 +83,7 @@ function Dashboard(props) {
       <Link to="/qr-menu" style={{textDecoration: 'none'}}>
           <Button
           variant="contained"
-          color={props.menus.menuQRLink ? "primary" : "secondary"}
+          color={props.menus.menuQRLink ? "primary" : "white"}
           style={{zoom: '1.8', minWidth: '12rem', marginBottom: '0.7rem'}}
           >
             {text[lang].qrMenu}
