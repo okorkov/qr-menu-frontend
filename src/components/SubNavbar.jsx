@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    backgroundColor: '#28252e',
+    backgroundColor: '#8ECAE6',
   },
   tabs: {
     fontWeight: 'bold',
@@ -47,10 +47,10 @@ const SubNavbar = (props) => {
           variant="fullWidth"
           centered
         >
-          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab1}</div>} component={Link} to={'/dashboard'}/>
-          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab2}</div>} component={Link} to={'/single-file'}/>
-          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab3}</div>} component={Link} to={'/qr-menu'}/>
-          <Tab className={classes.tabs} label={<div style={{color: '#ffc107'}}>{text[lang].tab4}</div>} component={Link} to={'/qr-link'}/>
+          <Tab className={classes.tabs} label={<div style={{color: 'black'}}>{text[lang].tab1}</div>} component={Link} to={'/dashboard'}/>
+          <Tab className={classes.tabs} label={<div style={{color: 'black'}}>{text[lang].tab2}</div>} component={Link} to={'/single-file'}/>
+          <Tab className={classes.tabs} label={<div style={{color: 'black'}}>{text[lang].tab3}</div>} component={Link} to={'/qr-menu'}/>
+          <Tab className={classes.tabs} label={<div style={{color: 'black'}}>{text[lang].tab4}</div>} component={Link} to={'/qr-link'}/>
         </Tabs>
       </Paper>
     </>

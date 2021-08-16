@@ -16,7 +16,7 @@ and (min-width : 481px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #28252e;
+    background-image: linear-gradient(to right, #023047 , #af9144);
     /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #28282B, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #28282B, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -126,7 +126,7 @@ and (min-width : 481px) {
     padding-top: 1%;
     padding-bottom: 1%;
     margin-top: 5%;
-    background: #28252e;
+    background: #219EBC;
     -webkit-box-shadow: 10px 0px 10px black;
     -moz-box-shadow: 10px 0px 10px black;
     box-shadow: 10px 0px 10px black;
@@ -235,7 +235,7 @@ and (min-width : 481px) {
   }
 
   .MuiAppBar-colorPrimary {
-    background-color:#1a1a1a !important;
+    background-color: #023047 !important;
   }
 
   .MuiTab-textColorPrimary {
@@ -352,7 +352,7 @@ and (max-device-width : 815px) {
     -moz-osx-font-smoothing: grayscale;
     overflow:scroll;
     height: auto;
-    background: #28252e;
+    background-image: linear-gradient(to right, #023047 , #af9144);
     /* background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
@@ -574,7 +574,7 @@ and (max-device-width : 815px) {
   }
 
   .MuiAppBar-colorPrimary {
-    background-color: #5d6d7c !important;
+    background-color: #023047 !important;
   }
 
   .MuiTab-textColorPrimary {
