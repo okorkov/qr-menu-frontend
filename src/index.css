@@ -52,6 +52,7 @@ and (min-width : 481px) {
     color:white;
     padding-left: 5%;
     padding-right: 5%;
+    text-shadow: 2px 2px black;
   }
 
   .form {
@@ -88,6 +89,7 @@ and (min-width : 481px) {
     padding-left: 5%;
     padding-right: 5%;
     font-weight: 600;
+    text-shadow: 1px 1px black;
   }
 
   .text-title {
@@ -384,6 +386,7 @@ and (max-device-width : 815px) {
     color:white;
     padding-left: 5%;
     padding-right: 5%;
+    text-shadow: 1px 1px black;
   }
 
   .form {
@@ -424,9 +427,10 @@ and (max-device-width : 815px) {
 
   .text {
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     padding-left: 5%;
     padding-right: 5%;
+    text-shadow: 1px 1px black;
   }
 
   .text-title {
@@ -437,6 +441,7 @@ and (max-device-width : 815px) {
     padding-left: 3%;
     padding-right: 3%;
     font-weight: bold;
+    text-shadow: 2px 2px black;
   }
 
   .qrcode {
