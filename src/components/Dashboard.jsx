@@ -24,7 +24,7 @@ function Dashboard(props) {
   const lang = props.menus.lang
   const text = {
     en: {
-      singleFile: 'Single File Upload',
+      singleFile: 'Single Files',
       qrForLink: 'QR FOR A LINK',
       qrMenu: 'QR MENU',
       noQr: "QR Code hasn't been generated yet.",
