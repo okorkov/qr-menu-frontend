@@ -120,10 +120,10 @@ and (min-width : 481px) {
     padding-top: 1%;
     padding-bottom: 1%;
     margin-top: 5%;
-    background: #219EBC;
-    -webkit-box-shadow: 10px 0px 10px black;
-    -moz-box-shadow: 10px 0px 10px black;
-    box-shadow: 10px 0px 10px black;
+    background: #09c6f9;
+    -webkit-box-shadow: 10px 0px 10px #303f9f;
+    -moz-box-shadow: 10px 0px 10px #303f9f;
+    box-shadow: 10px 0px 10px #303f9f;
   }
 
   .menu {
@@ -462,7 +462,7 @@ and (max-device-width : 815px) {
     padding-top: 1%;
     padding-bottom: 1%;
     margin-top: 5%;
-    background: #219EBC;
+    background: #09c5f9d5;
     -webkit-box-shadow: 10px 0px 10px black;
     -moz-box-shadow: 10px 0px 10px black;
     box-shadow: 10px 0px 10px black;
