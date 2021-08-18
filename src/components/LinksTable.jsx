@@ -94,6 +94,10 @@ const useStyles2 = makeStyles({
   table: {
     minWidth: 500,
   },
+  centered: {
+    textAlign: 'center', 
+    justifyContent: 'center'
+  },
 });
 
 function LinksTable(props) {
@@ -141,13 +145,13 @@ function LinksTable(props) {
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="custom pagination table">
         <TableBody>
-              <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell component="th" scope="row" className={classes.centered}>
                 {text[lang].link}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 {text[lang].qr}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 {text[lang].delete}
               </TableCell>
           {(rowsPerPage > 0
@@ -155,13 +159,13 @@ function LinksTable(props) {
             : props.menus.qrLinks
           ).slice(0).reverse().map((row) => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell component="th" scope="row" className={classes.centered}>
                 <a href={row.address} target="_blank">{(row.address.length > 40) ? `${row.address.slice(0, 30)}...` : row.address}</a>
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 <a href={row.qr_code_link} target="_blank"><img src={row.qr_code_link} style={{width:'40px', height:'40px'}}/></a>
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
               <IconButton color="primary" aria-label="upload picture" component="span" onClick={(e) => handleDelete(e, row)}>
                 <HighlightOffIcon />
               </IconButton>

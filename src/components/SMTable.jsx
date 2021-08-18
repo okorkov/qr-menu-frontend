@@ -91,6 +91,10 @@ const useStyles2 = makeStyles({
   table: {
     minWidth: 500,
   },
+  centered: {
+    textAlign: 'center', 
+    justifyContent: 'center'
+  },
 });
 
 function SMTable(props) {
@@ -151,16 +155,16 @@ function SMTable(props) {
     <TableContainer component={Paper} >
       <Table className={classes.table} aria-label="custom pagination table" >
         <TableBody >
-              <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell component="th" scope="row" className={classes.centered}>
                 {text[lang].link}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 {text[lang].qr}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 {text[lang].uploaded}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 {text[lang].delete}
               </TableCell>
           {(rowsPerPage > 0
@@ -168,16 +172,16 @@ function SMTable(props) {
             : props.data
           ).slice(0).reverse().map((row) => (
             <TableRow key={row.address} >
-              <TableCell component="th" scope="row" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell component="th" scope="row" className={classes.centered}>
                 <a href={row.link} target="_blank">{(row.file_name === 'null' || row.file_name === '') ? text[lang].viewFile : row.file_name}</a>
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 <a href={row.qr_code_link} target="_blank"><img src={row.qr_code_link} style={{width:'40px', height:'40px'}}/></a>
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
                 {handleDate(row.updated_at)}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" style={{textAlign: 'center', justifyContent: 'center'}}>
+              <TableCell style={{ width: 160 }} align="right" className={classes.centered}>
               <IconButton color="primary" aria-label="upload picture" component="span" onClick={(e) => handleDelete(e, row)}>
                 <HighlightOffIcon />
               </IconButton>

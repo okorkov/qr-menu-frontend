@@ -317,6 +317,11 @@ and (min-width : 481px) {
     padding-top: 5%;
   }
 
+  .home-span-list {
+    font-weight: bold;
+    color: #ffc107;
+  }
+
 }
 
     /* Mobile devices ----------------------------------------------*/
@@ -657,6 +662,11 @@ and (max-device-width : 815px) {
 
   .oauth {
     padding-top: 10%;
+  }
+
+  .home-span-list {
+    font-weight: bold;
+    color: #ffc107;
   }
 
 }

@@ -17,7 +17,7 @@ const About = (props) => {
       q4: 'Something is not working or I need assistance what should I do?',
       a4: 'Please feel free to reach out with any feedback or requests from the contact page.',
       q5: 'TEAM',
-      a5: 'Alex Okarkau, creation and implementation of the idea. San Francisco based full-stack Software engineer with over 10 years of experience in the hospitality industry. Has developed architecture and infrastructure of the application, along with UI.',
+      a5: 'Alex Okarkau, creation and implementation of the idea. San Francisco based full-stack software engineer with over 10 years of experience in the hospitality industry. Has developed architecture and infrastructure of the application, along with UI.',
     },
     ru: {
       q1: 'Что такое qr-menu.rest?',

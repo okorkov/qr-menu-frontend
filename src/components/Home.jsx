@@ -106,9 +106,9 @@ const Home = (props) => {
         <div className="home-description">
           <p className="text-title">{text[lang].whyUse}</p>
           <p className="text">{text[lang].offering}</p>
-          <p className="text">1. <span style={{fontWeight: 'bold', color: '#ffc107'}}>{text[lang].span1}</span>{text[lang].o1}</p>
-          <p className="text">2. <span style={{fontWeight: 'bold', color: '#ffc107'}}>{text[lang].span2}</span>{text[lang].o2}</p>
-          <p className="text">3. <span style={{fontWeight: 'bold', color: '#ffc107'}}>{text[lang].span3}</span>{text[lang].o3}</p>
+          <p className="text">1. <span className="home-span-list">{text[lang].span1}</span>{text[lang].o1}</p>
+          <p className="text">2. <span className="home-span-list">{text[lang].span2}</span>{text[lang].o2}</p>
+          <p className="text">3. <span className="home-span-list">{text[lang].span3}</span>{text[lang].o3}</p>
         </div>
       </div>
       <br />

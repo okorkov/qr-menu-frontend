@@ -116,7 +116,7 @@ const Demo = (props) => {
       let fullDate = getDate[0].split('-')
       return (lang === 'en') ? `${fullDate[1]}/${fullDate[2]}/${fullDate[0]}` : `${fullDate[2]}/${fullDate[1]}/${fullDate[0]}`;
     } else {
-      return 'unknown'
+      return 'unknown';
     }
   }
 

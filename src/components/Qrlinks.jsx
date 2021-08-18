@@ -91,7 +91,6 @@ const Qrlinks = (props) => {
   const handleDelete = (e, row) => {
     if (window.confirm('Are you sure you want to delete?')){
       const grandParent = e.target.parentElement;
-      // e.target.parentElement.remove();
       ReactDOM.render(<CircularProgress style={{zoom: '0.5'}}/>, grandParent)
       axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/links/${row.id}`, {token: JSON.parse(localStorage.getItem('token'))})
       .then(response => props.dispatch(deleteQRLink(response)))
