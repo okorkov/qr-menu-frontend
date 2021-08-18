@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
   const Contact = (props) => {
 
@@ -48,7 +49,7 @@ import { connect } from 'react-redux';
           <label className="text">{text[lang].sendAnEmail}</label>
           <input className="input" type="email" maxlength="50" placeholder={text[lang].title} name="subject"  value={subject.subject} onChange={(e) => handleSubjectInput(e)}/>
           <textarea className="input" rows="8" maxlength="500" placeholder={text[lang].content} name="body"  value={body.body} onChange={(e) => handleBodyInput(e)}/>
-          <a href={link} target="_blank" rel="noopener noreferrer"><button className="button btn">{text[lang].sendButton}</button></a>
+          <a href={link} target="_blank" style={{textDecoration: 'none'}} rel="noopener noreferrer"><Button variant="contained" style={{backgroundColor: '#e3a765', marginTop: '3%', color: 'white'}}> {text[lang].sendButton} </ Button ></a>
         </div>
       </>
       );
