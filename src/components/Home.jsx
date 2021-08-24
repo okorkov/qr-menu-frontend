@@ -55,6 +55,7 @@ const Home = (props) => {
 
   
   const resetNumber = () => {
+    document.getElementById('loader').style= 'display:none';
     const currentNumber = parseInt(document.getElementById('iphone').src.split('.png')[0][document.getElementById('iphone').src.split('.png')[0].length - 1]);
     if (currentNumber === 3) {
       setNumber(2)
@@ -66,8 +67,7 @@ const Home = (props) => {
   }
 
   useEffect(() => {
-    checkLoginStatus(props)
-
+    checkLoginStatus(props) 
     const interval = setInterval(
       () => resetNumber(),
       3000
