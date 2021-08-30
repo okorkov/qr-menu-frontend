@@ -135,7 +135,7 @@ const MenuComponent = (props) => {
           :
           <div style={{paddingBottom: '20%'}}>
             <p className="text" style={{color: '#ffc107'}}>{text[lang].noQr}</p>
-            <button className="btn btn-success" onClick={handleGenerateQR}>{text[lang].generateQr}</button>
+            <Button variant="contained" color="primary" style={{backgroundColor: '#e3a765'}} onClick={handleGenerateQR}>{text[lang].generateQr}</ Button >
           </div>
         }
         </div>
