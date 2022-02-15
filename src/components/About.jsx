@@ -87,7 +87,7 @@ const About = (props) => {
       {text[lang].q5}
       </h3>
       <div style={{display: 'flex', direction: 'column', justifyContent: 'center', flexWrap: 'wrap'}}>
-        <img src="https://aokarkau.com/static/media/avatar2.04ba5df7.jpg" alt="image" style={{zoom: '0.3', border: '7px solid black'}}/>
+        <img src="https://media-exp1.licdn.com/dms/image/C4E03AQHK654wKyMfQQ/profile-displayphoto-shrink_800_800/0/1618464639450?e=1650499200&v=beta&t=adQTBBXKr60cHOtn47dX4ZjmzfcemmgCr1GoL5T_jYY" alt="image" style={{zoom: '0.3', border: '7px solid black'}}/>
         <p className='text home-description' style={{paddingTop: '3%'}}>
           {text[lang].a5}
         </p>
