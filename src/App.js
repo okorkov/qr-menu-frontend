@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import SingleFileComponent from "./components/SingleFileComponent";
 import MenuComponent from "./components/MenuComponent";
 import Qrlinks from "./components/Qrlinks";
+import Deprecationmodal from "./components/DeprecationModal";
 
 
 
@@ -54,6 +55,7 @@ function App(props) {
         <Route path={'/menu/:id'} component={RenderMenu} />
         <Route component={ErrorPage} />
       </Switch>
+      <Deprecationmodal />
       <Footer />
     </Router>
   );
